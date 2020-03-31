@@ -1,6 +1,7 @@
 {
     "fosaCode" : "",
     "name" : "",
+    "description" : "",
     "url" : "",
     "type" : "",
     "geoPosition" : {   
