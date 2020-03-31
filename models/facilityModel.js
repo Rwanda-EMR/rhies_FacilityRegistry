@@ -2,7 +2,7 @@
     "fosaCode" : "",
     "name" : "",
     "url" : "",
-    
+    "type" : "",
     "geoPosition" : 
         {   
             "province" : "",
