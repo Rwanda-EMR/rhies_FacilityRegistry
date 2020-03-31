@@ -20,8 +20,5 @@
             "longitude" : "",
             "latitude" : "",
             "altitude" : ""
-        },
-    
-    
-
+        }
 }
