@@ -14,6 +14,7 @@
     "closingDate" : "",
     "email" : "",
     "phoneNumber" : "",
+    "manager" : "",
     "coordinate" : {
         "longitude" : "",
         "latitude" : "",
