@@ -8,7 +8,7 @@ exports.serviceConfig = {
       "dhis2": {
         "url": "http://192.168.0.10:8082",
         "user": {
-          "name": "username",
+          "name": "",
           "pwd": "password"
         }
       }

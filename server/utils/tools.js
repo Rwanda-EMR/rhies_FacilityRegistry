@@ -1,3 +1,5 @@
+var fRecModel = require('../../models/facilityModel')
+
 exports.structureFacilityRecord =  function  (responseBody) {
     
     var tbFRecords = [];
@@ -5,15 +7,11 @@ exports.structureFacilityRecord =  function  (responseBody) {
     
     for(i = 0; i < responseBody.length; i++) {
 
-        var modelFRecord = {
-            "fosaCode" : "",
-            "name" : "",
-            "lastUpdated" : ""
-    
-        };
+        var modelFRecord = fRecModel.facRecordModel
 
         modelFRecord.fosaCode = responseBody[i].code;
         modelFRecord.name = responseBody[i].name;
+        modelFRecord.description = "FOSAID: " + responseBody[i].code + " TYPE: " + "XX";
         modelFRecord.lastUpdated = responseBody[i].lastUpdated;
 
         tbFRecords.push(modelFRecord);

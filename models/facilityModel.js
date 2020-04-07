@@ -1,4 +1,4 @@
-{
+exports.facRecordModel = {
     "fosaCode" : "",
     "name" : "",
     "description" : "",
