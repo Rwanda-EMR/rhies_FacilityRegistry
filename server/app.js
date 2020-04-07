@@ -1,12 +1,15 @@
 
 var request = require('request');
 var tools = require('./utils/tools');
+var config = require('./config/config')
 
+var apiConfig = config.serviceConfig;
 
+var endPoint = "/api/organisationUnits.json?level=6&fields=code,name,lastUpdated,featureType,url,parent&pageSize=3000"
 var options = {
-    url: "http://192.168.0.10:8082/api/organisationUnits.json?level=6&fields=code,name,lastUpdated,featureType,url,parent&pageSize=3000",
+    url: apiConfig.api.dhis2.url + endPoint,
     headers: {
-      'Authorization': 'Basic ' + new Buffer("amza" + ":" + "district").toString('base64'),
+      'Authorization': 'Basic ' + new Buffer(apiConfig.api.dhis2.user.name + ":" + apiConfig.api.dhis2.user.pwd).toString('base64'),
       'Content-Type': 'application/json'
     },
 };
