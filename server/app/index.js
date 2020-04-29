@@ -7,7 +7,7 @@ const express = require('express');
 const medUtils = require('openhim-mediator-utils');
 const winston = require('winston');
 const _ = require('underscore');
-
+const utils = require('./utils');
 
 
 var request = require('request');
@@ -19,11 +19,63 @@ winston.add(winston.transports.Console, { level: 'info', timestamp: true, colori
 // Config
 var config = {} // this will vary depending on whats set in openhim-core
 const apiConf = process.env.NODE_ENV === 'test' ? require('../config/test') : require('../config/config')
-const mediatorConfig = require('../config/mediator')
+const mediatorConfig = require('../config/mediator.json')
 
 var port = process.env.NODE_ENV === 'test' ? 7001 : mediatorConfig.endpoints[0].port
 
+/**
+ * setupApp - configures the http server for this mediator
+ *
+ * @return {express.App}  the configured http server
+ */
+function setupApp() {
+  const app = express();
 
+
+  function reportEndOfProcess(req, res, error, statusCode, message) {
+    res.set('Content-Type', 'application/json+openhim')
+    var responseBody = message;
+    var stateLabel = "";
+    let orchestrations = [];
+
+    var headers = { 'content-type': 'application/json' }
+    if (error) {
+      stateLabel = "Failed";
+      winston.error(message, error);
+    } else {
+      stateLabel = "Successful";
+      winston.info(message);
+    }
+    var orchestrationResponse = { statusCode: statusCode, headers: headers }
+    orchestrations.push(utils.buildOrchestration('Primary Route', new Date().getTime(), req.method, req.url, req.headers, req.body, orchestrationResponse, responseBody))
+    res.send(utils.buildReturnObject(mediatorConfig.urn, stateLabel, statusCode, headers, responseBody, orchestrations, { property: 'Primary Route' }));
+  }
+
+  app.all('*', (req, res) => {
+    winston.info(`Processing ${req.method} request on ${req.url}`)
+    if (req.method == 'POST' && req.url == apiConf.api.urlPattern) {
+      var form = new formidable.IncomingForm();
+      form.parse(req, function (err, fields, files) {
+        var data = fields;
+
+        winston.info('Encounter received ...')
+
+        if (apiConf.verbose == true) {
+          if (utils.isFineValue(fields) == true && utils.isFineValue(fields.encounter) == true && utils.isFineValue(fields.encounter.obs) == true) {
+            console.log("--> Received encounter obs: ", JSON.stringify(fields.encounter.obs));
+          } else {
+            if (utils.isFineValue(fields) == true && utils.isFineValue(fields.encounter) == true) {
+              console.log("--> Received encounter: ", JSON.stringify(fields.encounter));
+            } else {
+              console.log("--> Received data: ", JSON.stringify(fields));
+            }
+          }
+        }
+      })
+    }
+  });
+  return app
+}
 
 
 
@@ -37,8 +89,8 @@ var port = process.env.NODE_ENV === 'test' ? 7001 : mediatorConfig.endpoints[0].
 function start(callback) {
     if (apiConf.api.trustSelfSigned) { process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0' }
   
-    if (apiConf.register) {
-    //if (false) {
+    //if (apiConf.register) {
+    if (false) {
       medUtils.registerMediator(apiConf.api, mediatorConfig, (err) => {
         if (err) {
           winston.error('Failed to register this mediator, check your config')
