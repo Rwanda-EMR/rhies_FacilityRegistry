@@ -1,5 +1,5 @@
 FROM node:latest
-WORKDIR /usr/src/app/savics/omrsToDHIS2Mediator
+WORKDIR /usr/src/app/savics/facilityRegistryMediator
 
 COPY ./server/ .
 
