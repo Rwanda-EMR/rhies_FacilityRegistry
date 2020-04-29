@@ -1,10 +1,10 @@
 'use strict'
-const URI = require('urijs');
-const _ = require('underscore');
-const moment = require('moment');
+var URI = require('urijs');
+var _ = require('underscore');
+var moment = require('moment');
 var request = require('request');
 //var formMapping = require("../lib/formMapping");
-const apiConf = process.env.NODE_ENV === 'test' ? require('../config/test') : require('../config/config')
+var apiConf = process.env.NODE_ENV === 'test' ? require('../config/test') : require('../config/config')
 
 
 
