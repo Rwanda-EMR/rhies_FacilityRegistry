@@ -22,7 +22,7 @@ request.get(options, function (error, response) {
       if (ResponseBody !== null) {
         if (ResponseBody.statusCode == 200) {
             console.log ("Request succesfully sent and get response ... : ");
-            const objResponse = JSON.parse(ResponseBody.body);
+            var objResponse = JSON.parse(ResponseBody.body);
             console.log(tools.structureFacilityRecord(objResponse.organisationUnits));
             console.log("Le nombre des Facilities =  " + objResponse.organisationUnits.length)
         } else {
