@@ -9,8 +9,8 @@ var apiConf = process.env.NODE_ENV === 'test' ? require('../config/test') : requ
 
 
 
-exports.buildOrchestration = (name, beforeTimestamp, method, url, requestHeaders, requestContent, res, body) => {
-  let uri = new URI(url)
+exports.buildOrchestration = function (name, beforeTimestamp, method, url, requestHeaders, requestContent, res, body) {
+  var ur = new URI(url)
   return {
     name: name,
     request: {
@@ -18,8 +18,8 @@ exports.buildOrchestration = (name, beforeTimestamp, method, url, requestHeaders
       headers: requestHeaders,
       body: requestContent,
       timestamp: beforeTimestamp,
-      path: uri.path(),
-      querystring: uri.query()
+      path: ur.path(),
+      querystring: ur.query()
     },
     response: {
       status: res.statusCode,
