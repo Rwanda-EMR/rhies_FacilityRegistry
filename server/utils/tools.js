@@ -1,9 +1,10 @@
 
 var request = require('request');
-var tools = require('./utils/tools');
 var config = require('./config/config')
-var apiConfig = config.serviceConfig;
 var fRecModel = require('../../models/facilityModel')
+
+var apiConfig = config.serviceConfig;
+
 
 exports.structureFacilityRecord =  function  (responseBody) {
     
@@ -49,7 +50,7 @@ exports.getFacilityRecordFromDHIS2 = function () {
                 if (ResponseBody.statusCode == 200) {
                     console.log ("Request succesfully sent and get response ... : ");
                     var objResponse = JSON.parse(ResponseBody.body);
-                    console.log(tools.structureFacilityRecord(objResponse.organisationUnits));
+                    console.log(exports.structureFacilityRecord(objResponse.organisationUnits));
                     console.log("Le nombre des Facilities =  " + objResponse.organisationUnits.length)
                 } else {
                     console.log("An error occured on response: " + error);
