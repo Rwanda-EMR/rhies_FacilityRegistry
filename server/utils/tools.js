@@ -24,6 +24,7 @@ exports.structureFacilityRecord =  function  (responseBody) {
         modelFRecord.openingDate = responseBody[z].openingDate;
         modelFRecord.coordinates = responseBody[z].coordinates;
         modelFRecord.phoneNumber = responseBody[z].phoneNumber;
+        modelFRecord.email = responseBody[z].email;
 
         //Model geoPosition
         modelFRecord.province = parentTab[2];
@@ -46,7 +47,7 @@ exports.structureFacilityRecord =  function  (responseBody) {
 
 exports.getFacilityRecordFromDHIS2 = function (callback) {
     
-    var endPoint = "/api/organisationUnits.json?level=6&fields=id,code,name,lastUpdated,featureType,url,path,openingDate,closingDate,phoneNumber,coordinates&pageSize=30000";    
+    var endPoint = "/api/organisationUnits.json?level=6&fields=id,code,name,lastUpdated,featureType,url,path,openingDate,closingDate,phoneNumber,coordinates,email&pageSize=30000";    
     var options = {
         url: apiConfig.api.dhis2.url + endPoint,
         headers: {
