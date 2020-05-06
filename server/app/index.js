@@ -9,19 +9,20 @@ const winston = require('winston');
 const _ = require('underscore');
 const utils = require('./utils');
 
+var tools = require('../utils/tools');
+var getFacilityRegistry = [];
 
-var request = require('request');
 
 // Logging setup
-winston.remove(winston.transports.Console)
-winston.add(winston.transports.Console, { level: 'info', timestamp: true, colorize: true })
+winston.remove(winston.transports.Console);
+winston.add(winston.transports.Console, { level: 'info', timestamp: true, colorize: true });
 
 // Config
-var config = {} // this will vary depending on whats set in openhim-core
-const apiConf = process.env.NODE_ENV === 'test' ? require('../config/test') : require('../config/config')
-const mediatorConfig = require('../config/mediator.json')
+var config = {}; // this will vary depending on whats set in openhim-core
+const apiConf = process.env.NODE_ENV === 'test' ? require('../config/test') : require('../config/config');
+const mediatorConfig = require('../config/mediator.json');
 
-var port = process.env.NODE_ENV === 'test' ? 7001 : mediatorConfig.endpoints[0].port
+var port = process.env.NODE_ENV === 'test' ? 7001 : mediatorConfig.endpoints[0].port;
 
 /**
  * setupApp - configures the http server for this mediator
@@ -31,6 +32,14 @@ var port = process.env.NODE_ENV === 'test' ? 7001 : mediatorConfig.endpoints[0].
 function setupApp() {
   const app = express();
 
+  //Call Facility record pulling fucntion
+  tools.getFacilityRecordFromDHIS2(function(resultat){
+    var resultTab = []
+    resultTab = tools.structureFacilityRecord(resultat);
+    console.log(resultTab);
+
+
+  });
 
   function reportEndOfProcess(req, res, error, statusCode, message) {
     res.set('Content-Type', 'application/json+openhim')
@@ -89,8 +98,8 @@ function setupApp() {
 function start(callback) {
     if (apiConf.api.trustSelfSigned) { process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0' }
   
-    if (apiConf.register) {
-    //if (false) {
+    //if (apiConf.register) {
+    if (false) {
       medUtils.registerMediator(apiConf.api, mediatorConfig, (err) => {
         if (err) {
           winston.error('Failed to register this mediator, check your config')

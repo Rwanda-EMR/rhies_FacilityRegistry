@@ -1,26 +1,26 @@
 
-var request = require('request');
-var config = require('./config/config')
+var request = require('../app/node_modules/request');
+var config = require('../config/config')
 var fRecModel = require('../../models/facilityModel')
 
-var apiConfig = config.serviceConfig;
+var apiConfig = config;
 
 
 exports.structureFacilityRecord =  function  (responseBody) {
     
     var tbFRecords = [];
-    i = 0;
-    
-    for(i = 0; i < responseBody.length; i++) {
+    var z=0;
+    while( z < responseBody.length) {
 
-        var modelFRecord = fRecModel.facRecordModel
+        var modelFRecord = new fRecModel.facRecordModel.facRecordModel();
 
-        modelFRecord.fosaCode = responseBody[i].code;
-        modelFRecord.name = responseBody[i].name;
-        modelFRecord.description = "FOSAID: " + responseBody[i].code + " TYPE: " + "XX";
-        modelFRecord.lastUpdated = responseBody[i].lastUpdated;
+        modelFRecord.fosaCode = responseBody[z].code;
+        modelFRecord.name = responseBody[z].name;
+        modelFRecord.description = "FOSAID: " + responseBody[z].code + " TYPE: " + "XX";
+        modelFRecord.lastUpdated = responseBody[z].lastUpdated;
 
         tbFRecords.push(modelFRecord);
+        z+=1;
 
     }
 
@@ -28,10 +28,9 @@ exports.structureFacilityRecord =  function  (responseBody) {
 }
 
 
-exports.getFacilityRecordFromDHIS2 = function () {
+exports.getFacilityRecordFromDHIS2 = function (callback) {
     
-    var endPoint = "/api/organisationUnits.json?level=6&fields=code,name,lastUpdated,featureType,url,parent&pageSize=30000"
-    
+    var endPoint = "/api/organisationUnits.json?level=6&fields=code,name,lastUpdated,featureType,url,path,parent&pageSize=30000";    
     var options = {
         url: apiConfig.api.dhis2.url + endPoint,
         headers: {
@@ -41,7 +40,6 @@ exports.getFacilityRecordFromDHIS2 = function () {
     };
 
     request.get(options, function (error, response) {
-        
         if (error) {
             console.log("An error occured on request: " + error);
         } else {
@@ -49,9 +47,18 @@ exports.getFacilityRecordFromDHIS2 = function () {
             if (ResponseBody !== null) {
                 if (ResponseBody.statusCode == 200) {
                     console.log ("Request succesfully sent and get response ... : ");
+                    //console.log("AFFICHAGE  "  + JSON.stringify(JSON.parse(ResponseBody.body).organisationUnits));
                     var objResponse = JSON.parse(ResponseBody.body);
-                    console.log(exports.structureFacilityRecord(objResponse.organisationUnits));
                     console.log("Le nombre des Facilities =  " + objResponse.organisationUnits.length)
+                    var tab = [];
+                    var facRegTab = objResponse.organisationUnits;
+                    for(var e =0; e < objResponse.organisationUnits.length; e++){
+                        tab.push(facRegTab[e])
+                    }
+                    console.log("Type tab : " + typeof(tab) + " length : " + tab.length);
+                    
+                    callback(tab);
+                    
                 } else {
                     console.log("An error occured on response: " + error);
                 }
@@ -61,4 +68,4 @@ exports.getFacilityRecordFromDHIS2 = function () {
 
         }
     });
-}
+};

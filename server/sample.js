@@ -1,8 +1,8 @@
 
-var request = require('request');
+var request = require('../server/app/node_modules/request');
 var tools = require('./utils/tools');
 var config = require('./config/config')
-var apiConfig = config.serviceConfig;
+var apiConfig = config;
 
 var endPoint = "/api/organisationUnits.json?level=6&fields=code,name,lastUpdated,featureType,url,parent&pageSize=30000"
 var options = {

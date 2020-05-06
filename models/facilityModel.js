@@ -20,5 +20,8 @@ exports.facRecordModel = {
         "longitude" : "",
         "latitude" : "",
         "altitude" : ""
+    },
+    facRecordModel: function () {
+        
     }
 }
