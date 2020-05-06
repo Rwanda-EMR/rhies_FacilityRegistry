@@ -15,8 +15,5 @@ exports.facRecordModel = {
     "email" : "",
     "phoneNumber" : "",
     "manager" : "",
-    "coordinates" : "",
-    facRecordModel: function () {
-        
-    }
+    "coordinates" : ""
 }

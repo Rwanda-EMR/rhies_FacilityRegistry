@@ -12,7 +12,7 @@ exports.structureFacilityRecord =  function  (responseBody) {
     var z=0;
     while( z < responseBody.length) {
 
-        var modelFRecord = new fRecModel.facRecordModel.facRecordModel();
+        let modelFRecord = new fRecModel.facRecordModel.constructor();
         var parentTab = [];
         parentTab = responseBody[z].path.split("/");
 
