@@ -34,6 +34,7 @@ function setupApp() {
 
   //Call Facility record pulling fucntion
   tools.getFacilityRecordFromDHIS2(function(resultat){
+    
     var resultTab = []
     resultTab = tools.structureFacilityRecord(resultat);
     console.log(resultTab);

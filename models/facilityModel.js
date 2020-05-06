@@ -1,26 +1,21 @@
 exports.facRecordModel = {
+    "idDHIS2": "",
     "fosaCode" : "",
     "name" : "",
     "description" : "",
     "url" : "",
-    "type" : "",
-    "geoPosition" : {   
-        "province" : "",
-        "district" : "",
-        "sector" : "",
-        "cell" : "",
-        "umudugudu" : ""
-    },
+    "type" : "",  
+    "province" : "",
+    "district" : "",
+    "sector" : "",
+    "cell" : "",
+    "umudugudu" : "",
     "openingDate" : "",
     "closingDate" : "",
     "email" : "",
     "phoneNumber" : "",
     "manager" : "",
-    "coordinate" : {
-        "longitude" : "",
-        "latitude" : "",
-        "altitude" : ""
-    },
+    "coordinates" : "",
     facRecordModel: function () {
         
     }

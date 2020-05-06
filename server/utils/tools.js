@@ -13,11 +13,27 @@ exports.structureFacilityRecord =  function  (responseBody) {
     while( z < responseBody.length) {
 
         var modelFRecord = new fRecModel.facRecordModel.facRecordModel();
+        var parentTab = [];
+        parentTab = responseBody[z].path.split("/");
 
+        modelFRecord.idDHIS2 = responseBody[z].id;
         modelFRecord.fosaCode = responseBody[z].code;
         modelFRecord.name = responseBody[z].name;
         modelFRecord.description = "FOSAID: " + responseBody[z].code + " TYPE: " + "XX";
         modelFRecord.lastUpdated = responseBody[z].lastUpdated;
+        modelFRecord.openingDate = responseBody[z].openingDate;
+        modelFRecord.coordinates = responseBody[z].coordinates;
+        modelFRecord.phoneNumber = responseBody[z].phoneNumber;
+
+        //Model geoPosition
+        modelFRecord.province = parentTab[2];
+        modelFRecord.district = parentTab[3];
+        modelFRecord.sector = parentTab[4];
+        modelFRecord.cell = parentTab[5];
+        
+
+        modelFRecord.type = responseBody[z].featureType;
+
 
         tbFRecords.push(modelFRecord);
         z+=1;
@@ -30,7 +46,7 @@ exports.structureFacilityRecord =  function  (responseBody) {
 
 exports.getFacilityRecordFromDHIS2 = function (callback) {
     
-    var endPoint = "/api/organisationUnits.json?level=6&fields=code,name,lastUpdated,featureType,url,path,parent&pageSize=30000";    
+    var endPoint = "/api/organisationUnits.json?level=6&fields=id,code,name,lastUpdated,featureType,url,path,openingDate,closingDate,phoneNumber,coordinates&pageSize=30000";    
     var options = {
         url: apiConfig.api.dhis2.url + endPoint,
         headers: {
