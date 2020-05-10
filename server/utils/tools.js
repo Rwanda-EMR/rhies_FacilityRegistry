@@ -1,44 +1,40 @@
 
 var request = require('../app/node_modules/request');
-var config = require('../config/config')
+var config = require('../config/config');
 var fRecModel = require('../../models/facilityModel')
+var mapFile = require('../config/mapFile');
 
 var apiConfig = config;
 
 
 exports.structureFacilityRecord =  function  (responseBody) {
     
-    var tbFRecords = [];
-    var z=0;
-    while( z < responseBody.length) {
-
+    let tbFRecords = [];
+    
+    for (var  z = 0;  z < responseBody.length; z ++) {
+        
         let modelFRecord = new fRecModel.facRecordModel.constructor();
-        var parentTab = [];
-        parentTab = responseBody[z].path.split("/");
-
+        let tab = responseBody[z].path.split("/");
+         
         modelFRecord.idDHIS2 = responseBody[z].id;
         modelFRecord.fosaCode = responseBody[z].code;
         modelFRecord.name = responseBody[z].name;
+        modelFRecord.type = responseBody[z].featureType;
         modelFRecord.description = "FOSAID: " + responseBody[z].code + " TYPE: " + "XX";
         modelFRecord.lastUpdated = responseBody[z].lastUpdated;
         modelFRecord.openingDate = responseBody[z].openingDate;
+        modelFRecord.province = mapFile.getProvinceName(tab[2]);
+        modelFRecord.district = mapFile.getDistrictName(tab[3]);
+        modelFRecord.sector = mapFile.getSubDistrictName(tab[4]);
+        modelFRecord.cell = mapFile.getCelluleName(tab[5])
         modelFRecord.coordinates = responseBody[z].coordinates;
         modelFRecord.phoneNumber = responseBody[z].phoneNumber;
         modelFRecord.email = responseBody[z].email;
-
-        //Model geoPosition
-        modelFRecord.province = parentTab[2];
-        modelFRecord.district = parentTab[3];
-        modelFRecord.sector = parentTab[4];
-        modelFRecord.cell = parentTab[5];
         
-
-        modelFRecord.type = responseBody[z].featureType;
-
-
         tbFRecords.push(modelFRecord);
-        z+=1;
-
+       
+        
+        
     }
 
     return tbFRecords;
@@ -63,17 +59,12 @@ exports.getFacilityRecordFromDHIS2 = function (callback) {
             var ResponseBody = response;
             if (ResponseBody !== null) {
                 if (ResponseBody.statusCode == 200) {
-                    console.log ("Request succesfully sent and get response ... : ");
-                    //console.log("AFFICHAGE  "  + JSON.stringify(JSON.parse(ResponseBody.body).organisationUnits));
                     var objResponse = JSON.parse(ResponseBody.body);
-                    console.log("Le nombre des Facilities =  " + objResponse.organisationUnits.length)
                     var tab = [];
                     var facRegTab = objResponse.organisationUnits;
                     for(var e =0; e < objResponse.organisationUnits.length; e++){
                         tab.push(facRegTab[e])
                     }
-                    console.log("Type tab : " + typeof(tab) + " length : " + tab.length);
-                    
                     callback(tab);
                     
                 } else {
@@ -86,3 +77,4 @@ exports.getFacilityRecordFromDHIS2 = function (callback) {
         }
     });
 };
+
