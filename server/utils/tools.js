@@ -109,16 +109,25 @@ exports.saveFacilities = function(facilityTab) {
             winston.info("Error while connecting to the database: ", err);
         } else {
             var dbo = db.db("FacilityRecord");
-            for(let i=0; i<facilityTab.length; i++){
-                dbo.collection("facilities").insert(facilityTab[i], function(err, result) {
-                    if (err) {
-                        winston.info("Error while inserting facility documents into the database: ", err);
-                        db.close();
-                    } else {
-                        winston.info("Facility succesfully inserted for the fosaCode: " + facilityTab[i].fosaCode);
-                    };
-                });
-            }
+            dbo.collection("facilities").remove(function(err, result){
+                if (err) {
+                    winston.info("Error while removing all facility documents into the database: ", err);
+                    db.close();
+                } else {
+               
+                    for(let i=0; i<facilityTab.length; i++){
+                        dbo.collection("facilities").insert(facilityTab[i], function(err, result) {
+                            if (err) {
+                                winston.info("Error while inserting facility documents into the database: ", err);
+                                db.close();
+                            } else {
+                                winston.info("Facility succesfully inserted for the fosaCode: " + facilityTab[i].fosaCode);
+                            };
+                        });
+                    }
+                    db.close();
+                }
+            });
         }
     });
 }

@@ -18,7 +18,8 @@
           "url" : "mongodb://localhost:27017/",
           "username": "",
           "pwd": ""
-      }
+      },
+      "schedule": "*/3 * * * *"
   },
   "register": true,
   "verbose" :true,

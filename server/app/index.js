@@ -110,6 +110,22 @@ function start(callback) {
           } else {
             winston.info('Successfully registered mediator!')
             let app = setupApp()
+
+            //Call Facility record pulling fucntion each mn in the config with Cron 
+            cron.schedule(apiConf.facilityregistry.schedule, () =>{
+
+              tools.getFacilityRecordFromDHIS2(function(resultat){
+            
+                var resultTab = []
+                resultTab = tools.structureFacilityRecord(resultat);
+                console.log(resultTab);
+                tools.saveFacilities(resultTab);
+
+
+              })
+
+            });
+
             const server = app.listen(port, () => {
               if (apiConf.heartbeat) {
                 let configEmitter = medUtils.activateHeartbeat(apiConf.api)
@@ -129,12 +145,13 @@ function start(callback) {
         })
       })
     } else {
+
       // default to config from mediator registration
       config = mediatorConfig.config
       let app = setupApp()
       
-      //Call Facility record pulling fucntion each 3 mn with Cron 
-      cron.schedule('*/3 * * * *', () =>{
+      //Call Facility record pulling fucntion each mn in the config with Cron 
+      cron.schedule(apiConf.facilityregistry.schedule, () =>{
 
         tools.getFacilityRecordFromDHIS2(function(resultat){
       
