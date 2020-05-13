@@ -15,5 +15,6 @@ exports.facRecordModel = {
     "email" : "",
     "phoneNumber" : "",
     "manager" : "",
-    "coordinates" : ""
+    "coordinates" : "",
+    "extractDate" : ""
 }
