@@ -3,7 +3,6 @@ var request = require('../app/node_modules/request');
 var config = require('../config/config');
 var fRecModel = require('../../models/facilityModel')
 var mapFile = require('./mapFile');
-var deasync = require('../app/node_modules/deasync');
 const mongodb = require('../app/node_modules/mongodb');
 const winston = require('../app/node_modules/winston');
 const MongoClient = mongodb.MongoClient;
@@ -103,20 +102,20 @@ exports.getTodayDate = function() {
 exports.saveFacilities = function(facilityTab) {
 
     var url = apiConfig.facilityregistry.mongodb.url;
-    var cel = null
     MongoClient.connect(url, function(err, db) {
         if (err) {
             winston.info("Error while connecting to the database: ", err);
         } else {
             var dbo = db.db("FacilityRecord");
-            dbo.collection("facilities").remove(function(err, result){
+            dbo.collection("facilities").deleteMany({}, function(err, result){
                 if (err) {
                     winston.info("Error while removing all facility documents into the database: ", err);
                     db.close();
                 } else {
-               
+                    winston.info("Old facility documents successfully deleted! ");
+                    winston.info("Number of new documents to insert----> " + facilityTab.length);
                     for(let i=0; i<facilityTab.length; i++){
-                        dbo.collection("facilities").insert(facilityTab[i], function(err, result) {
+                        dbo.collection("facilities").insertOne(facilityTab[i], function(err, result) {
                             if (err) {
                                 winston.info("Error while inserting facility documents into the database: ", err);
                                 db.close();
