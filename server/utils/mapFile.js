@@ -266,16 +266,19 @@ exports.getCelluleName = function(idDHIS2){
     MongoClient.connect(url, function(err, db) {
         if (err) {
             winston.info("Error while connecting to the database: ", err);
-        };
-        var dbo = db.db("FacilityRecord");
-        var idValue = idDHIS2;
-        dbo.collection("cellules").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
-            if (err) {
-                winston.info("Error while retrieving CELLULE name from the database: ", err);
-            };
-            cel =  result[0].displayName;
-            db.close();
-        });
+        } else {
+            var dbo = db.db("FacilityRecord");
+            var idValue = idDHIS2;
+            dbo.collection("cellules").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
+                if (err) {
+                    winston.info("Error while retrieving CELLULE name from the database: ", err);
+                    db.close();
+                } else {
+                    cel =  result[0].displayName;
+                    db.close();
+                };
+            });
+        }
     });
 
     while(cel==null){
