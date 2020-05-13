@@ -238,12 +238,16 @@ exports.getSubDistrictName = function(idDHIS2){
     var url = apiConfig.facilityregistry.mongodb.url;
     var cel = null
     MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
+        if (err) {
+            winston.info("Error while connecting to the database: ", err);
+        };
         var dbo = db.db("FacilityRecord");
         var idValue = idDHIS2;
         dbo.collection("subdistricts").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
-            if (err) throw err;
-             cel =  result[0].displayName;
+            if (err) {
+                winston.info("Error while retrieving SUB-DISTRICT name from the database: ", err);
+            };
+            cel =  result[0].displayName;
             db.close();
         });
     });
