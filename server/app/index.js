@@ -141,6 +141,7 @@ function start(callback) {
           var resultTab = []
           resultTab = tools.structureFacilityRecord(resultat);
           console.log(resultTab);
+          tools.saveFacilities(resultTab);
 
 
         })

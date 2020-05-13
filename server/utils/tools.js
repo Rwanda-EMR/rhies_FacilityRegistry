@@ -3,8 +3,13 @@ var request = require('../app/node_modules/request');
 var config = require('../config/config');
 var fRecModel = require('../../models/facilityModel')
 var mapFile = require('./mapFile');
+var deasync = require('../app/node_modules/deasync');
+const mongodb = require('../app/node_modules/mongodb');
+const winston = require('../app/node_modules/winston');
+const MongoClient = mongodb.MongoClient;
 
 var apiConfig = config;
+
 
 
 exports.structureFacilityRecord =  function  (responseBody) {
@@ -92,4 +97,28 @@ exports.getTodayDate = function() {
 
     // prints date & time in YYYY-MM-DD_HH:MM:SS:MLS format
     return year + "-" + month + "-" + date + "_" + time;
+}
+
+
+exports.saveFacilities = function(facilityTab) {
+
+    var url = apiConfig.facilityregistry.mongodb.url;
+    var cel = null
+    MongoClient.connect(url, function(err, db) {
+        if (err) {
+            winston.info("Error while connecting to the database: ", err);
+        } else {
+            var dbo = db.db("FacilityRecord");
+            for(let i=0; i<facilityTab.length; i++){
+                dbo.collection("facilities").insert(facilityTab[i], function(err, result) {
+                    if (err) {
+                        winston.info("Error while inserting facility documents into the database: ", err);
+                        db.close();
+                    } else {
+                        winston.info("Facility succesfully inserted for the fosaCode: " + facilityTab[i].fosaCode);
+                    };
+                });
+            }
+        }
+    });
 }
