@@ -62,7 +62,7 @@ function setupApp() {
   }
 
   app.all('*', (req, res) => {
-    winston.info(`Processing ${req.method} request on ${req.url}`)
+    winston.info(`Processing ${req.method} request on ${req.url}`);
     if (req.method == 'POST' && req.url == apiConf.api.urlPattern) {
       var form = new formidable.IncomingForm();
       form.parse(req, function (err, fields, files) {

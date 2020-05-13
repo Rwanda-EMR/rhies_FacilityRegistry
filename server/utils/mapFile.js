@@ -3,12 +3,7 @@ var config = require('../config/config');
 var deasync = require('../app/node_modules/deasync');
 const mongodb = require('../app/node_modules/mongodb');
 const MongoClient = mongodb.MongoClient;
-
-
-
 var apiConfig = config;
-
-
 
 exports.getProvinceName = function(idDHIS2){
     

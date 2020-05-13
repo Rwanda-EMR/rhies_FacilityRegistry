@@ -4,7 +4,7 @@
     "password": "0000",
     "apiURL": "https://openhim-core:8080",
     "trustSelfSigned": "true",
-    "urlPattern": "/report/",
+    "urlPattern": "/facilityregistry/",
     "dhis2": {
       "url": "http://192.168.1.162:8082",
       "user": {
@@ -12,6 +12,13 @@
         "pwd": "Abidjan@00225"
       }
     }
+  },
+  "facilityregistry": {
+      "mongodb": {
+          "url" : "mongodb://localhost:27017/",
+          "username": "",
+          "pwd": ""
+      }
   },
   "register": true,
   "verbose" :true,

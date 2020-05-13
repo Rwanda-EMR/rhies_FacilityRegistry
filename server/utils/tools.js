@@ -2,7 +2,7 @@
 var request = require('../app/node_modules/request');
 var config = require('../config/config');
 var fRecModel = require('../../models/facilityModel')
-var mapFile = require('../config/mapFile');
+var mapFile = require('./mapFile');
 
 var apiConfig = config;
 
