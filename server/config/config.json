@@ -19,7 +19,7 @@
           "username": "",
           "pwd": ""
       },
-      "schedule": "*/3 * * * *"
+      "cronschedule": "*/3 * * * *"
   },
   "register": true,
   "verbose" :true,

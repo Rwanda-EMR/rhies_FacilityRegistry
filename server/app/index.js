@@ -112,7 +112,7 @@ function start(callback) {
             let app = setupApp()
 
             //Call Facility record pulling fucntion each mn in the config with Cron 
-            cron.schedule(apiConf.facilityregistry.schedule, () =>{
+            cron.schedule(apiConf.facilityregistry.cronschedule, () =>{
 
               tools.getFacilityRecordFromDHIS2(function(resultat){
             
@@ -151,7 +151,7 @@ function start(callback) {
       let app = setupApp()
       
       //Call Facility record pulling fucntion each mn in the config with Cron 
-      cron.schedule(apiConf.facilityregistry.schedule, () =>{
+      cron.schedule(apiConf.facilityregistry.cronschedule, () =>{
 
         tools.getFacilityRecordFromDHIS2(function(resultat){
       
