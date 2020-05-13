@@ -2,6 +2,7 @@ var request = require('../app/node_modules/request');
 var config = require('../config/config');
 var deasync = require('../app/node_modules/deasync');
 const mongodb = require('../app/node_modules/mongodb');
+const winston = require('../app/node_modules/winston');
 const MongoClient = mongodb.MongoClient;
 var apiConfig = config;
 
@@ -23,14 +24,18 @@ exports.getProvinceName = function(idDHIS2){
             return idDHIS2;
 
     }*/
-    var url = "mongodb://localhost:27017/";
+    var url = apiConfig.facilityregistry.mongodb.url;
     var cel = null
     MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
+        if (err) {
+            winston.info("Error while connecting to the database: ", err);
+        };
         var dbo = db.db("FacilityRecord");
         var idValue = idDHIS2;
         dbo.collection("provinces").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
-            if (err) throw err;
+            if (err) {
+                winston.info("Error while retrieving PROVINCE from the database: ", err);
+            };
              cel =  result[0].displayName;
             db.close();
         });
@@ -111,7 +116,7 @@ exports.getDistrictName = function(idDHIS2){
 
     }*/
 
-    var url = "mongodb://localhost:27017/";
+    var url = apiConfig.facilityregistry.mongodb.url;
     var cel = null
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
@@ -226,7 +231,7 @@ exports.getSubDistrictName = function(idDHIS2){
 
     }*/
 
-    var url = "mongodb://localhost:27017/";
+    var url = apiConfig.facilityregistry.mongodb.url;
     var cel = null
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
@@ -248,7 +253,7 @@ exports.getSubDistrictName = function(idDHIS2){
 
 exports.getCelluleName = function(idDHIS2){
           
-    var url = "mongodb://localhost:27017/";
+    var url = apiConfig.facilityregistry.mongodb.url;
     var cel = null
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;

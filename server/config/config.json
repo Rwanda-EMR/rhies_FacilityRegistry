@@ -6,7 +6,7 @@
     "trustSelfSigned": "true",
     "urlPattern": "/facilityregistry/",
     "dhis2": {
-      "url": "http://192.168.1.162:8082",
+      "url": "http://130.104.12.92:8082",
       "user": {
         "name": "amza",
         "pwd": "Abidjan@00225"
