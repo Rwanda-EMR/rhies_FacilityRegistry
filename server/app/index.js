@@ -8,6 +8,7 @@ const medUtils = require('openhim-mediator-utils');
 const winston = require('winston');
 const _ = require('underscore');
 const utils = require('./utils');
+const cron = require('../node_modules/node-cron');
 
 var tools = require('../utils/tools');
 var getFacilityRegistry = [];
@@ -31,16 +32,6 @@ var port = process.env.NODE_ENV === 'test' ? 7001 : mediatorConfig.endpoints[0].
  */
 function setupApp() {
   const app = express();
-
-  //Call Facility record pulling fucntion
-  tools.getFacilityRecordFromDHIS2(function(resultat){
-    
-    var resultTab = []
-    resultTab = tools.structureFacilityRecord(resultat);
-    console.log(resultTab);
-
-
-  });
 
   function reportEndOfProcess(req, res, error, statusCode, message) {
     res.set('Content-Type', 'application/json+openhim')
@@ -141,6 +132,21 @@ function start(callback) {
       // default to config from mediator registration
       config = mediatorConfig.config
       let app = setupApp()
+      
+      //Call Facility record pulling fucntion each 10 mn with Cron 
+      cron.schedule('*/3 * * * *', () =>{
+
+        tools.getFacilityRecordFromDHIS2(function(resultat){
+      
+          var resultTab = []
+          resultTab = tools.structureFacilityRecord(resultat);
+          console.log(resultTab);
+
+
+        })
+
+      });
+
       const server = app.listen(port, () => callback(server))
   
     }

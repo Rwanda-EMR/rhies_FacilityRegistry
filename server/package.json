@@ -27,6 +27,7 @@
     "moment": "2.22.2",
     "needle": "^2.4.0",
     "negotiator": "^0.6.2",
+    "node-cron": "^2.0.3",
     "openhim-mediator-utils": "^0.2.2",
     "request": "^2.71.0",
     "underscore": "1.9.1",
