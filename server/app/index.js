@@ -133,7 +133,7 @@ function start(callback) {
       config = mediatorConfig.config
       let app = setupApp()
       
-      //Call Facility record pulling fucntion each 10 mn with Cron 
+      //Call Facility record pulling fucntion each 3 mn with Cron 
       cron.schedule('*/3 * * * *', () =>{
 
         tools.getFacilityRecordFromDHIS2(function(resultat){
