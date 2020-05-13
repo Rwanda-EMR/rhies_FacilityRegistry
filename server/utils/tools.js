@@ -10,7 +10,7 @@ var apiConfig = config;
 exports.structureFacilityRecord =  function  (responseBody) {
     
     let tbFRecords = [];
-    
+    let extractDate = exports.getTodayDate();
     for (var  z = 0;  z < responseBody.length; z ++) {
         
         let modelFRecord = new fRecModel.facRecordModel.constructor();
@@ -30,7 +30,7 @@ exports.structureFacilityRecord =  function  (responseBody) {
         modelFRecord.coordinates = responseBody[z].coordinates;
         modelFRecord.phoneNumber = responseBody[z].phoneNumber;
         modelFRecord.email = responseBody[z].email;
-        modelFRecord.extractDate = Date.now();
+        modelFRecord.extractDate = extractDate;
         
         tbFRecords.push(modelFRecord);
        
@@ -79,3 +79,17 @@ exports.getFacilityRecordFromDHIS2 = function (callback) {
     });
 };
 
+
+exports.getTodayDate = function() {
+    
+    let ts = Date.now();
+
+    let date_ob = new Date(ts);
+    let date = date_ob.getDate();
+    let month = date_ob.getMonth() + 1;
+    let year = date_ob.getFullYear();
+    let time = date_ob.getHours() + ":" + date_ob.getMinutes() + ":" + date_ob.getSeconds() + ":" + date_ob.getMilliseconds();
+
+    // prints date & time in YYYY-MM-DD_HH:MM:SS:MLS format
+    return year + "-" + month + "-" + date + "_" + time;
+}
