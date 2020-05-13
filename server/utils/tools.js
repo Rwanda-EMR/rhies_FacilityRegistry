@@ -30,6 +30,7 @@ exports.structureFacilityRecord =  function  (responseBody) {
         modelFRecord.coordinates = responseBody[z].coordinates;
         modelFRecord.phoneNumber = responseBody[z].phoneNumber;
         modelFRecord.email = responseBody[z].email;
+        modelFRecord.extractDate = Date.now;
         
         tbFRecords.push(modelFRecord);
        
