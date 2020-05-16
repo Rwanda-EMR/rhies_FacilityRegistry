@@ -94,7 +94,7 @@ function start(callback) {
     if (apiConf.api.trustSelfSigned) { process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0' }
   
     if (apiConf.register) {
-    if (false) {
+    //if (false) {
       medUtils.registerMediator(apiConf.api, mediatorConfig, (err) => {
         if (err) {
           winston.error('Failed to register this mediator, check your config')
@@ -166,9 +166,9 @@ function start(callback) {
 
         })
 
-      });
+      }); 
 
-      const server = app.listen(port, () => callback(server))
+      const server = app.listen(port, () => callback(server));
   
     }
   }
@@ -176,5 +176,5 @@ function start(callback) {
   
   if (!module.parent) {
     // if this script is run directly, start the server
-    start(() => winston.info(`Listening on ${port}...`))
+    start(() => winston.info(`Listening on ${port}...`));
   }
