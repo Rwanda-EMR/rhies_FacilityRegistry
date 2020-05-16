@@ -54,25 +54,28 @@ function setupApp() {
 
   app.all('*', (req, res) => {
     winston.info(`Processing ${req.method} request on ${req.url}`);
-    if (req.method == 'POST' && req.url == apiConf.api.urlPattern) {
-      var form = new formidable.IncomingForm();
-      form.parse(req, function (err, fields, files) {
-        var data = fields;
+    if (req.method == 'GET' && req.url == apiConf.api.urlPattern) {
+      let fosaId = null;
+      fosaId = req.query.fosa;
 
-        winston.info('Encounter received ...')
-
-        if (apiConf.verbose == true) {
-          if (utils.isFineValue(fields) == true && utils.isFineValue(fields.encounter) == true && utils.isFineValue(fields.encounter.obs) == true) {
-            console.log("--> Received encounter obs: ", JSON.stringify(fields.encounter.obs));
-          } else {
-            if (utils.isFineValue(fields) == true && utils.isFineValue(fields.encounter) == true) {
-              console.log("--> Received encounter: ", JSON.stringify(fields.encounter));
-            } else {
-              console.log("--> Received data: ", JSON.stringify(fields));
-            }
+      if (fosaId==null){
+        var resultTab = tools.getAllFacilities();
+        winston.info('All facilities found. Number of facilities --> ' + resultTab.length);
+        res.json({allFacilityList: resultTab});
+      } else {
+        console.log('FOSA ID : ' + fosaId);
+        if(typeof(fosaId)=='number'){
+          var resultOne = tools.getOneFacilityByFosa(fosaId);
+          if (typeof(resultOne)!=='undefined') {
+            winston.info('One facility found. Fosa ID --> ' + fosaId);
+            console.log('facility : ' + resultOne);
+            res.json({facility: resultOne});
+          } else{
+            winston.info('No facility found for the Fosa ID: ' + fosaId);
+            res.json({facilityFound : ""});
           }
         }
-      })
+      }
     }
   });
   return app
@@ -90,7 +93,7 @@ function setupApp() {
 function start(callback) {
     if (apiConf.api.trustSelfSigned) { process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0' }
   
-    //if (apiConf.register) {
+    if (apiConf.register) {
     if (false) {
       medUtils.registerMediator(apiConf.api, mediatorConfig, (err) => {
         if (err) {

@@ -3,6 +3,7 @@ var request = require('../app/node_modules/request');
 var config = require('../config/config');
 var fRecModel = require('../../models/facilityModel')
 var mapFile = require('./mapFile');
+var deasync = require('../app/node_modules/deasync');
 const mongodb = require('../app/node_modules/mongodb');
 const winston = require('../app/node_modules/winston');
 const MongoClient = mongodb.MongoClient;
@@ -129,4 +130,61 @@ exports.saveFacilities = function(facilityTab) {
             });
         }
     });
+}
+
+
+exports.getAllFacilities = function(){
+    var url = apiConfig.facilityregistry.mongodb.url;
+    var facilitiesTab = null
+    MongoClient.connect(url, function(err, db) {
+        if (err) {
+            winston.info("Error while connecting to the database: ", err);
+        } else {
+            var dbo = db.db("FacilityRecord");
+            dbo.collection("facilities").find({}).toArray( function(err, result) {
+                if (err) {
+                    winston.info("Error while retrieving DISTRICT name from the database: ", err);
+                    db.close();
+                } else {
+                    facilitiesTab =  result;
+                    db.close();
+                };
+            });
+        }
+    });
+
+    while(facilitiesTab==null){
+        deasync.runLoopOnce();
+    }
+    return facilitiesTab;
+}
+
+
+exports.getOneFacilityByFosa = function(fosaId){
+
+    var url = apiConfig.facilityregistry.mongodb.url;
+    var facilitiesTab = null
+    MongoClient.connect(url, function(err, db) {
+        if (err) {
+            winston.info("Error while connecting to the database: ", err);
+        } else {
+            var dbo = db.db("FacilityRecord");
+            var query = { fosaCode: '' + fosaId  };
+            dbo.collection("facilities").find(query).toArray( function(err, result) {
+                if (err) {
+                    winston.info("Error while retrieving DISTRICT name from the database: ", err);
+                    db.close();
+                } else {
+                    facilitiesTab =  result;
+                    db.close();
+                };
+            });
+        }
+    });
+
+    while(facilitiesTab==null){
+        deasync.runLoopOnce();
+    }
+    return facilitiesTab;    
+
 }
