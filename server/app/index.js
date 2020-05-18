@@ -74,7 +74,7 @@ function setupApp() {
         res.json({facility: resultOne});
       } else {
         winston.info('No facility found for Fosa ID --> ' + fosaID);
-        res.json({facility: "no facility with fosa: " + fosaID});
+        res.json({facility: "No facility for fosa=" + fosaID});
       }
     } 
   })
