@@ -52,32 +52,39 @@ function setupApp() {
     res.send(utils.buildReturnObject(mediatorConfig.urn, stateLabel, statusCode, headers, responseBody, orchestrations, { property: 'Primary Route' }));
   }
 
-  app.all('*', (req, res) => {
-    winston.info(`Processing ${req.method} request on ${req.url}`);
-    if (req.method == 'GET' && req.url == apiConf.api.urlPattern) {
-      let fosaId = null;
-      fosaId = req.query.fosa;
 
-      if (fosaId==null){
-        var resultTab = tools.getAllFacilities();
-        winston.info('All facilities found. Number of facilities --> ' + resultTab.length);
-        res.json({allFacilityList: resultTab});
-      } else {
-        console.log('FOSA ID : ' + fosaId);
-        if(typeof(fosaId)=='number'){
-          var resultOne = tools.getOneFacilityByFosa(fosaId);
-          if (typeof(resultOne)!=='undefined') {
-            winston.info('One facility found. Fosa ID --> ' + fosaId);
-            console.log('facility : ' + resultOne);
-            res.json({facility: resultOne});
-          } else{
-            winston.info('No facility found for the Fosa ID: ' + fosaId);
-            res.json({facilityFound : ""});
-          }
-        }
-      }
+  //Facility registry resource endpoint for GET only
+  app.get('/facilityregistry/', (req, res) => {
+    winston.info(`Processing ${req.method} request on ${req.url}`);
+    var resultTab = tools.getAllFacilities();
+    winston.info('All facilities found. Number of facilities --> ' + resultTab.length);
+    res.json({allFacilityList: resultTab});
+  })
+  .get('/facilityregistry/fosa/:fosaID', (req, res) => {
+    var fosaID = parseInt(req.params.fosaID);
+    if(!fosaID && fosaID!==0){
+      winston.info('No facility found for Fosa ID --> ' + fosaID);
+      res.status(404).json({error: "on fosaID type"});
     }
+    if(typeof(fosaID)=='number'){
+      winston.info(`Processing ${req.method} request on ${req.url}`);
+      var resultOne = tools.getOneFacilityByFosa(fosaID);
+      if(resultOne!=''){
+        winston.info('One facility found for Fosa ID --> ' + fosaID);
+        res.json({facility: resultOne});
+      } else {
+        winston.info('No facility found for Fosa ID --> ' + fosaID);
+        res.json({facility: "no facility with fosa: " + fosaID});
+      }
+    } 
+  })
+  .use(function(req, res, next){
+    winston.info(`Processing ${req.method} request on ${req.url}`);
+    res.setHeader('Content-Type', 'text/plain');
+    res.status(404).send('Not such a resource !');
   });
+  //End of resource
+  
   return app
 }
 
@@ -154,7 +161,7 @@ function start(callback) {
       let app = setupApp()
       
       //Call Facility record pulling fucntion each mn in the config with Cron 
-      cron.schedule(apiConf.facilityregistry.cronschedule, () =>{
+     cron.schedule(apiConf.facilityregistry.cronschedule, () =>{
 
         tools.getFacilityRecordFromDHIS2(function(resultat){
       
@@ -166,7 +173,7 @@ function start(callback) {
 
         })
 
-      }); 
+      });
 
       const server = app.listen(port, () => callback(server));
   
