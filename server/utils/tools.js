@@ -1,11 +1,11 @@
 
-var request = require('../app/node_modules/request');
+var request = require('request');
 var config = require('../config/config');
 var fRecModel = require('../../models/facilityModel')
 var mapFile = require('./mapFile');
-var deasync = require('../app/node_modules/deasync');
-const mongodb = require('../app/node_modules/mongodb');
-const winston = require('../app/node_modules/winston');
+var deasync = require('deasync');
+const mongodb = require('mongodb');
+const winston = require('winston');
 const MongoClient = mongodb.MongoClient;
 
 var apiConfig = config;

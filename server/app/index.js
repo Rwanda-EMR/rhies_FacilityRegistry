@@ -8,7 +8,7 @@ const medUtils = require('openhim-mediator-utils');
 const winston = require('winston');
 const _ = require('underscore');
 const utils = require('./utils');
-const cron = require('../node_modules/node-cron');
+const cron = require('node-cron');
 
 var tools = require('../utils/tools');
 var getFacilityRegistry = [];

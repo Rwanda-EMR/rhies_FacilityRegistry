@@ -1,6 +1,6 @@
 
 
-const mongodb = require('../app/node_modules/mongodb');
+const mongodb = require('mongodb');
 
 const MongoClient = mongodb.MongoClient;
 
