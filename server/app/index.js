@@ -33,6 +33,22 @@ var port = process.env.NODE_ENV === 'test' ? 7001 : mediatorConfig.endpoints[0].
 function setupApp() {
   const app = express();
 
+
+//Call Facility record pulling fucntion each mn in the config with Cron 
+  cron.schedule(apiConf.facilityregistry.cronschedule, () =>{
+
+    tools.getFacilityRecordFromDHIS2(function(resultat){
+  
+      var resultTab = []
+      resultTab = tools.structureFacilityRecord(resultat);
+      console.log(resultTab);
+      tools.saveFacilities(resultTab);
+
+
+    })
+
+  });
+
   function reportEndOfProcess(req, res, error, statusCode, message) {
     res.set('Content-Type', 'application/json+openhim')
     var responseBody = message;
@@ -100,8 +116,8 @@ function setupApp() {
 function start(callback) {
     if (apiConf.api.trustSelfSigned) { process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0' }
   
-    if (apiConf.register) {
-    //if (false) {
+    //if (apiConf.register) {
+    if (false) {
       medUtils.registerMediator(apiConf.api, mediatorConfig, (err) => {
         if (err) {
           winston.error('Failed to register this mediator, check your config')
@@ -158,22 +174,11 @@ function start(callback) {
 
       // default to config from mediator registration
       config = mediatorConfig.config
+
+      
       let app = setupApp()
       
-      //Call Facility record pulling fucntion each mn in the config with Cron 
-     cron.schedule(apiConf.facilityregistry.cronschedule, () =>{
-
-        tools.getFacilityRecordFromDHIS2(function(resultat){
       
-          var resultTab = []
-          resultTab = tools.structureFacilityRecord(resultat);
-          console.log(resultTab);
-          tools.saveFacilities(resultTab);
-
-
-        })
-
-      });
 
       const server = app.listen(port, () => callback(server));
   
