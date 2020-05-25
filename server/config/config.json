@@ -9,7 +9,7 @@
       "url": "http://130.104.12.92:8082",
       "user": {
         "name": "amza",
-        "pwd": ""
+        "pwd": "Abidjan@00225"
       }
     }
   },
@@ -19,7 +19,7 @@
           "username": "",
           "pwd": ""
       },
-      "cronschedule": "*/3 * * * *"
+      "cronschedule": "*/15 * * * *"
   },
   "register": true,
   "verbose" :true,
