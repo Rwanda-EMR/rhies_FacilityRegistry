@@ -26,7 +26,7 @@ exports.getProvinceName = function(idDHIS2){
     }*/
     var url = apiConfig.facilityregistry.mongodb.url;
     var cel = null
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
         if (err) {
             winston.info("Error while connecting to the database: ", err);
         } else {
@@ -121,7 +121,7 @@ exports.getDistrictName = function(idDHIS2){
 
     var url = apiConfig.facilityregistry.mongodb.url;
     var cel = null
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
         if (err) {
             winston.info("Error while connecting to the database: ", err);
         } else {
@@ -243,7 +243,7 @@ exports.getSubDistrictName = function(idDHIS2){
 
     var url = apiConfig.facilityregistry.mongodb.url;
     var cel = null
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
         if (err) {
             winston.info("Error while connecting to the database: ", err);
         } else {
@@ -272,7 +272,7 @@ exports.getSectorName = function(idDHIS2){
           
     var url = apiConfig.facilityregistry.mongodb.url;
     var cel = null
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
         if (err) {
             winston.info("Error while connecting to the database: ", err);
         } else {

@@ -103,7 +103,7 @@ exports.getTodayDate = function() {
 exports.saveFacilities = function(facilityTab) {
 
     var url = apiConfig.facilityregistry.mongodb.url;
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
         if (err) {
             winston.info("Error while connecting to the database: ", err);
         } else {
@@ -136,7 +136,7 @@ exports.saveFacilities = function(facilityTab) {
 exports.getAllFacilities = function(){
     var url = apiConfig.facilityregistry.mongodb.url;
     var facilitiesTab = null
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
         if (err) {
             winston.info("Error while connecting to the database: ", err);
         } else {
@@ -164,7 +164,7 @@ exports.getOneFacilityByFosa = function(fosaId){
 
     var url = apiConfig.facilityregistry.mongodb.url;
     var facilitiesTab = null
-    MongoClient.connect(url, function(err, db) {
+    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
         if (err) {
             winston.info("Error while connecting to the database: ", err);
         } else {
