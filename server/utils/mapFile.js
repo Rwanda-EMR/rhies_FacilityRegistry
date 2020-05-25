@@ -35,10 +35,10 @@ exports.getProvinceName = function(idDHIS2){
             dbo.collection("provinces").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
                 if (err) {
                     winston.info("Error while retrieving PROVINCE name from the database: ", err);
-                    db.close();
+                      
                 } else {
                     cel =  result[0].displayName;
-                    db.close();
+                      
                 };
             });
         }
@@ -130,10 +130,10 @@ exports.getDistrictName = function(idDHIS2){
             dbo.collection("districts").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
                 if (err) {
                     winston.info("Error while retrieving DISTRICT name from the database: ", err);
-                    db.close();
+                      
                 } else {
                     cel =  result[0].displayName;
-                    db.close();
+                      
                 };
             });
         }
@@ -252,10 +252,10 @@ exports.getSubDistrictName = function(idDHIS2){
             dbo.collection("subdistricts").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
                 if (err) {
                     winston.info("Error while retrieving SUB-DISTRICT name from the database: ", err);
-                    db.close();
+                      
                 } else {
                     cel =  result[0].displayName;
-                    db.close();
+                      
                 };
             });
         }
@@ -281,10 +281,10 @@ exports.getSectorName = function(idDHIS2){
             dbo.collection("sectors").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
                 if (err) {
                     winston.info("Error while retrieving CELLULE name from the database: ", err);
-                    db.close();
+                      
                 } else {
                     cel =  result[0].displayName;
-                    db.close();
+                      
                 };
             });
         }

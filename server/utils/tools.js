@@ -111,7 +111,7 @@ exports.saveFacilities = function(facilityTab) {
             dbo.collection("facilities").deleteMany({}, function(err, result){
                 if (err) {
                     winston.info("Error while removing all facility documents into the database: ", err);
-                    db.close();
+                     
                 } else {
                     winston.info("Old facility documents successfully deleted! ");
                     winston.info("Number of new documents to insert----> " + facilityTab.length);
@@ -119,13 +119,13 @@ exports.saveFacilities = function(facilityTab) {
                         dbo.collection("facilities").insertOne(facilityTab[i], function(err, result) {
                             if (err) {
                                 winston.info("Error while inserting facility documents into the database: ", err);
-                                db.close();
+                                 
                             } else {
                                 winston.info("Facility succesfully inserted for the fosaCode: " + facilityTab[i].fosaCode);
                             };
                         });
                     }
-                    db.close();
+                     
                 }
             });
         }
@@ -144,10 +144,10 @@ exports.getAllFacilities = function(){
             dbo.collection("facilities").find({}).toArray( function(err, result) {
                 if (err) {
                     winston.info("Error while retrieving DISTRICT name from the database: ", err);
-                    db.close();
+                     
                 } else {
                     facilitiesTab =  result;
-                    db.close();
+                     
                 };
             });
         }
@@ -173,10 +173,10 @@ exports.getOneFacilityByFosa = function(fosaId){
             dbo.collection("facilities").find(query).toArray( function(err, result) {
                 if (err) {
                     winston.info("Error while retrieving DISTRICT name from the database: ", err);
-                    db.close();
+                     
                 } else {
                     facilitiesTab =  result;
-                    db.close();
+                     
                 };
             });
         }
