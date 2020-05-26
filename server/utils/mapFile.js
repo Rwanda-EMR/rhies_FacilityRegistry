@@ -25,7 +25,7 @@ exports.getProvinceName = function(myDB, idDHIS2, callback){
 
     }*/
 
-    var pro = null
+    var pro = null;
     var idValue = idDHIS2;
     myDB.collection("provinces").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
         if (err) {
