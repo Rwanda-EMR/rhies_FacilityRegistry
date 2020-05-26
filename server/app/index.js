@@ -9,6 +9,7 @@ const winston = require('winston');
 const _ = require('underscore');
 const utils = require('./utils');
 const cron = require('node-cron');
+const mongodbCon = require('../../models/mongodbCon');
 
 var tools = require('../utils/tools');
 var getFacilityRegistry = [];
@@ -31,77 +32,84 @@ var port = process.env.NODE_ENV === 'test' ? 7001 : mediatorConfig.endpoints[0].
  * @return {express.App}  the configured http server
  */
 function setupApp() {
-  const app = express();
-
-
-//Call Facility record pulling fucntion each mn in the config with Cron 
-  cron.schedule(apiConf.facilityregistry.cronschedule, () =>{
-
-    tools.getFacilityRecordFromDHIS2(function(resultat){
   
-      var resultTab = []
-      resultTab = tools.structureFacilityRecord(resultat);
-      console.log(resultTab);
-      tools.saveFacilities(resultTab);
+  //Coonect only one time to the mongoDB
+  mongodbCon.connectToServer( function( err, client ) {
+    var db = mongodbCon.getDb();
+    if (err) winston.info("Database connection error : ", err);
+    // start the rest of your app here
+    const app = express();
 
 
-    })
+  //Call Facility record pulling fucntion each mn in the config with Cron 
+    cron.schedule(apiConf.facilityregistry.cronschedule, () =>{
 
-  });
-
-  function reportEndOfProcess(req, res, error, statusCode, message) {
-    res.set('Content-Type', 'application/json+openhim')
-    var responseBody = message;
-    var stateLabel = "";
-    let orchestrations = [];
-
-    var headers = { 'content-type': 'application/json' }
-    if (error) {
-      stateLabel = "Failed";
-      winston.error(message, error);
-    } else {
-      stateLabel = "Successful";
-      winston.info(message);
-    }
-    var orchestrationResponse = { statusCode: statusCode, headers: headers }
-    orchestrations.push(utils.buildOrchestration('Primary Route', new Date().getTime(), req.method, req.url, req.headers, req.body, orchestrationResponse, responseBody))
-    res.send(utils.buildReturnObject(mediatorConfig.urn, stateLabel, statusCode, headers, responseBody, orchestrations, { property: 'Primary Route' }));
-  }
+      tools.getFacilityRecordFromDHIS2(function(resultat){
+    
+        var resultTab = []
+        resultTab = tools.structureFacilityRecord(db, resultat);
+        console.log(resultTab);
+        tools.saveFacilities(db, resultTab);
 
 
-  //Facility registry resource endpoint for GET only
-  app.get('/facilityregistry/', (req, res) => {
-    winston.info(`Processing ${req.method} request on ${req.url}`);
-    var resultTab = tools.getAllFacilities();
-    winston.info('All facilities found. Number of facilities --> ' + resultTab.length);
-    res.json({allFacilityList: resultTab});
-  })
-  .get('/facilityregistry/fosa/:fosaID', (req, res) => {
-    var fosaID = parseInt(req.params.fosaID);
-    if(!fosaID && fosaID!==0){
-      winston.info('No facility found for Fosa ID --> ' + fosaID);
-      res.status(404).json({error: "on fosaID type"});
-    }
-    if(typeof(fosaID)=='number'){
-      winston.info(`Processing ${req.method} request on ${req.url}`);
-      var resultOne = tools.getOneFacilityByFosa(fosaID);
-      if(resultOne!=''){
-        winston.info('One facility found for Fosa ID --> ' + fosaID);
-        res.json({facility: resultOne});
+      })
+
+    });
+
+    function reportEndOfProcess(req, res, error, statusCode, message) {
+      res.set('Content-Type', 'application/json+openhim')
+      var responseBody = message;
+      var stateLabel = "";
+      let orchestrations = [];
+
+      var headers = { 'content-type': 'application/json' }
+      if (error) {
+        stateLabel = "Failed";
+        winston.error(message, error);
       } else {
-        winston.info('No facility found for Fosa ID --> ' + fosaID);
-        res.json({facility: "No facility for fosa=" + fosaID});
+        stateLabel = "Successful";
+        winston.info(message);
       }
-    } 
-  })
-  .use(function(req, res, next){
-    winston.info(`Processing ${req.method} request on ${req.url}`);
-    res.setHeader('Content-Type', 'text/plain');
-    res.status(404).send('Not such a resource !');
+      var orchestrationResponse = { statusCode: statusCode, headers: headers }
+      orchestrations.push(utils.buildOrchestration('Primary Route', new Date().getTime(), req.method, req.url, req.headers, req.body, orchestrationResponse, responseBody))
+      res.send(utils.buildReturnObject(mediatorConfig.urn, stateLabel, statusCode, headers, responseBody, orchestrations, { property: 'Primary Route' }));
+    }
+
+
+    //Facility registry resource endpoint for GET only
+    app.get('/facilityregistry/', (req, res) => {
+      winston.info(`Processing ${req.method} request on ${req.url}`);
+      var resultTab = tools.getAllFacilities(db);
+      winston.info('All facilities found. Number of facilities --> ' + resultTab.length);
+      res.json({allFacilityList: resultTab});
+    })
+    .get('/facilityregistry/fosa/:fosaID', (req, res) => {
+      var fosaID = parseInt(req.params.fosaID);
+      if(!fosaID && fosaID!==0){
+        winston.info('No facility found for Fosa ID --> ' + fosaID);
+        res.status(404).json({error: "on fosaID type"});
+      }
+      if(typeof(fosaID)=='number'){
+        winston.info(`Processing ${req.method} request on ${req.url}`);
+        var resultOne = tools.getOneFacilityByFosa(db,fosaID);
+        if(resultOne!=''){
+          winston.info('One facility found for Fosa ID --> ' + fosaID);
+          res.json({facility: resultOne});
+        } else {
+          winston.info('No facility found for Fosa ID --> ' + fosaID);
+          res.json({facility: "No facility for fosa=" + fosaID});
+        }
+      } 
+    })
+    .use(function(req, res, next){
+      winston.info(`Processing ${req.method} request on ${req.url}`);
+      res.setHeader('Content-Type', 'text/plain');
+      res.status(404).send('Not such a resource !');
+    });
+    //End of resource
+    
+    return app;
   });
-  //End of resource
-  
-  return app
 }
 
 
@@ -135,22 +143,7 @@ function start(callback) {
             process.exit(1)
           } else {
             winston.info('Successfully registered mediator!')
-            let app = setupApp()
-
-            //Call Facility record pulling fucntion each mn in the config with Cron 
-            cron.schedule(apiConf.facilityregistry.cronschedule, () =>{
-
-              tools.getFacilityRecordFromDHIS2(function(resultat){
-            
-                var resultTab = []
-                resultTab = tools.structureFacilityRecord(resultat);
-                console.log(resultTab);
-                tools.saveFacilities(resultTab);
-
-
-              })
-
-            });
+            let app = setupApp();
 
             const server = app.listen(port, () => {
               if (apiConf.heartbeat) {
@@ -173,17 +166,14 @@ function start(callback) {
     } else {
 
       // default to config from mediator registration
-      config = mediatorConfig.config
-
-      
-      let app = setupApp()
-      
-      
-
+      config = mediatorConfig.config;
+      let app = setupApp();
       const server = app.listen(port, () => callback(server));
   
     }
   }
+
+
   exports.start = start
   
   if (!module.parent) {
