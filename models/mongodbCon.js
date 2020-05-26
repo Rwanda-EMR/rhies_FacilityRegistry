@@ -1,4 +1,4 @@
-const MongoClient = require( 'mongodb' ).MongoClient;
+const MongoClient = require( '../server/node_modules/mongodb' ).MongoClient;
 const apiConfig = require('../server/config/config.json');
 const url = apiConfig.facilityregistry.mongodb.url;
 

@@ -33,14 +33,14 @@ var port = process.env.NODE_ENV === 'test' ? 7001 : mediatorConfig.endpoints[0].
  */
 function setupApp() {
   
+  // start the rest of your app here
+  const app = express();
+
   //Coonect only one time to the mongoDB
   mongodbCon.connectToServer( function( err, client ) {
     var db = mongodbCon.getDb();
     if (err) winston.info("Database connection error : ", err);
-    // start the rest of your app here
-    const app = express();
-
-
+    
   //Call Facility record pulling fucntion each mn in the config with Cron 
     cron.schedule(apiConf.facilityregistry.cronschedule, () =>{
 
@@ -108,8 +108,8 @@ function setupApp() {
     });
     //End of resource
     
-    return app;
   });
+  return app;
 }
 
 
