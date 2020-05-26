@@ -12,7 +12,7 @@ var apiConfig = config;
 
 
 
-exports.structureFacilityRecord =  function  (responseBody) {
+exports.structureFacilityRecord =  function  (myDB,responseBody) {
     
     let tbFRecords = [];
     let extractDate = exports.getTodayDate();
@@ -28,10 +28,10 @@ exports.structureFacilityRecord =  function  (responseBody) {
         modelFRecord.description = "FOSAID: " + responseBody[z].code + " TYPE: " + "XX";
         modelFRecord.lastUpdated = responseBody[z].lastUpdated;
         modelFRecord.openingDate = responseBody[z].openingDate;
-        modelFRecord.province = mapFile.getProvinceName(tab[2]);
-        modelFRecord.district = mapFile.getDistrictName(tab[3]);
-        modelFRecord.subdistrict = mapFile.getSubDistrictName(tab[4]);
-        modelFRecord.sector = mapFile.getSectorName(tab[5])
+        modelFRecord.province = mapFile.getProvinceName(myDB, tab[2]);
+        modelFRecord.district = mapFile.getDistrictName(myDB, tab[3]);
+        modelFRecord.subdistrict = mapFile.getSubDistrictName(myDB, tab[4]);
+        modelFRecord.sector = mapFile.getSectorName(myDB, tab[5])
         modelFRecord.coordinates = responseBody[z].coordinates;
         modelFRecord.phoneNumber = responseBody[z].phoneNumber;
         modelFRecord.email = responseBody[z].email;
@@ -100,86 +100,64 @@ exports.getTodayDate = function() {
 }
 
 
-exports.saveFacilities = function(facilityTab) {
+exports.saveFacilities = function(myDB, facilityTab) {
 
-    var url = apiConfig.facilityregistry.mongodb.url;
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+    myDB.collection("facilities").deleteMany({}, function(err, result){
         if (err) {
-            winston.info("Error while connecting to the database: ", err);
+            winston.info("Error while removing all facility documents into the database: ", err);
+                     
         } else {
-            var dbo = db.db("FacilityRecord");
-            dbo.collection("facilities").deleteMany({}, function(err, result){
-                if (err) {
-                    winston.info("Error while removing all facility documents into the database: ", err);
-                     
-                } else {
-                    winston.info("Old facility documents successfully deleted! ");
-                    winston.info("Number of new documents to insert----> " + facilityTab.length);
-                    for(let i=0; i<facilityTab.length; i++){
-                        dbo.collection("facilities").insertOne(facilityTab[i], function(err, result) {
-                            if (err) {
-                                winston.info("Error while inserting facility documents into the database: ", err);
+            winston.info("Old facility documents successfully deleted! ");
+            winston.info("Number of new documents to insert----> " + facilityTab.length);
+            for(let i=0; i<facilityTab.length; i++){
+                myDB.collection("facilities").insertOne(facilityTab[i], function(err, result) {
+                    if (err) {
+                        winston.info("Error while inserting facility documents into the database: ", err);
                                  
-                            } else {
-                                winston.info("Facility succesfully inserted for the fosaCode: " + facilityTab[i].fosaCode);
-                            };
-                        });
-                    }
+                    } else {
+                        winston.info("Facility succesfully inserted for the fosaCode: " + facilityTab[i].fosaCode);
+                    };
+                });
+            }
                      
-                }
-            });
         }
     });
+
 }
 
 
-exports.getAllFacilities = function(){
-    var url = apiConfig.facilityregistry.mongodb.url;
-    var facilitiesTab = null
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+exports.getAllFacilities = function(myDB){
+    
+    var facilitiesTab = null;
+    myDB.collection("facilities").find({}).toArray( function(err, result) {
         if (err) {
-            winston.info("Error while connecting to the database: ", err);
+            winston.info("Error while retrieving DISTRICT name from the database: ", err);
+                     
         } else {
-            var dbo = db.db("FacilityRecord");
-            dbo.collection("facilities").find({}).toArray( function(err, result) {
-                if (err) {
-                    winston.info("Error while retrieving DISTRICT name from the database: ", err);
-                     
-                } else {
-                    facilitiesTab =  result;
-                     
-                };
-            });
-        }
+            facilitiesTab =  result;        
+        };
     });
 
     while(facilitiesTab==null){
         deasync.runLoopOnce();
     }
     return facilitiesTab;
+
 }
 
 
-exports.getOneFacilityByFosa = function(fosaId){
+exports.getOneFacilityByFosa = function(myDB, fosaId){
 
-    var url = apiConfig.facilityregistry.mongodb.url;
     var facilitiesTab = null
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+    var query = { fosaCode: '' + fosaId  };
+    myDB.collection("facilities").find(query).toArray( function(err, result) {
         if (err) {
-            winston.info("Error while connecting to the database: ", err);
+            winston.info("Error while retrieving DISTRICT name from the database: ", err);
+                     
         } else {
-            var dbo = db.db("FacilityRecord");
-            var query = { fosaCode: '' + fosaId  };
-            dbo.collection("facilities").find(query).toArray( function(err, result) {
-                if (err) {
-                    winston.info("Error while retrieving DISTRICT name from the database: ", err);
+            facilitiesTab =  result;
                      
-                } else {
-                    facilitiesTab =  result;
-                     
-                };
-            });
-        }
+        };
     });
 
     while(facilitiesTab==null){
