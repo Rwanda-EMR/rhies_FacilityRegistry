@@ -6,7 +6,7 @@ const winston = require('winston');
 const MongoClient = mongodb.MongoClient;
 var apiConfig = config;
 
-exports.getProvinceName = function(myDB, idDHIS2){
+exports.getProvinceName = function(myDB, idDHIS2, callback){
     
     /*switch(idDHIS2){
 
@@ -33,19 +33,14 @@ exports.getProvinceName = function(myDB, idDHIS2){
                       
         } else {
             pro =  result[0].displayName;
+            callback(pro);
                       
         };
     });
-     
-
-    while(pro==null){
-        deasync.runLoopOnce();
-    }
-    return pro;
 };
 
 
-exports.getDistrictName = function(myDB, idDHIS2){
+exports.getDistrictName = function(myDB, idDHIS2, callback){
 
   /*  switch(idDHIS2){
 
@@ -121,19 +116,15 @@ exports.getDistrictName = function(myDB, idDHIS2){
                       
         } else {
             dis =  result[0].displayName;
+            callback(dis);
                       
         };
     });
      
-
-    while(dis==null){
-        deasync.runLoopOnce();
-    }
-    return dis;
 };
 
 
-exports.getSubDistrictName = function(myDB, idDHIS2){
+exports.getSubDistrictName = function(myDB, idDHIS2, callback){
 
    /* switch(idDHIS2){
 
@@ -236,20 +227,16 @@ exports.getSubDistrictName = function(myDB, idDHIS2){
                       
         } else {
             sub =  result[0].displayName;
+            callback(sub);
                       
         };
     });
      
 
-    while(sub==null){
-        deasync.runLoopOnce();
-    }
-    return sub;
-
 };
 
 
-exports.getSectorName = function(myDB,idDHIS2){
+exports.getSectorName = function(myDB,idDHIS2, callback){
           
     var sec = null
     var idValue = idDHIS2;
@@ -259,14 +246,9 @@ exports.getSectorName = function(myDB,idDHIS2){
                       
         } else {
             sec =  result[0].displayName;
+            callback(sec);
                       
         };
     });
-     
-
-    while(sec==null){
-        deasync.runLoopOnce();
-    }
-    return sec;
 
 };

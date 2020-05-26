@@ -19,7 +19,7 @@
           "username": "",
           "pwd": ""
       },
-      "cronschedule": "*/30 * * * *"
+      "cronschedule": "*/80 * * * *"
   },
   "register": true,
   "verbose" :true,

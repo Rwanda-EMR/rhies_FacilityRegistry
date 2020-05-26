@@ -6,6 +6,7 @@ var mapFile = require('./mapFile');
 var deasync = require('deasync');
 const mongodb = require('mongodb');
 const winston = require('winston');
+const async = require('async');
 const MongoClient = mongodb.MongoClient;
 
 var apiConfig = config;
@@ -28,10 +29,46 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
         modelFRecord.description = "FOSAID: " + responseBody[z].code + " TYPE: " + "XX";
         modelFRecord.lastUpdated = responseBody[z].lastUpdated;
         modelFRecord.openingDate = responseBody[z].openingDate;
-        modelFRecord.province = mapFile.getProvinceName(myDB, tab[2]);
-        modelFRecord.district = mapFile.getDistrictName(myDB, tab[3]);
-        modelFRecord.subdistrict = mapFile.getSubDistrictName(myDB, tab[4]);
-        modelFRecord.sector = mapFile.getSectorName(myDB, tab[5])
+
+        async.parallel(
+            [
+                function(callback){
+                    mapFile.getProvinceName(myDB, tab[2], function(result){
+                        callback(null, result);
+                    });
+                },
+                function(callback){
+                    mapFile.getDistrictName(myDB, tab[3], function(result){
+                        callback(null, result);
+                    });
+                },
+                function(callback){
+                    mapFile.getSubDistrictName(myDB, tab[4], function(result){
+                        callback(null, result);
+                    });
+                },
+                function(callback){
+                    mapFile.getSectorName(myDB, tab[5], function(result){
+                        callback(null, result);
+                    });
+                }
+            ], 
+            function(err, allResults){
+                if (err){
+                    winston.info('Error when retrieving map info : ' , err);
+                    modelFRecord.province = null;
+                    modelFRecord.district = null;
+                    modelFRecord.subdistrict = null;
+                    modelFRecord.sector = null;
+                } else {
+                    modelFRecord.province = allResults[0];
+                    modelFRecord.district = allResults[1];
+                    modelFRecord.subdistrict = allResults[2];
+                    modelFRecord.sector = allResults[3];
+                }
+            }
+        );
+        
         modelFRecord.coordinates = responseBody[z].coordinates;
         modelFRecord.phoneNumber = responseBody[z].phoneNumber;
         modelFRecord.email = responseBody[z].email;
