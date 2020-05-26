@@ -6,7 +6,7 @@ const winston = require('winston');
 const MongoClient = mongodb.MongoClient;
 var apiConfig = config;
 
-exports.getProvinceName = function(idDHIS2){
+exports.getProvinceName = function(myDB, idDHIS2){
     
     /*switch(idDHIS2){
 
@@ -24,33 +24,28 @@ exports.getProvinceName = function(idDHIS2){
             return idDHIS2;
 
     }*/
-    var url = apiConfig.facilityregistry.mongodb.url;
-    var cel = null
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
-        if (err) {
-            winston.info("Error while connecting to the database: ", err);
-        } else {
-            var dbo = db.db("FacilityRecord");
-            var idValue = idDHIS2;
-            dbo.collection("provinces").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
-                if (err) {
-                    winston.info("Error while retrieving PROVINCE name from the database: ", err);
-                      
-                } else {
-                    cel =  result[0].displayName;
-                      
-                };
-            });
-        }
-    });
 
-    while(cel==null){
+    var pro = null
+    var idValue = idDHIS2;
+    myDB.collection("provinces").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
+        if (err) {
+            winston.info("Error while retrieving PROVINCE name from the database: ", err);
+                      
+        } else {
+            pro =  result[0].displayName;
+                      
+        };
+    });
+     
+
+    while(pro==null){
         deasync.runLoopOnce();
     }
-    return cel;
+    return pro;
 };
 
-exports.getDistrictName = function(idDHIS2){
+
+exports.getDistrictName = function(myDB, idDHIS2){
 
   /*  switch(idDHIS2){
 
@@ -118,35 +113,27 @@ exports.getDistrictName = function(idDHIS2){
             return idDHIS2;
 
     }*/
-
-    var url = apiConfig.facilityregistry.mongodb.url;
-    var cel = null
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+    var dis = null
+    var idValue = idDHIS2;
+    myDB.collection("districts").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
         if (err) {
-            winston.info("Error while connecting to the database: ", err);
+            winston.info("Error while retrieving DISTRICT name from the database: ", err);
+                      
         } else {
-            var dbo = db.db("FacilityRecord");
-            var idValue = idDHIS2;
-            dbo.collection("districts").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
-                if (err) {
-                    winston.info("Error while retrieving DISTRICT name from the database: ", err);
+            dis =  result[0].displayName;
                       
-                } else {
-                    cel =  result[0].displayName;
-                      
-                };
-            });
-        }
+        };
     });
+     
 
-    while(cel==null){
+    while(dis==null){
         deasync.runLoopOnce();
     }
-    return cel;
-
+    return dis;
 };
 
-exports.getSubDistrictName = function(idDHIS2){
+
+exports.getSubDistrictName = function(myDB, idDHIS2){
 
    /* switch(idDHIS2){
 
@@ -241,58 +228,45 @@ exports.getSubDistrictName = function(idDHIS2){
 
     }*/
 
-    var url = apiConfig.facilityregistry.mongodb.url;
-    var cel = null
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
+    var sub = null
+    var idValue = idDHIS2;
+    myDB.collection("subdistricts").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
         if (err) {
-            winston.info("Error while connecting to the database: ", err);
+            winston.info("Error while retrieving SUB DISTRICT name from the database: ", err);
+                      
         } else {
-            var dbo = db.db("FacilityRecord");
-            var idValue = idDHIS2;
-            dbo.collection("subdistricts").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
-                if (err) {
-                    winston.info("Error while retrieving SUB-DISTRICT name from the database: ", err);
+            sub =  result[0].displayName;
                       
-                } else {
-                    cel =  result[0].displayName;
-                      
-                };
-            });
-        }
+        };
     });
+     
 
-    while(cel==null){
+    while(sub==null){
         deasync.runLoopOnce();
     }
-    return cel;
+    return sub;
 
 };
 
-exports.getSectorName = function(idDHIS2){
-          
-    var url = apiConfig.facilityregistry.mongodb.url;
-    var cel = null
-    MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
-        if (err) {
-            winston.info("Error while connecting to the database: ", err);
-        } else {
-            var dbo = db.db("FacilityRecord");
-            var idValue = idDHIS2;
-            dbo.collection("sectors").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
-                if (err) {
-                    winston.info("Error while retrieving CELLULE name from the database: ", err);
-                      
-                } else {
-                    cel =  result[0].displayName;
-                      
-                };
-            });
-        }
-    });
 
-    while(cel==null){
+exports.getSectorName = function(myDB,idDHIS2){
+          
+    var sec = null
+    var idValue = idDHIS2;
+    myDB.collection("sectors").find({id: idValue}, { projection: { _id: 0, id: 1, displayName: 1 } }).toArray( function(err, result) {
+        if (err) {
+            winston.info("Error while retrieving SECTOR name from the database: ", err);
+                      
+        } else {
+            sec =  result[0].displayName;
+                      
+        };
+    });
+     
+
+    while(sec==null){
         deasync.runLoopOnce();
     }
-    return cel;
+    return sec;
 
 };
