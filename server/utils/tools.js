@@ -1,7 +1,7 @@
 
 var request = require('request');
 var config = require('../config/config');
-var fRecModel = require('../../models/facilityModel')
+var fRecModel = require('../models/facilityModel')
 var mapFile = require('./mapFile');
 var deasync = require('deasync');
 const mongodb = require('mongodb');

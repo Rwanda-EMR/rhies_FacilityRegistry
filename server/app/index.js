@@ -9,7 +9,7 @@ const winston = require('winston');
 const _ = require('underscore');
 const utils = require('./utils');
 const cron = require('node-cron');
-const mongodbCon = require('../../models/mongodbCon');
+const mongodbCon = require('../models/mongodbCon');
 
 var tools = require('../utils/tools');
 var getFacilityRegistry = [];
