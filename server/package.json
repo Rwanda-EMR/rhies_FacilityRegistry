@@ -29,6 +29,7 @@
     "moment": "2.22.2",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.13",
+    "mysql": "^2.18.1",
     "needle": "^2.4.0",
     "negotiator": "^0.6.2",
     "node-cron": "2.0.3",
@@ -36,6 +37,7 @@
     "request": "^2.88.2",
     "underscore": "1.9.1",
     "urijs": "^1.17.1",
+    "uuid": "^8.1.0",
     "xmldom": "^0.1.22",
     "xpath": "0.0.23"
   },

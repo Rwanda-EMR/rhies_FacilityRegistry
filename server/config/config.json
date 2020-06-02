@@ -9,7 +9,7 @@
       "url": "http://130.104.12.92:8082",
       "user": {
         "name": "amza",
-        "pwd": ""
+        "pwd": "Abidjan@00225"
       }
     }
   },
@@ -23,8 +23,14 @@
       "pushingschedule":"*/75 * * * *",
       "openmrsinstances":[
         {
+          "name":"167.67.90.124",
+          "port":"3306",
+          "pwd": "root"
+        },
+        {
           "name":"localhost",
-          "port":"3306"
+          "port":"3306",
+          "pwd": "root"
         }
       ]
   },

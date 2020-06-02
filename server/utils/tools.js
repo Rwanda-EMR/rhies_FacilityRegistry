@@ -207,7 +207,7 @@ exports.getOneFacilityByFosa = function(myDB, fosaId){
 }
 
 
-exports.updateOpenmrsFacilities = function(hostUrl, port, hostPwd, facilityTab){
+exports.updateOpenmrsFacilitiesList = function(hostUrl, port, hostPwd, facilityTab){
 
     var sql = ""
     var con = mysql.createConnection({
@@ -239,15 +239,14 @@ exports.updateOpenmrsFacilities = function(hostUrl, port, hostPwd, facilityTab){
 
             con.query(sql, function (err, result) {
                 if (err) throw err;
-                console.log(result.affectedRows + " record(s) updated!");
                 if (result.affectedRows==0){
                     exports.createNewOpenmrsLocation(con, f)
-                    console.log('New Location added!')
                 }
             });
         }
     });
 }
+
 
 exports.createNewOpenmrsLocation = function(con, fc){
     var lat = null;
@@ -262,7 +261,6 @@ exports.createNewOpenmrsLocation = function(con, fc){
                VALUES("' + fc.name + '", "' + fc.description + '", "' + fc.sector + '", "' + fc.province + '", "Rwanda", "' + lat + '", "' + long + '", "' + fc.openingDate + '", "' + fc.district + '", 0, "' + uuidVal + '", 0);';
     con.query(sql, function (err, result) {
         if (err) throw err;
-        console.log(result.affectedRows + " record(s) Created");
     });
 
 }
