@@ -19,7 +19,14 @@
           "username": "",
           "pwd": ""
       },
-      "cronschedule": "59 23 * * *"
+      "cronschedule": "59 23 * * *",
+      "pushingschedule":"*/75 * * * *",
+      "openmrsinstances":[
+        {
+          "name":"localhost",
+          "port":"3306"
+        }
+      ]
   },
   "register": true,
   "verbose" :true,
