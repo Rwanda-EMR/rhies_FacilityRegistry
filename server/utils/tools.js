@@ -66,17 +66,17 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
                     modelFRecord.subdistrict = allResults[2];
                     modelFRecord.sector = allResults[3];
                 }
+                modelFRecord.coordinates = responseBody[z].coordinates;
+                modelFRecord.phoneNumber = responseBody[z].phoneNumber;
+                modelFRecord.email = responseBody[z].email;
+                modelFRecord.extractDate = extractDate;
+                winston.info('Facilities structure successfully built!');
+                
             }
+            
         );
         
-        modelFRecord.coordinates = responseBody[z].coordinates;
-        modelFRecord.phoneNumber = responseBody[z].phoneNumber;
-        modelFRecord.email = responseBody[z].email;
-        modelFRecord.extractDate = extractDate;
-        
         tbFRecords.push(modelFRecord);
-       
-        
         
     }
 
@@ -166,7 +166,7 @@ exports.saveFacilities = function(myDB, facilityTab) {
 exports.getAllFacilities = function(myDB){
     
     var facilitiesTab = null;
-    myDB.collection("facilities").find({}).toArray( function(err, result) {
+    myDB.collection("facilities").find({"fosaCode":{$ne:null}}).toArray( function(err, result) {
         if (err) {
             winston.info("Error while retrieving DISTRICT name from the database: ", err);
                      
