@@ -56,6 +56,17 @@ function setupApp() {
 
     });
 
+    
+    //Pushing Facility information to openMRS instances db
+    cron.schedule(, () =>{
+      
+      var facilitiesTabt= ools.getAllFacilities(db);
+
+      
+
+    });
+
+
     function reportEndOfProcess(req, res, error, statusCode, message) {
       res.set('Content-Type', 'application/json+openhim')
       var responseBody = message;

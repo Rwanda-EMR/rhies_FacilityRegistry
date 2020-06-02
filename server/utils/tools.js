@@ -4,6 +4,8 @@ var config = require('../config/config');
 var fRecModel = require('../models/facilityModel')
 var mapFile = require('./mapFile');
 var deasync = require('deasync');
+var mysql = require('mysql');
+var uuid = require('uuid')
 const mongodb = require('mongodb');
 const winston = require('winston');
 const async = require('async');
@@ -201,5 +203,66 @@ exports.getOneFacilityByFosa = function(myDB, fosaId){
         deasync.runLoopOnce();
     }
     return facilitiesTab;    
+
+}
+
+
+exports.updateOpenmrsFacilities = function(hostUrl, port, hostPwd, facilityTab){
+
+    var sql = ""
+    var con = mysql.createConnection({
+    host: hostUrl,
+    user: "root",
+    password: hostPwd,
+    database: "openmrs",
+    port: port
+    });
+
+    con.connect(function(err) {
+        if (err) throw err;
+
+        for(var i = 0; i < facilityTab.length; i++){
+            
+            let f = facilityTab[i]
+            var lat = null;
+            var long = null;
+            if(f.coordinates!==null){
+                var t = f.coordinates.split(',')
+                long  = t[0].substr(1);
+                lat = t[1].slice(0, -1);
+            }
+            if(facilityTab[i].sector!==null && facilityTab[i].subdistrict!==null && facilityTab[i].province!==null && facilityTab[i].district!==null && lat!==null && long!==null){
+                sql = 'UPDATE openmrs.location SET name = "'+ facilityTab[i].name +'", city_village = "'+ facilityTab[i].sector +'",  address3 = "'+facilityTab[i].subdistrict+'", state_province="'+ facilityTab[i].province +'", county_district="'+ facilityTab[i].district +'", latitude="'+ lat +'", longitude="'+long+'"  WHERE location.description LIKE "FOSAID: ' + facilityTab[i].fosaCode + ' TYPE%";';
+            } else{
+                sql = 'UPDATE openmrs.location SET name = "'+ facilityTab[i].name +'"  WHERE location.description LIKE "FOSAID: ' + facilityTab[i].fosaCode + ' TYPE%";';
+            }
+
+            con.query(sql, function (err, result) {
+                if (err) throw err;
+                console.log(result.affectedRows + " record(s) updated!");
+                if (result.affectedRows==0){
+                    exports.createNewOpenmrsLocation(con, f)
+                    console.log('New Location added!')
+                }
+            });
+        }
+    });
+}
+
+exports.createNewOpenmrsLocation = function(con, fc){
+    var lat = null;
+    var long = null
+    var uuidVal = uuid.v1();
+    if(fc.coordinates!==null){
+       var t = fc.coordinates.split(',')
+       long  = t[0].substr(1);
+       lat = t[1].slice(0, -1);
+    }
+    var sql = 'INSERT INTO openmrs.location (name, description, city_village, state_province, country, latitude, longitude, date_created, county_district, retired, uuid, creator) \
+               VALUES("' + fc.name + '", "' + fc.description + '", "' + fc.sector + '", "' + fc.province + '", "Rwanda", "' + lat + '", "' + long + '", "' + fc.openingDate + '", "' + fc.district + '", 0, "' + uuidVal + '", 0);';
+    con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log(result.affectedRows + " record(s) Created");
+    });
 
 }
