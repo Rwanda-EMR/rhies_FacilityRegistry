@@ -11,6 +11,7 @@ const utils = require('./utils');
 const cron = require('node-cron');
 const cronPushing = require('node-cron');
 const mongodbCon = require('../models/mongodbCon');
+var myConfig = require('../config/config')
 
 var tools = require('../utils/tools');
 var getFacilityRegistry = [];
@@ -43,7 +44,7 @@ function setupApp() {
     if (err) winston.info("Database connection error : ", err);
     
   //Call Facility record pulling fucntion each mn in the config with Cron 
-   cron.schedule(apiConf.facilityregistry.cronschedule, () =>{
+   cron.schedule(myConfig.facilityregistry.cronschedule, () =>{
 
       tools.getFacilityRecordFromDHIS2(function(resultat){
     
@@ -59,26 +60,27 @@ function setupApp() {
 
     
     //Pushing Facility information to openMRS instances db
-    cronPushing.schedule(apiConf.facilityregistry.pushingschedule, () =>{
+    cronPushing.schedule(myConfig.facilityregistry.pushingschedule, () =>{
       
-        var openmrsInstancesTab = apiConf.facilityregistry.openmrsinstances
+        var openmrsInstancesTab = myConfig.facilityregistry.openmrsinstances
         var facilitiesTab = tools.getAllFacilities(db);
-
+        winston.info('PUSHING START with a list of ' + facilitiesTab.length + ' facilities to update (or add) ...for : ' + tools.getTodayDate());
         for(var i=0; i<openmrsInstancesTab.length; i++){
-
-            winston.info('Start updating process for the openmrs instance:' + openmrsInstancesTab[i].name + ':' + openmrsInstancesTab[i].port + '...')
             try{
 
               tools.updateOpenmrsFacilitiesList(openmrsInstancesTab[i].name, openmrsInstancesTab[i].port, openmrsInstancesTab[i].pwd, facilitiesTab);
-              winston.info('Locations udpdated for the openmrs instance:' + openmrsInstancesTab[i].name + ':' + openmrsInstancesTab[i].port + '!');
 
             } catch(e){
-                winston.info('An error on openmrs instance:' + openmrsInstancesTab[i].name + ':' + openmrsInstancesTab[i].port + '!', e);
+
                 continue;
 
             } finally {
-                winston.info('End of updating process for all the openmrs instances at ' + tools.getTodayDate());
+
             }
+
+            if (i == openmrsInstancesTab.length-1){
+              winston.info('End of updating process for all the openmrs instances at ' + tools.getTodayDate());
+            } 
         }
       
 
@@ -154,7 +156,7 @@ function start(callback) {
     if (apiConf.api.trustSelfSigned) { process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0' }
   
    if (apiConf.register) {
-    //if (false) {
+   //if (false) {
       medUtils.registerMediator(apiConf.api, mediatorConfig, (err) => {
         if (err) {
           winston.error('Failed to register this mediator, check your config')

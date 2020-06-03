@@ -20,15 +20,15 @@
           "pwd": ""
       },
       "cronschedule": "59 23 * * *",
-      "pushingschedule":"*/75 * * * *",
+      "pushingschedule":"20 12 * * *",
       "openmrsinstances":[
         {
-          "name":"host1",
+          "name":"localhost",
           "port":"3306",
           "pwd": "root"
         },
         {
-          "name":"host2",
+          "name":"localhosting",
           "port":"3306",
           "pwd": "root"
         }
