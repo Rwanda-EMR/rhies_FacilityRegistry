@@ -1,9 +1,7 @@
-FROM node:latest
+FROM node:14.4.0-alpine
 WORKDIR /usr/src/app/savics/facilityRegistryMediator
 
 COPY ./server/ .
-
-RUN npm install
 
 EXPOSE 4004
 
