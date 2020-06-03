@@ -243,7 +243,7 @@ exports.updateOpenmrsFacilitiesList = function(hostUrl, port, hostPwd, facilityT
                         winston.info(err);
                     } else {
                         if (result.affectedRows==0){
-                            exports.createNewOpenmrsLocation(con, f, host)
+                            exports.createNewOpenmrsLocation(con, f, hostUrl)
                         } 
                         if (result.affectedRows==1) {
                             winston.info(f.name+ ' successfully updated on ' + hostUrl + '!');
