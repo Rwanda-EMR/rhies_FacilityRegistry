@@ -72,13 +72,14 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
                 modelFRecord.phoneNumber = responseBody[z].phoneNumber;
                 modelFRecord.email = responseBody[z].email;
                 modelFRecord.extractDate = extractDate;
+                tbFRecords.push(modelFRecord);
                 winston.info('Facilities structure successfully built!');
                 
             }
             
         );
         
-        tbFRecords.push(modelFRecord);
+        
         
     }
 
