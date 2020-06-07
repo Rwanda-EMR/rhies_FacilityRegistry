@@ -269,12 +269,12 @@ exports.createNewOpenmrsLocation = function(con, fc, host){
        long  = t[0].substr(1);
        lat = t[1].slice(0, -1);
     }
-    var sql = 'INSERT INTO openmrs.location (name, description, city_village, address3, state_province, country, latitude, longitude, date_created, county_district, retired, uuid, creator) \
-               VALUES("' + fc.name + '", "' + fc.description + '", "' + fc.sector + '", "' + fc.cellule + '",  "' + fc.province + '", "Rwanda", "' + lat + '", "' + long + '", "' + fc.openingDate + '", "' + fc.district + '", 0, "' + uuidVal + '", 1);';
+    var sql = 'INSERT INTO openmrs.location (date_created, name, description, city_village, address3, state_province, country, latitude, longitude, date_created, county_district, retired, uuid, creator) \
+               VALUES("' + fc.extractDate + '", "' + fc.name + '", "' + fc.description + '", "' + fc.sector + '", "' + fc.cellule + '",  "' + fc.province + '", "Rwanda", "' + lat + '", "' + long + '", "' + fc.openingDate + '", "' + fc.district + '", 0, "' + uuidVal + '", 1);';
     con.query(sql, function (err, result) {
         if (err) {
             winston.info(err)
-        } else { winston.info(fc.name+ ' successfully created! on ' + host + '!'); }
+        } else { winston.info(fc.name+ ' successfully created! on ' + host + ' .'); }
     });
 
 }
