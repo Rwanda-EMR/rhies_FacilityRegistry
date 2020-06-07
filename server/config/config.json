@@ -19,8 +19,8 @@
           "username": "",
           "pwd": ""
       },
-      "cronschedule": "59 23 * * *",
-      "pushingschedule":"20 12 * * *",
+      "cronschedule": "21 11 * * *",
+      "pushingschedule":"35 11 * * *",
       "openmrsinstances":[
         {
           "name":"localhost",

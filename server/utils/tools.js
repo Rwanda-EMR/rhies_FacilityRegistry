@@ -31,6 +31,9 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
         modelFRecord.description = "FOSAID: " + responseBody[z].code + " TYPE: " + "XX";
         modelFRecord.lastUpdated = responseBody[z].lastUpdated;
         modelFRecord.openingDate = responseBody[z].openingDate;
+        modelFRecord.coordinates = responseBody[z].coordinates;
+        modelFRecord.phoneNumber = responseBody[z].phoneNumber;
+        modelFRecord.email = responseBody[z].email;
 
         async.parallel(
             [
@@ -71,9 +74,6 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
                     modelFRecord.cellule = allResults[2];
                     
                 }
-                modelFRecord.coordinates = responseBody[z].coordinates;
-                modelFRecord.phoneNumber = responseBody[z].phoneNumber;
-                modelFRecord.email = responseBody[z].email;
                 modelFRecord.extractDate = extractDate;
                 tbFRecords.push(modelFRecord);
                 winston.info('Facilities structure successfully built!');
@@ -237,9 +237,9 @@ exports.updateOpenmrsFacilitiesList = function(hostUrl, port, hostPwd, facilityT
                     lat = t[1].slice(0, -1);
                 }
                 if(facilityTab[i].sector!==null && facilityTab[i].cellule!==null && facilityTab[i].province!==null && facilityTab[i].district!==null && lat!==null && long!==null){
-                    sql = 'UPDATE openmrs.location SET name = "'+ facilityTab[i].name +'", city_village = "'+ facilityTab[i].sector +'",  address3 = "'+facilityTab[i].cellule+'", state_province="'+ facilityTab[i].province +'", county_district="'+ facilityTab[i].district +'", latitude="'+ lat +'", longitude="'+long+'"  WHERE location.description LIKE "FOSAID: ' + facilityTab[i].fosaCode + ' TYPE%";';
+                    sql = 'UPDATE openmrs.location SET name = "'+ facilityTab[i].name +'", changed_by = 1, date_changed = "' + facilityTab[i].extractDate + '", city_village = "'+ facilityTab[i].sector +'",  address3 = "'+facilityTab[i].cellule+'", state_province="'+ facilityTab[i].province +'", county_district="'+ facilityTab[i].district +'", latitude="'+ lat +'", longitude="'+long+'"  WHERE location.description LIKE "FOSAID: ' + facilityTab[i].fosaCode + ' TYPE%";';
                 } else{
-                    sql = 'UPDATE openmrs.location SET name = "'+ facilityTab[i].name +'"  WHERE location.description LIKE "FOSAID: ' + facilityTab[i].fosaCode + ' TYPE%";';
+                    sql = 'UPDATE openmrs.location SET name = "'+ facilityTab[i].name +'", changed_by = 1, date_changed = "' + facilityTab[i].extractDate + '"  WHERE location.description LIKE "FOSAID: ' + facilityTab[i].fosaCode + ' TYPE%";';
                 }
 
                 con.query(sql, function (err, result) {
@@ -250,7 +250,7 @@ exports.updateOpenmrsFacilitiesList = function(hostUrl, port, hostPwd, facilityT
                             exports.createNewOpenmrsLocation(con, f, hostUrl)
                         } 
                         if (result.affectedRows==1) {
-                            winston.info(f.name+ ' successfully updated on ' + hostUrl + '!');
+                            winston.info(f.name+ ' successfully updated on ' + hostUrl + ' ');
                         }
                     }
                 });
@@ -269,12 +269,12 @@ exports.createNewOpenmrsLocation = function(con, fc, host){
        long  = t[0].substr(1);
        lat = t[1].slice(0, -1);
     }
-    var sql = 'INSERT INTO openmrs.location (date_created, name, description, city_village, address3, state_province, country, latitude, longitude, date_created, county_district, retired, uuid, creator) \
-               VALUES("' + fc.extractDate + '", "' + fc.name + '", "' + fc.description + '", "' + fc.sector + '", "' + fc.cellule + '",  "' + fc.province + '", "Rwanda", "' + lat + '", "' + long + '", "' + fc.openingDate + '", "' + fc.district + '", 0, "' + uuidVal + '", 1);';
+    var sql = 'INSERT INTO openmrs.location (name, description, city_village, address3, state_province, country, latitude, longitude, date_created, county_district, retired, uuid, creator) \
+               VALUES("' + fc.name + '", "' + fc.description + '", "' + fc.sector + '", "' + fc.cellule + '",  "' + fc.province + '", "Rwanda", "' + lat + '", "' + long + '", "' + fc.openingDate + '", "' + fc.district + '", 0, "' + uuidVal + '", 1);';
     con.query(sql, function (err, result) {
         if (err) {
             winston.info(err)
-        } else { winston.info(fc.name+ ' successfully created! on ' + host + ' .'); }
+        } else { winston.info(fc.name+ ' successfully created! on ' + host + ' '); }
     });
 
 }
