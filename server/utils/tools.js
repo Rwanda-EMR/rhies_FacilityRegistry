@@ -58,15 +58,18 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
             function(err, allResults){
                 if (err){
                     winston.info('Error when retrieving map info : ' , err);
+                    modelFRecord.pays = "Rwanda";
                     modelFRecord.province = null;
                     modelFRecord.district = null;
-                    modelFRecord.subdistrict = null;
                     modelFRecord.sector = null;
+                    modelFRecord.cellule = null;
                 } else {
+                    modelFRecord.pays = "Rwanda";
                     modelFRecord.province = allResults[0];
                     modelFRecord.district = allResults[1];
-                    modelFRecord.subdistrict = allResults[2];
                     modelFRecord.sector = allResults[3];
+                    modelFRecord.cellule = allResults[2];
+                    
                 }
                 modelFRecord.coordinates = responseBody[z].coordinates;
                 modelFRecord.phoneNumber = responseBody[z].phoneNumber;
@@ -133,10 +136,10 @@ exports.getTodayDate = function() {
     let date = date_ob.getDate();
     let month = date_ob.getMonth() + 1;
     let year = date_ob.getFullYear();
-    let time = date_ob.getHours() + ":" + date_ob.getMinutes() + ":" + date_ob.getSeconds() + ":" + date_ob.getMilliseconds();
+    let time = date_ob.getHours() + ":" + date_ob.getMinutes() + ":" + date_ob.getSeconds();
 
-    // prints date & time in YYYY-MM-DD_HH:MM:SS:MLS format
-    return year + "-" + month + "-" + date + "_" + time;
+    // prints date & time in YYYY-MM-DD HH:MM:SS format
+    return year + "-" + month + "-" + date + " " + time;
 }
 
 
@@ -233,8 +236,8 @@ exports.updateOpenmrsFacilitiesList = function(hostUrl, port, hostPwd, facilityT
                     long  = t[0].substr(1);
                     lat = t[1].slice(0, -1);
                 }
-                if(facilityTab[i].sector!==null && facilityTab[i].subdistrict!==null && facilityTab[i].province!==null && facilityTab[i].district!==null && lat!==null && long!==null){
-                    sql = 'UPDATE openmrs.location SET name = "'+ facilityTab[i].name +'", city_village = "'+ facilityTab[i].sector +'",  address3 = "'+facilityTab[i].subdistrict+'", state_province="'+ facilityTab[i].province +'", county_district="'+ facilityTab[i].district +'", latitude="'+ lat +'", longitude="'+long+'"  WHERE location.description LIKE "FOSAID: ' + facilityTab[i].fosaCode + ' TYPE%";';
+                if(facilityTab[i].sector!==null && facilityTab[i].cellule!==null && facilityTab[i].province!==null && facilityTab[i].district!==null && lat!==null && long!==null){
+                    sql = 'UPDATE openmrs.location SET name = "'+ facilityTab[i].name +'", city_village = "'+ facilityTab[i].sector +'",  address3 = "'+facilityTab[i].cellule+'", state_province="'+ facilityTab[i].province +'", county_district="'+ facilityTab[i].district +'", latitude="'+ lat +'", longitude="'+long+'"  WHERE location.description LIKE "FOSAID: ' + facilityTab[i].fosaCode + ' TYPE%";';
                 } else{
                     sql = 'UPDATE openmrs.location SET name = "'+ facilityTab[i].name +'"  WHERE location.description LIKE "FOSAID: ' + facilityTab[i].fosaCode + ' TYPE%";';
                 }
@@ -266,8 +269,8 @@ exports.createNewOpenmrsLocation = function(con, fc, host){
        long  = t[0].substr(1);
        lat = t[1].slice(0, -1);
     }
-    var sql = 'INSERT INTO openmrs.location (name, description, city_village, state_province, country, latitude, longitude, date_created, county_district, retired, uuid, creator) \
-               VALUES("' + fc.name + '", "' + fc.description + '", "' + fc.sector + '", "' + fc.province + '", "Rwanda", "' + lat + '", "' + long + '", "' + fc.openingDate + '", "' + fc.district + '", 0, "' + uuidVal + '", 0);';
+    var sql = 'INSERT INTO openmrs.location (name, description, city_village, address3, state_province, country, latitude, longitude, date_created, county_district, retired, uuid, creator) \
+               VALUES("' + fc.name + '", "' + fc.description + '", "' + fc.sector + '", "' + fc.cellule + '",  "' + fc.province + '", "Rwanda", "' + lat + '", "' + long + '", "' + fc.openingDate + '", "' + fc.district + '", 0, "' + uuidVal + '", 1);';
     con.query(sql, function (err, result) {
         if (err) {
             winston.info(err)
