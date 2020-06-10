@@ -4,12 +4,10 @@ var config = require('../config/config');
 var fRecModel = require('../models/facilityModel')
 var mapFile = require('./mapFile');
 var deasync = require('deasync');
-var mysql = require('mysql');
 const { uuid } = require('uuidv4');
-const mongodb = require('mongodb');
 const winston = require('winston');
 const async = require('async');
-const MongoClient = mongodb.MongoClient;
+
 
 var apiConfig = config;
 
