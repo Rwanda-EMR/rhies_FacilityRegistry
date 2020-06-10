@@ -82,8 +82,8 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
                 } else {
                     modelFRecord.country = "Rwanda";
                     modelFRecord.province = allResults[0];
-                    modelFRecord.district = allResults[1];
-                    modelFRecord.cellule = allResults[2];
+                    modelFRecord.district = allResults[1].split(' ')[0];
+                    modelFRecord.cellule = allResults[2].split(' ')[0];
                     modelFRecord.sector = allResults[3];
                     
                     
