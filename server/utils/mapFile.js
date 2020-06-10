@@ -1,10 +1,8 @@
-var request = require('request');
 var config = require('../config/config');
-var deasync = require('deasync');
-const mongodb = require('mongodb');
 const winston = require('winston');
-const MongoClient = mongodb.MongoClient;
 var apiConfig = config;
+
+
 
 exports.getProvinceName = function(myDB, idDHIS2, callback){
     
