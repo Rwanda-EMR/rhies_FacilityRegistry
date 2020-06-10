@@ -13,6 +13,7 @@ exports.facRecordModel = {
         "services": [],
         "equipments": []
     },
+    "createdAt" :"",
     "openingDate" : "",
     "closingDate" : "",
     "country" : "",  

@@ -39,10 +39,13 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
         modelFRecord.manager = null;
         modelFRecord.phoneNumber = responseBody[z].phoneNumber;
         modelFRecord.email = responseBody[z].email;
-        modelFRecord.openingDate = responseBody[z].openingDate;
         modelFRecord.properties = property;
-        modelFRecord.coordinates = responseBody[z].coordinates;
+        modelFRecord.createdAt = responseBody[z].created;
+        modelFRecord.openingDate = responseBody[z].openingDate;
         modelFRecord.lastUpdated = responseBody[z].lastUpdated;
+        modelFRecord.coordinates = responseBody[z].coordinates;
+        
+        
 
         async.parallel(
             [
@@ -103,7 +106,7 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
 
 exports.getFacilityRecordFromDHIS2 = function (callback) {
     
-    var endPoint = "/api/organisationUnits.json?level=6&fields=id,code,name,lastUpdated,featureType,url,path,openingDate,closingDate,phoneNumber,coordinates,email&pageSize=30000";    
+    var endPoint = "/api/organisationUnits.json?level=6&fields=id,code,name,lastUpdated,featureType,url,path,created,openingDate,closingDate,phoneNumber,coordinates,email&pageSize=30000";    
     var options = {
         url: apiConfig.api.dhis2.url + endPoint,
         headers: {

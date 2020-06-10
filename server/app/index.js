@@ -52,7 +52,7 @@ function setupApp() {
       winston.info(`Processing ${req.method} request on ${req.url}`);
       var resultTab = tools.getAllFacilities(db);
       winston.info('All facilities found. Number of facilities --> ' + resultTab.length);
-      res.json({allFacilityList: resultTab});
+      res.json({FacilitiesList: resultTab});
     })
     .get('/facilityregistry/fosa/:fosaID', (req, res) => {
       var fosaID = parseInt(req.params.fosaID);
