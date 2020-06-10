@@ -1,7 +1,7 @@
 {
   "name": "facilityregistry",
   "version": "1.0.0",
-  "description": " Facility Registry Mediator using DHIS2 as main system",
+  "description": " Facility Registry Server using DHIS2 as main data source in the RHIES project",
   "main": "app/index.js",
   "scripts": {
     "start": "node app/index.js",
@@ -13,7 +13,9 @@
   },
   "keywords": [
     "openhim",
-    "mediator"
+    "facility",
+    "registry",
+    "dhis2"
   ],
   "author": "Savics",
   "license": "MPL-2.0",
