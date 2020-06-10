@@ -1,2 +1,2 @@
-# DHIS2FacilitiesRegistry
-The Facility Registry implementation using DHIS2 for the RHIES project
+# Facility Registry Server
+The Facility Registry Server implementation using DHIS2 for the RHIES project
