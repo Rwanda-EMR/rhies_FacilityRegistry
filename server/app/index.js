@@ -111,7 +111,6 @@ function start(callback) {
     config = mediatorConfig.config;
     let app = setupApp();
     const server = app.listen(port, () => callback(server));
-
 }
 
 
