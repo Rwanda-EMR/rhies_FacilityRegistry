@@ -58,54 +58,6 @@ function setupApp() {
 
     });
 
-    
-    //Pushing Facility information to openMRS instances db
-    cronPushing.schedule(myConfig.facilityregistry.pushingschedule, () =>{
-      
-        var openmrsInstancesTab = myConfig.facilityregistry.openmrsinstances
-        var facilitiesTab = tools.getAllFacilities(db);
-        winston.info('PUSHING START with a list of ' + facilitiesTab.length + ' facilities to update (or add) ...for : ' + tools.getTodayDate());
-        for(var i=0; i<openmrsInstancesTab.length; i++){
-            try{
-
-              tools.updateOpenmrsFacilitiesList(openmrsInstancesTab[i].name, openmrsInstancesTab[i].port, openmrsInstancesTab[i].pwd, facilitiesTab);
-
-            } catch(e){
-
-                continue;
-
-            } finally {
-
-            }
-
-            if (i == openmrsInstancesTab.length-1){
-              winston.info('End of updating process for all the openmrs instances at ' + tools.getTodayDate());
-            } 
-        }
-      
-
-    });
-
-
-    function reportEndOfProcess(req, res, error, statusCode, message) {
-      res.set('Content-Type', 'application/json+openhim')
-      var responseBody = message;
-      var stateLabel = "";
-      let orchestrations = [];
-
-      var headers = { 'content-type': 'application/json' }
-      if (error) {
-        stateLabel = "Failed";
-        winston.error(message, error);
-      } else {
-        stateLabel = "Successful";
-        winston.info(message);
-      }
-      var orchestrationResponse = { statusCode: statusCode, headers: headers }
-      orchestrations.push(utils.buildOrchestration('Primary Route', new Date().getTime(), req.method, req.url, req.headers, req.body, orchestrationResponse, responseBody))
-      res.send(utils.buildReturnObject(mediatorConfig.urn, stateLabel, statusCode, headers, responseBody, orchestrations, { property: 'Primary Route' }));
-    }
-
 
     //Facility registry resource endpoint for GET only
     app.get('/facilityregistry/', (req, res) => {
@@ -154,55 +106,13 @@ function setupApp() {
  */
 function start(callback) {
     if (apiConf.api.trustSelfSigned) { process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0' }
-  
-   if (apiConf.register) {
-   //if (false) {
-      medUtils.registerMediator(apiConf.api, mediatorConfig, (err) => {
-        if (err) {
-          winston.error('Failed to register this mediator, check your config')
-          winston.error(err.stack)
-          process.exit(1)
-        }
-        apiConf.api.urn = mediatorConfig.urn
-        medUtils.fetchConfig(apiConf.api, (err, newConfig) => {
-          winston.info('Received initial config:')
-          winston.info(JSON.stringify(newConfig))
-          config = newConfig
-          if (err) {
-            winston.error('Failed to fetch initial config')
-            winston.error(err.stack)
-            process.exit(1)
-          } else {
-            winston.info('Successfully registered mediator!')
-            let app = setupApp();
 
-            const server = app.listen(port, () => {
-              if (apiConf.heartbeat) {
-                let configEmitter = medUtils.activateHeartbeat(apiConf.api)
-                configEmitter.on('config', (newConfig) => {
-                  winston.info('Received updated config:')
-                  winston.info(JSON.stringify(newConfig))
-                  // set new config for mediator
-                  config = newConfig
-  
-                  // we can act on the new config received from the OpenHIM here
-                  winston.info(config)
-                })
-              }
-              callback(server)
-            })
-          }
-        })
-      })
-    } else {
+    // default to config from mediator registration
+    config = mediatorConfig.config;
+    let app = setupApp();
+    const server = app.listen(port, () => callback(server));
 
-      // default to config from mediator registration
-      config = mediatorConfig.config;
-      let app = setupApp();
-      const server = app.listen(port, () => callback(server));
-  
-    }
-  }
+}
 
 
   exports.start = start
