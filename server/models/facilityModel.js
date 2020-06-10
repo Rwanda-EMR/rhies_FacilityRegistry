@@ -10,7 +10,6 @@ exports.facRecordModel = {
     "email" : "",
     "url" : "",
     "properties": {
-        "numberOfBeds": null,
         "services": [],
         "equipments": []
     },

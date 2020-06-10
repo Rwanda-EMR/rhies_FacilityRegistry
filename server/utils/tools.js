@@ -19,7 +19,7 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
     for (var  z = 0;  z < responseBody.length; z ++) {
         
         //Build facility properties
-        let property = {"numberOfBeds": 0,
+        let property = {
                         "services": [null,null],
                         "equipments":[
                                         {"id":null, "name": null, "number": null},
