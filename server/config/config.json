@@ -9,12 +9,13 @@
       }
     },
     "facilityregistry": {
+        "port":"4004",
         "mongodb": {
             "url" : "mongodb://127.0.0.1:27017/",
             "username": "",
             "pwd": ""
         },
-        "cronschedule": "21 11 * * *",
+        "cronschedule": "21 11 * * *"
     },
     "register": true,
     "verbose" :true,

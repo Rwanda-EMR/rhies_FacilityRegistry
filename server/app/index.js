@@ -1,32 +1,20 @@
 #!/usr/bin/env node
 'use strict'
-
-
-const formidable = require('formidable');
 const express = require('express');
-const medUtils = require('openhim-mediator-utils');
 const winston = require('winston');
 const _ = require('underscore');
-const utils = require('./utils');
 const cron = require('node-cron');
-const cronPushing = require('node-cron');
 const mongodbCon = require('../models/mongodbCon');
 var myConfig = require('../config/config')
-
 var tools = require('../utils/tools');
-var getFacilityRegistry = [];
+
 
 
 // Logging setup
 winston.remove(winston.transports.Console);
 winston.add(winston.transports.Console, { level: 'info', timestamp: true, colorize: true });
 
-// Config
-var config = {}; // this will vary depending on whats set in openhim-core
-const apiConf = process.env.NODE_ENV === 'test' ? require('../config/test') : require('../config/config');
-const mediatorConfig = require('../config/mediator.json');
-
-var port = process.env.NODE_ENV === 'test' ? 7001 : mediatorConfig.endpoints[0].port;
+var port = myConfig.facilityregistry.port;
 
 /**
  * setupApp - configures the http server for this mediator
@@ -43,8 +31,8 @@ function setupApp() {
     var db = mongodbCon.getDb();
     if (err) winston.info("Database connection error : ", err);
     
-  //Call Facility record pulling fucntion each mn in the config with Cron 
-   cron.schedule(myConfig.facilityregistry.cronschedule, () =>{
+    //Call Facility record pulling fucntion each mn in the config with Cron 
+    cron.schedule(myConfig.facilityregistry.cronschedule, () =>{
 
       tools.getFacilityRecordFromDHIS2(function(resultat){
     
@@ -105,10 +93,6 @@ function setupApp() {
  * server is started
  */
 function start(callback) {
-    if (apiConf.api.trustSelfSigned) { process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0' }
-
-    // default to config from mediator registration
-    config = mediatorConfig.config;
     let app = setupApp();
     const server = app.listen(port, () => callback(server));
 }
