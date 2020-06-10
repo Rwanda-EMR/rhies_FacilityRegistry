@@ -15,7 +15,7 @@
             "username": "",
             "pwd": ""
         },
-        "cronschedule": "21 11 * * *"
+        "cronschedule": "00 00 * * *"
     },
     "register": true,
     "verbose" :true,

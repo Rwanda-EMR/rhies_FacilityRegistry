@@ -4,7 +4,6 @@ var config = require('../config/config');
 var fRecModel = require('../models/facilityModel')
 var mapFile = require('./mapFile');
 var deasync = require('deasync');
-const { uuid } = require('uuidv4');
 const winston = require('winston');
 const async = require('async');
 
@@ -19,6 +18,15 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
     let extractDate = exports.getTodayDate();
     for (var  z = 0;  z < responseBody.length; z ++) {
         
+        //Build facility properties
+        let property = {"numberOfBeds": 0,
+                        "services": [null,null],
+                        "equipments":[
+                                        {"id":null, "name": null, "number": null},
+                                        {"id":null, "name": null, "number": null},
+                        ]
+        };
+        //Build Facility structure              
         let modelFRecord = new fRecModel.facRecordModel.constructor();
         let tab = responseBody[z].path.split("/");
          
@@ -27,11 +35,13 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
         modelFRecord.name = responseBody[z].name;
         modelFRecord.type = responseBody[z].featureType;
         modelFRecord.description = "FOSAID: " + responseBody[z].code + " TYPE: " + "XX";
-        modelFRecord.lastUpdated = responseBody[z].lastUpdated;
-        modelFRecord.openingDate = responseBody[z].openingDate;
-        modelFRecord.coordinates = responseBody[z].coordinates;
+        modelFRecord.manager = null;
         modelFRecord.phoneNumber = responseBody[z].phoneNumber;
         modelFRecord.email = responseBody[z].email;
+        modelFRecord.openingDate = responseBody[z].openingDate;
+        modelFRecord.properties = property;
+        modelFRecord.coordinates = responseBody[z].coordinates;
+        modelFRecord.lastUpdated = responseBody[z].lastUpdated;
 
         async.parallel(
             [
@@ -59,17 +69,19 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
             function(err, allResults){
                 if (err){
                     winston.info('Error when retrieving map info : ' , err);
-                    modelFRecord.pays = "Rwanda";
+                    modelFRecord.country = "Rwanda";
                     modelFRecord.province = null;
                     modelFRecord.district = null;
-                    modelFRecord.sector = null;
                     modelFRecord.cellule = null;
+                    modelFRecord.sector = null;
+                    
                 } else {
-                    modelFRecord.pays = "Rwanda";
+                    modelFRecord.country = "Rwanda";
                     modelFRecord.province = allResults[0];
                     modelFRecord.district = allResults[1];
-                    modelFRecord.sector = allResults[3];
                     modelFRecord.cellule = allResults[2];
+                    modelFRecord.sector = allResults[3];
+                    
                     
                 }
                 modelFRecord.extractDate = extractDate;
