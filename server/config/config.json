@@ -1,22 +1,22 @@
 {
-  "api": {
-    "dhis2": {
-      "url": "http://130.104.12.92:8082",
-      "user": {
-        "name": "amza",
-        "pwd": ""
-      }
-    }
-  },
-  "facilityregistry": {
-      "mongodb": {
-          "url" : "mongodb://127.0.0.1:27017/",
-          "username": "",
+    "api": {
+      "dhis2": {
+        "url": "http://130.104.12.92:8082",
+        "user": {
+          "name": "amza",
           "pwd": ""
-      },
-      "cronschedule": "21 11 * * *"
-  },
-  "register": true,
-  "verbose" :true,
-  "heartbeat": true
-}
+        }
+      }
+    },
+    "facilityregistry": {
+        "mongodb": {
+            "url" : "mongodb://127.0.0.1:27017/",
+            "username": "",
+            "pwd": ""
+        },
+        "cronschedule": "21 11 * * *",
+    },
+    "register": true,
+    "verbose" :true,
+    "heartbeat": true
+  }
