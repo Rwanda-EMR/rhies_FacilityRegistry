@@ -223,3 +223,29 @@ exports.getOneFacilityByFosa = function(myDB, fosaId){
     return facilitiesTab;    
 
 }
+
+
+exports.getHFTypeValue = function(idDHIS2, callback){
+
+    var options = {
+        url: apiConfig.api.dhis2.url + '/api/organisationUnitGroups/'+ idDHIS2 + '.json?fields=shortName',
+        headers: {
+          'Authorization': 'Basic ' + new Buffer(apiConfig.api.dhis2.user.name + ":" + apiConfig.api.dhis2.user.pwd).toString('base64'),
+          'Content-Type': 'application/json'
+        }
+      };
+    
+      request.get(options, function (error, response, body) {
+        if (error) {
+          callback(null);
+        } else {
+          var resp = JSON.parse(body);
+          if ((resp.shortName !== 'undefined') && (resp.shortName !== '')) {
+            callback(resp.shortName);
+          } else {
+            callback(null);
+          }
+        }
+      });
+
+}

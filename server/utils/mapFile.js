@@ -1,6 +1,7 @@
 var config = require('../config/config');
+var request = require('request');
 const winston = require('winston');
-var apiConfig = config;
+
 
 
 
@@ -250,3 +251,4 @@ exports.getSectorName = function(myDB,idDHIS2, callback){
     });
 
 };
+
