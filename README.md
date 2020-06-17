@@ -31,3 +31,5 @@ http://localhost:4009/facilityregistry/fosa/"your_fosacode"
 ```
 
 
+### Main Contributors ###
+* Developers: Mamadou Ben TRAORE
