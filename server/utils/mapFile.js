@@ -252,3 +252,24 @@ exports.getSectorName = function(myDB,idDHIS2, callback){
 
 };
 
+
+exports.getHFTypeValue = function(myDB,idDHIS2, callback){
+
+    var nameValue = null
+    var idValue = idDHIS2;
+    myDB.collection("facilitytype").find({id: idValue}, { projection: { _id: 0, id: 1, name: 1 } }).toArray( function(err, result) {
+        if (err) {
+            winston.info("Error while retrieving HEALTH FACILITY TYPE name from the database: ", err);
+                      
+        } else {
+            nameValue =  result[0];
+            if(nameValue == 'undefined'){
+                callback(null);
+            } else {
+                callback(nameValue.name);
+            }      
+        };
+    });
+
+}
+

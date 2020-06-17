@@ -16,6 +16,8 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
     
     let tbFRecords = [];
     let extractDate = exports.getTodayDate();
+    var typeDHIS2 = 'A4eYhDirGm2';
+    var ownerShipDHIS2 = 'A4eYhDirGm2';
     for (var  z = 0;  z < responseBody.length; z ++) {
         
         //Build facility properties
@@ -29,13 +31,22 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
         //Build Facility structure              
         let modelFRecord = new fRecModel.facRecordModel.constructor();
         let tab = responseBody[z].path.split("/");
+        let groupTab = responseBody[z].organisationUnitGroups
+        if (groupTab !== 'undefined'){
+            if(groupTab.length > 1) {
+                typeDHIS2 = groupTab[0].id;
+                ownerShipDHIS2 = groupTab[1].id;
+            } 
+            if (groupTab.length == 1) {
+                typeDHIS2 = groupTab[0].id;
+            }
+           
+        }
          
         modelFRecord.idDHIS2 = responseBody[z].id;
         modelFRecord.fosaCode = responseBody[z].code;
         modelFRecord.name = responseBody[z].name;
         modelFRecord.description = "FOSAID: " + responseBody[z].code + " TYPE: " + "XX";
-        modelFRecord.type = null;
-        modelFRecord.ownership = null;
         modelFRecord.manager = null;
         modelFRecord.phoneNumber = responseBody[z].phoneNumber;
         modelFRecord.email = responseBody[z].email;
@@ -68,11 +79,23 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
                     mapFile.getSectorName(myDB, tab[5], function(result){
                         callback(null, result);
                     });
+                },
+                function(callback){
+                    mapFile.getHFTypeValue(myDB, typeDHIS2, function(result){
+                        callback(null, result);
+                    });
+                },
+                function(callback){
+                    mapFile.getHFTypeValue(myDB, ownerShipDHIS2, function(result){
+                        callback(null, result);
+                    });
                 }
             ], 
             function(err, allResults){
                 if (err){
                     winston.info('Error when retrieving map info : ' , err);
+                    modelFRecord.type = null;
+                    modelFRecord.ownership = null;
                     modelFRecord.country = "Rwanda";
                     modelFRecord.province = null;
                     modelFRecord.district = null;
@@ -80,6 +103,8 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
                     modelFRecord.sector = null;
                     
                 } else {
+                    modelFRecord.type = allResults[4];
+                    modelFRecord.ownership = allResults[5];
                     modelFRecord.country = "Rwanda";
                     modelFRecord.province = allResults[0];
                     modelFRecord.district = allResults[1].split(' ')[0];
@@ -106,7 +131,7 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
 
 exports.getFacilityRecordFromDHIS2 = function (callback) {
     
-    var endPoint = "/api/organisationUnits.json?level=6&fields=id,code,name,lastUpdated,featureType,url,path,created,openingDate,closingDate,phoneNumber,coordinates,email&pageSize=30000";    
+    var endPoint = "/api/organisationUnits.json?level=6&fields=id,code,name,lastUpdated,featureType,url,path,created,openingDate,closingDate,phoneNumber,coordinates,email,organisationUnitGroups&pageSize=30000";    
     var options = {
         url: apiConfig.api.dhis2.url + endPoint,
         headers: {
@@ -224,28 +249,3 @@ exports.getOneFacilityByFosa = function(myDB, fosaId){
 
 }
 
-
-exports.getHFTypeValue = function(idDHIS2, callback){
-
-    var options = {
-        url: apiConfig.api.dhis2.url + '/api/organisationUnitGroups/'+ idDHIS2 + '.json?fields=shortName',
-        headers: {
-          'Authorization': 'Basic ' + new Buffer(apiConfig.api.dhis2.user.name + ":" + apiConfig.api.dhis2.user.pwd).toString('base64'),
-          'Content-Type': 'application/json'
-        }
-      };
-    
-      request.get(options, function (error, response, body) {
-        if (error) {
-          callback(null);
-        } else {
-          var resp = JSON.parse(body);
-          if ((resp.shortName !== 'undefined') && (resp.shortName !== '')) {
-            callback(resp.shortName);
-          } else {
-            callback(null);
-          }
-        }
-      });
-
-}
