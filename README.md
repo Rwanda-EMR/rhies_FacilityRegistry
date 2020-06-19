@@ -39,6 +39,5 @@ Proprietary.
 ## In Collaboration with
 [Rwanda Biomedical Centre (RBC)](https://www.rbc.gov.rw/)
 
-
 ### Main Contributors ###
 * Developers: Mamadou Ben TRAORE, Mohamed Bachir DIOUF
