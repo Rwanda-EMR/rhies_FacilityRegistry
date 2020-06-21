@@ -1,5 +1,5 @@
 FROM node:14.4.0-alpine
-WORKDIR /usr/src/app/savics/facilityRegistryMediator
+WORKDIR /usr/src/app/savics/facilityRegistryServer
 
 COPY ./server/ .
 

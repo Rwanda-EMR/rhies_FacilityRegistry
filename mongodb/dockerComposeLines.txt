@@ -1,0 +1,13 @@
+rhies-facility-registry-mongodb:
+    container_name: rhies-facility-registry-mongodb
+    image: savicsorg/facilitymongodb:latest
+    ports:
+      - "27019:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=FacilityRecord
+    volumes:
+      - ./disc/facilitymongo-data:/data/db
+    restart: always
+    logging:
+      options:
+        max-size: 5m
