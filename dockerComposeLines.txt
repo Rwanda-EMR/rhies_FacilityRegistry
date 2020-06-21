@@ -1,0 +1,15 @@
+ rhies-facility-registry:
+     container_name: rhies-facility-registry
+     image: savicsorg/rhies-facility-registry:latest
+     ports:
+       - "4014:4004"
+     depends_on:
+       - core
+       - rhies-facility-registry-mongodb
+
+     volumes:
+       - ./disc/rhies-facility-registry/config/:/usr/src/app/savics/facilityRegistryMediator/config
+     restart: always
+     logging:
+       options:
+         max-size: 5m
