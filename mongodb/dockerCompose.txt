@@ -1,0 +1,2729 @@
+//************************ Init Procinces docs *********************//
+db.provinces.insert([
+{
+"lastUpdated": "2018-07-26T10:15:14.759",
+"id": "jUMVwrUlNqG",
+"displayName": "East"
+},
+{
+"lastUpdated": "2017-09-28T04:21:21.238",
+"id": "nBLRIqKNNOu",
+"displayName": "Kigali City"
+},
+{
+"lastUpdated": "2017-09-28T04:21:21.694",
+"id": "tuaLIYpCQzv",
+"displayName": "North"
+},
+{
+"lastUpdated": "2017-09-28T04:21:22.159",
+"id": "qICVQ5VD0Y7",
+"displayName": "South"
+},
+{
+"lastUpdated": "2017-09-28T04:21:20.768",
+"id": "psfB4ksRKp2",
+"displayName": "West"
+}
+]);
+
+
+
+
+//***************** Init Districts docs **********************//
+db.districts.insert([
+{
+"lastUpdated": "2017-09-28T04:21:33.489",
+"id": "XxBlJkEmJGQ",
+"displayName": "Bugesera District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:35.897",
+"id": "bFXwg69YOeD",
+"displayName": "Burera District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:32.159",
+"id": "pXalpffB0lo",
+"displayName": "Gakenke District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:25.381",
+"id": "fSyvbMUZWqJ",
+"displayName": "Gasabo District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:30.833",
+"id": "WOjncnBz0hi",
+"displayName": "Gatsibo District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:35.288",
+"id": "o5Gxx8zOilJ",
+"displayName": "Gicumbi District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:27.602",
+"id": "N9pKxz10nwa",
+"displayName": "Gisagara District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:26.720",
+"id": "MEqs8VG1Rx3",
+"displayName": "Huye District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:30.392",
+"id": "vb9Wtsjv0OS",
+"displayName": "Kamonyi District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:25.817",
+"id": "DJKWdcLdPOI",
+"displayName": "Karongi District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:34.835",
+"id": "fcW5X82FfpG",
+"displayName": "Kayonza District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:31.716",
+"id": "rEmeA5Z7HcP",
+"displayName": "Kicukiro District"
+},
+{
+"lastUpdated": "2018-09-07T07:56:06.997",
+"id": "VqMwIodXtFZ",
+"displayName": "Kirehe District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:33.936",
+"id": "zuLjFsLTx2m",
+"displayName": "Muhanga District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:22.653",
+"id": "rNmqHqUm4Cf",
+"displayName": "Musanze District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:28.164",
+"id": "ERRCgvW7La1",
+"displayName": "Ngoma District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:24.062",
+"id": "urGSAaskBqL",
+"displayName": "Ngororero District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:33.042",
+"id": "ARCA1tta4rF",
+"displayName": "Nyabihu District"
+},
+{
+"lastUpdated": "2018-12-13T18:47:56.669",
+"id": "QMTKhz1j2mA",
+"displayName": "Nyagatare District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:29.947",
+"id": "jy5judMZtzS",
+"displayName": "Nyamagabe District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:23.615",
+"id": "PBHtCUM6nkg",
+"displayName": "Nyamasheke District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:29.060",
+"id": "MJ0JLxsTP70",
+"displayName": "Nyanza District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:24.942",
+"id": "jqrJGsWovJs",
+"displayName": "Nyarugenge District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:26.271",
+"id": "lU5vBlNgAW5",
+"displayName": "Nyaruguru District"
+},
+{
+"lastUpdated": "2020-06-18T18:41:32.490",
+"id": "qK4xUeSYTMX",
+"displayName": "Rongi"
+},
+{
+"lastUpdated": "2017-09-28T04:21:29.507",
+"id": "yqapGWqiEra",
+"displayName": "Rubavu District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:31.275",
+"id": "n95lDV3pgL5",
+"displayName": "Ruhango District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:23.124",
+"id": "BtzzCdcgFli",
+"displayName": "Rulindo District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:27.163",
+"id": "M6o8DrKq6P3",
+"displayName": "Rusizi District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:34.390",
+"id": "DG8h5ijGxgO",
+"displayName": "Rutsiro District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:28.616",
+"id": "PnnZRLwoD66",
+"displayName": "Rwamagana District"
+}
+]);
+
+
+
+
+
+// **************** Init SubDistricts docs *******************//
+db.subdistricts.insert([
+{
+"lastUpdated": "2017-09-28T04:21:55.328",
+"id": "TiRTUBf0XSn",
+"displayName": "Bushenge Sub District"
+},
+{
+"lastUpdated": "2019-03-07T10:26:09.007",
+"id": "ncVHO9PKoOh",
+"displayName": "Butaro Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:52.637",
+"id": "uhjJRQ5PIKE",
+"displayName": "Byumba Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:51.307",
+"id": "b06Nmatvw3f",
+"displayName": "Gahini Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:50.393",
+"id": "OS0re4Y5ZwA",
+"displayName": "Gakoma Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:26:03.537",
+"id": "KFBuPrSmoF4",
+"displayName": "Gasagara (ex-birehe) CS"
+},
+{
+"lastUpdated": "2017-09-28T04:31:18.697",
+"id": "XXAUZuLwlSU",
+"displayName": "Gasagara MU (ex-birehe)"
+},
+{
+"lastUpdated": "2018-07-09T10:07:32.073",
+"id": "YoFjBm3qOTx",
+"displayName": "Gihundwe Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:36.344",
+"id": "KMmYr3zS8A6",
+"displayName": "Gisenyi Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:39.466",
+"id": "A0xbotZxXnk",
+"displayName": "Gitwe Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:49.843",
+"id": "OFUSA2nbeXd",
+"displayName": "Kabaya Sub District"
+},
+{
+"lastUpdated": "2018-07-06T15:49:03.347",
+"id": "MhdyPFz3alM",
+"displayName": "Kabgayi Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:42.641",
+"id": "WZwmUL5MmQR",
+"displayName": "Kabutare Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:41.717",
+"id": "NZxGSK1rg1c",
+"displayName": "Kacyiru Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:37.244",
+"id": "NbiuPoMmEoZ",
+"displayName": "Kaduha Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:36.801",
+"id": "GGehit0WNxN",
+"displayName": "Kibagabaga Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:40.344",
+"id": "mJRl6j7RPUp",
+"displayName": "Kibilizi Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:54.890",
+"id": "o1WEnRMOFGo",
+"displayName": "Kibogora Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:50.837",
+"id": "CotNU8eAEZD",
+"displayName": "Kibungo Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:48.512",
+"id": "YqoKpToX2RK",
+"displayName": "Kibuye Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:39.027",
+"id": "P4eFgU1Ono1",
+"displayName": "Kigeme Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:45.850",
+"id": "Uzty5ba4fGx",
+"displayName": "Kinihira Sub District"
+},
+{
+"lastUpdated": "2018-07-31T17:45:51.117",
+"id": "XA36D16QMFo",
+"displayName": "Kirehe Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:44.523",
+"id": "zbvFqVMWgzq",
+"displayName": "Kirinda Sub District"
+},
+{
+"lastUpdated": "2019-03-26T12:46:12.782",
+"id": "zzX5TYBI1ON",
+"displayName": "Kiziguro Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:52.195",
+"id": "KQWAFrokM3M",
+"displayName": "Masaka Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:40.781",
+"id": "PE2MxtJPBEX",
+"displayName": "Mibilizi Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:54.445",
+"id": "WjkCV9L9ecK",
+"displayName": "Mugonero Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:42.188",
+"id": "OoEtwLxlIHt",
+"displayName": "Muhima Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:37.705",
+"id": "CmrpITNSnZH",
+"displayName": "Muhororo Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:43.182",
+"id": "w85yxpS1DaV",
+"displayName": "Munini Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:43.633",
+"id": "sFGfRP4wPqe",
+"displayName": "Murunda Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:48.956",
+"id": "hgg0EGoK6s1",
+"displayName": "Nemba Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:46.293",
+"id": "nr6F3HKvHu5",
+"displayName": "Ngarama Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:47.174",
+"id": "x3lkZeS1aqt",
+"displayName": "Nyagatare Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:38.594",
+"id": "hDsNksdRjyK",
+"displayName": "Nyamata Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:44.965",
+"id": "hP84KHLWTST",
+"displayName": "Nyanza Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:46.735",
+"id": "vYchbWPRyrs",
+"displayName": "Remera Rukoma Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:53.554",
+"id": "p3YyC2h94pE",
+"displayName": "Ruhango Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:41.250",
+"id": "Gthhpk9cTe5",
+"displayName": "Ruhengeri Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:54.003",
+"id": "CtLpMRzBrwD",
+"displayName": "Ruli Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:47.621",
+"id": "vJqfrzsJe3D",
+"displayName": "Rutongo Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:38.154",
+"id": "TJDjWvjv7Eq",
+"displayName": "Rwamagana Sub District"
+},
+{
+"lastUpdated": "2018-07-09T10:07:06.630",
+"id": "OmudJVpFUAM",
+"displayName": "Rwinkwavu Sub District"
+},
+{
+"lastUpdated": "2017-09-28T04:21:53.083",
+"id": "jlu5IXTU2Pg",
+"displayName": "Shyira Sub District"
+}
+]);
+
+
+
+
+
+// ********************** Init Sectors doc ***************************//
+db.sectors.insert([
+{
+"lastUpdated": "2017-09-28T04:24:37.539",
+"id": "xQvl8ORDZn0",
+"displayName": "BASE"
+},
+{
+"lastUpdated": "2017-09-28T04:22:21.511",
+"id": "yfeWdN1MCYR",
+"displayName": "Bigogwe"
+},
+{
+"lastUpdated": "2017-09-28T04:22:33.246",
+"id": "oiAbfOiho08",
+"displayName": "Boneza"
+},
+{
+"lastUpdated": "2017-09-28T04:23:27.085",
+"id": "gKUskWqOXHJ",
+"displayName": "Bugarama"
+},
+{
+"lastUpdated": "2017-09-28T04:24:23.932",
+"id": "Fczy0xwaJSy",
+"displayName": "Bugeshi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:05.544",
+"id": "cL5JMBAYeEA",
+"displayName": "Bukure"
+},
+{
+"lastUpdated": "2017-09-28T04:24:42.885",
+"id": "j9KDoDKDU3S",
+"displayName": "Bumbogo"
+},
+{
+"lastUpdated": "2017-09-28T04:22:58.069",
+"id": "rdnBtCmqwxR",
+"displayName": "Bungwe"
+},
+{
+"lastUpdated": "2017-09-28T04:24:52.715",
+"id": "zxceHRhKrH9",
+"displayName": "BUREGA"
+},
+{
+"lastUpdated": "2017-09-28T04:23:01.188",
+"id": "oHrey7No7yl",
+"displayName": "Buruhukiro"
+},
+{
+"lastUpdated": "2017-09-28T04:23:54.297",
+"id": "c8n1D3bPWhO",
+"displayName": "Busanze"
+},
+{
+"lastUpdated": "2017-09-28T04:24:30.705",
+"id": "RYCjVDOerMI",
+"displayName": "Busasamana"
+},
+{
+"lastUpdated": "2017-09-28T04:23:47.618",
+"id": "s3P3MHWJ9xh",
+"displayName": "Busasamana (Rubavu District)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:43.325",
+"id": "dbN8jHRHoDu",
+"displayName": "Busengo "
+},
+{
+"lastUpdated": "2017-09-28T04:24:51.384",
+"id": "zkJ2TRTx0YJ",
+"displayName": "Bushekeri"
+},
+{
+"lastUpdated": "2017-09-28T04:23:12.273",
+"id": "eyVFUUTyItn",
+"displayName": "Bushenge"
+},
+{
+"lastUpdated": "2017-09-28T04:24:38.867",
+"id": "hpYgh09eUjy",
+"displayName": "BUSHOKI"
+},
+{
+"lastUpdated": "2017-09-28T04:22:01.249",
+"id": "yaUfTPwKXiM",
+"displayName": "Busogo"
+},
+{
+"lastUpdated": "2017-09-28T04:23:16.258",
+"id": "kHIZmwxoL7D",
+"displayName": "Busoro"
+},
+{
+"lastUpdated": "2017-09-28T04:22:31.009",
+"id": "zOpFAqs4kcD",
+"displayName": "Butare"
+},
+{
+"lastUpdated": "2017-09-28T04:24:11.795",
+"id": "dxpTd93bjuK",
+"displayName": "Butaro"
+},
+{
+"lastUpdated": "2017-09-28T04:24:00.593",
+"id": "huH2ipaYFlK",
+"displayName": "BUYOGA"
+},
+{
+"lastUpdated": "2017-09-28T04:25:00.330",
+"id": "pNZNq73BXrr",
+"displayName": "Bweramana"
+},
+{
+"lastUpdated": "2017-09-28T04:22:08.504",
+"id": "qZBARcM6gj4",
+"displayName": "Bweyeye"
+},
+{
+"lastUpdated": "2017-09-28T04:23:48.096",
+"id": "nr8lRQmisiB",
+"displayName": "BWIRA"
+},
+{
+"lastUpdated": "2017-09-28T04:22:06.894",
+"id": "wVcyXF8POcQ",
+"displayName": "Bwishyura"
+},
+{
+"lastUpdated": "2017-09-28T04:22:17.334",
+"id": "njRorv94beY",
+"displayName": "Bwisige"
+},
+{
+"lastUpdated": "2017-09-28T04:22:56.280",
+"id": "sC2sgA7T2eI",
+"displayName": "Byimana"
+},
+{
+"lastUpdated": "2017-09-28T04:22:04.475",
+"id": "puWR1Ch063w",
+"displayName": "Byumba"
+},
+{
+"lastUpdated": "2017-09-28T04:22:10.923",
+"id": "kyMzJux4qR4",
+"displayName": "Coko "
+},
+{
+"lastUpdated": "2017-09-28T04:23:17.269",
+"id": "dLG3ogiQkEv",
+"displayName": "Cyabakamyi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:02.431",
+"id": "qwRx9EZSZCm",
+"displayName": "Cyabingo "
+},
+{
+"lastUpdated": "2017-09-28T04:23:21.586",
+"id": "ee0qJtgSRPr",
+"displayName": "Cyahinda"
+},
+{
+"lastUpdated": "2017-09-28T04:23:25.697",
+"id": "cN1zETd2U7M",
+"displayName": "Cyanika"
+},
+{
+"lastUpdated": "2017-09-28T04:22:15.561",
+"id": "jlVitdnr2qA",
+"displayName": "Cyanika (Burera  District)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:17.666",
+"id": "wEFowwV0G0h",
+"displayName": "Cyanzarwe"
+},
+{
+"lastUpdated": "2017-09-28T04:22:09.126",
+"id": "z5LxmSfIc0W",
+"displayName": "Cyato"
+},
+{
+"lastUpdated": "2017-09-28T04:24:38.425",
+"id": "s1cEOCpZClu",
+"displayName": "Cyeru"
+},
+{
+"lastUpdated": "2017-09-28T04:23:56.169",
+"id": "uD9XsBfBtFc",
+"displayName": "Cyeza"
+},
+{
+"lastUpdated": "2017-09-28T04:23:42.255",
+"id": "lWtH0BWRsjB",
+"displayName": "CYINZUZI"
+},
+{
+"lastUpdated": "2017-09-28T04:24:39.794",
+"id": "khdg1QUDyLH",
+"displayName": "Cyumba"
+},
+{
+"lastUpdated": "2017-09-28T04:24:20.059",
+"id": "lQScXEz3mEK",
+"displayName": "CYUNGO"
+},
+{
+"lastUpdated": "2017-09-28T04:23:51.634",
+"id": "ankVDgUcOp4",
+"displayName": "Cyuve"
+},
+{
+"lastUpdated": "2017-09-28T04:24:21.558",
+"id": "VhiORexDJ7E",
+"displayName": "Fumbwe"
+},
+{
+"lastUpdated": "2017-09-28T04:24:04.196",
+"id": "jZlT34bHnjr",
+"displayName": "Gacaca"
+},
+{
+"lastUpdated": "2017-09-28T04:23:11.791",
+"id": "fgg4hmcLCXk",
+"displayName": "Gacurabwenge"
+},
+{
+"lastUpdated": "2017-09-28T04:22:59.863",
+"id": "d6gv9Om8imG",
+"displayName": "Gahanga"
+},
+{
+"lastUpdated": "2017-09-28T04:24:26.707",
+"id": "H8Bdog6Cimd",
+"displayName": "Gahara"
+},
+{
+"lastUpdated": "2017-09-28T04:22:49.442",
+"id": "wxp06f3pUpr",
+"displayName": "Gahengeri"
+},
+{
+"lastUpdated": "2017-09-28T04:23:43.132",
+"id": "vrnQszrqYjY",
+"displayName": "Gahini"
+},
+{
+"lastUpdated": "2017-09-28T04:24:55.901",
+"id": "jkmrAfAaeLb",
+"displayName": "Gahunga"
+},
+{
+"lastUpdated": "2017-09-28T04:22:57.616",
+"id": "baWnfTXqIXp",
+"displayName": "Gakenke "
+},
+{
+"lastUpdated": "2017-09-28T04:24:48.293",
+"id": "ebBxklFIZCw",
+"displayName": "Gasaka"
+},
+{
+"lastUpdated": "2017-09-28T04:23:50.309",
+"id": "irzxiHLhx9S",
+"displayName": "Gasange"
+},
+{
+"lastUpdated": "2017-09-28T04:22:44.522",
+"id": "eFybvWntDN2",
+"displayName": "Gashaki"
+},
+{
+"lastUpdated": "2017-09-28T04:24:12.240",
+"id": "fx6SWrIEllO",
+"displayName": "Gashanda"
+},
+{
+"lastUpdated": "2017-09-28T04:23:46.667",
+"id": "f47QLAhV89w",
+"displayName": "Gashari"
+},
+{
+"lastUpdated": "2017-09-28T04:24:17.225",
+"id": "uFPSrAXnRiq",
+"displayName": "Gashenyi "
+},
+{
+"lastUpdated": "2017-09-28T04:24:28.930",
+"id": "qq4R2oUSuKs",
+"displayName": "Gashonga"
+},
+{
+"lastUpdated": "2017-09-28T04:21:57.247",
+"id": "xHe6AHOiQWp",
+"displayName": "Gashora"
+},
+{
+"lastUpdated": "2017-09-28T04:22:05.464",
+"id": "eRObJe2EJ5c",
+"displayName": "Gataraga"
+},
+{
+"lastUpdated": "2017-09-28T04:24:48.736",
+"id": "avZFIgp2nzH",
+"displayName": "Gatare"
+},
+{
+"lastUpdated": "2017-09-28T04:24:18.549",
+"id": "bSXpYeo3DSJ",
+"displayName": "Gatebe"
+},
+{
+"lastUpdated": "2017-09-28T04:25:03.919",
+"id": "n0v01HuUZTp",
+"displayName": "Gatenga"
+},
+{
+"lastUpdated": "2017-09-28T04:24:10.028",
+"id": "dPfv2vnEYEk",
+"displayName": "Gatore"
+},
+{
+"lastUpdated": "2017-09-28T04:24:30.262",
+"id": "U6HqChzWzU8",
+"displayName": "Gatsata"
+},
+{
+"lastUpdated": "2017-09-28T04:22:45.409",
+"id": "rp8ojrNmtUO",
+"displayName": "Gatsibo"
+},
+{
+"lastUpdated": "2017-09-28T04:22:29.257",
+"id": "jGWrmx6coLq",
+"displayName": "GATUMBA"
+},
+{
+"lastUpdated": "2017-09-28T04:22:51.198",
+"id": "b5eOoI2EOKD",
+"displayName": "GATUNDA"
+},
+{
+"lastUpdated": "2017-09-28T04:24:29.377",
+"id": "BzhJzdAGARk",
+"displayName": "Gihango"
+},
+{
+"lastUpdated": "2017-09-28T04:22:39.104",
+"id": "bAnRvcCyY8r",
+"displayName": "Giheke"
+},
+{
+"lastUpdated": "2017-09-28T04:22:41.423",
+"id": "krKIhHngAnB",
+"displayName": "Gihombo"
+},
+{
+"lastUpdated": "2017-09-28T04:24:42.441",
+"id": "l2PMWEQmytV",
+"displayName": "Gihundwe"
+},
+{
+"lastUpdated": "2017-09-28T04:23:05.293",
+"id": "yOQhTgYzvyY",
+"displayName": "Gikomero"
+},
+{
+"lastUpdated": "2017-09-28T04:23:14.611",
+"id": "xRmoYVK34KD",
+"displayName": "Gikondo"
+},
+{
+"lastUpdated": "2017-09-28T04:23:10.825",
+"id": "gRa6az5Yf8O",
+"displayName": "Gikonko"
+},
+{
+"lastUpdated": "2017-09-28T04:24:40.679",
+"id": "nvhLhNBoC8z",
+"displayName": "Gikundamvura"
+},
+{
+"lastUpdated": "2017-09-28T04:22:32.807",
+"id": "cxrm96DZ5ys",
+"displayName": "Gisenyi"
+},
+{
+"lastUpdated": "2017-09-28T04:23:03.088",
+"id": "bpM1NHiUpHe",
+"displayName": "Gishali"
+},
+{
+"lastUpdated": "2017-09-28T04:23:22.070",
+"id": "v1qbdnEI5TA",
+"displayName": "Gishamvu"
+},
+{
+"lastUpdated": "2017-09-28T04:23:45.333",
+"id": "okiQjCRUpM3",
+"displayName": "Gishubi"
+},
+{
+"lastUpdated": "2017-09-28T04:23:29.300",
+"id": "uoPjt1owoe8",
+"displayName": "Gishyita"
+},
+{
+"lastUpdated": "2017-09-28T04:22:59.422",
+"id": "pM2cqSqzDZ7",
+"displayName": "Gisozi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:50.497",
+"id": "aYFD5gH9NB8",
+"displayName": "Gitambi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:27.495",
+"id": "dK5GND6Zr8f",
+"displayName": "Gitega"
+},
+{
+"lastUpdated": "2017-09-28T04:23:58.445",
+"id": "oo7GQL7N2Pq",
+"displayName": "Gitesi"
+},
+{
+"lastUpdated": "2017-09-28T04:23:39.500",
+"id": "bBeBDLIfL7u",
+"displayName": "Giti"
+},
+{
+"lastUpdated": "2017-09-28T04:22:20.160",
+"id": "iocII661cDQ",
+"displayName": "Gitoki"
+},
+{
+"lastUpdated": "2017-09-28T04:23:28.418",
+"id": "dEkKkVb83St",
+"displayName": "Gitovu"
+},
+{
+"lastUpdated": "2017-09-28T04:22:28.374",
+"id": "suzLlrdNbXU",
+"displayName": "HINDIRO"
+},
+{
+"lastUpdated": "2017-09-28T04:21:59.943",
+"id": "kzcv5FCyLpP",
+"displayName": "Huye"
+},
+{
+"lastUpdated": "2017-09-28T04:22:42.767",
+"id": "tUuWFRP2VQq",
+"displayName": "Jabana"
+},
+{
+"lastUpdated": "2017-09-28T04:23:52.970",
+"id": "nZHal93JyWr",
+"displayName": "Jali"
+},
+{
+"lastUpdated": "2017-09-28T04:23:20.135",
+"id": "vbskHa5NSCh",
+"displayName": "Janja "
+},
+{
+"lastUpdated": "2017-09-28T04:24:01.472",
+"id": "jI2NWFymyi4",
+"displayName": "Jarama"
+},
+{
+"lastUpdated": "2017-09-28T04:24:01.032",
+"id": "h0C1S10Qmp0",
+"displayName": "Jenda"
+},
+{
+"lastUpdated": "2017-09-28T04:24:54.568",
+"id": "RJmYYd950ix",
+"displayName": "Jomba"
+},
+{
+"lastUpdated": "2017-09-28T04:24:37.091",
+"id": "kms6CPUlUPT",
+"displayName": "Juru"
+},
+{
+"lastUpdated": "2017-09-28T04:23:28.858",
+"id": "puYqcAH3pv6",
+"displayName": "Kabacuzi"
+},
+{
+"lastUpdated": "2017-09-28T04:23:27.529",
+"id": "qeTWzbasbEy",
+"displayName": "Kabagali"
+},
+{
+"lastUpdated": "2017-09-28T04:24:23.483",
+"id": "EritxSJ4SVG",
+"displayName": "Kabare"
+},
+{
+"lastUpdated": "2017-09-28T04:24:09.077",
+"id": "oF0jBQBZLNb",
+"displayName": "Kabarondo"
+},
+{
+"lastUpdated": "2017-09-28T04:25:03.482",
+"id": "vS55GovQ9rB",
+"displayName": "Kabarore"
+},
+{
+"lastUpdated": "2017-09-28T04:24:41.564",
+"id": "mQBZzbgZ9ms",
+"displayName": "Kabatwa"
+},
+{
+"lastUpdated": "2017-09-28T04:24:24.486",
+"id": "zHaPqnoDXYU",
+"displayName": "KABAYA"
+},
+{
+"lastUpdated": "2017-09-28T04:24:01.918",
+"id": "jTpfU4b3RoI",
+"displayName": "Kacyiru"
+},
+{
+"lastUpdated": "2017-09-28T04:23:01.649",
+"id": "lIynNPPrgwZ",
+"displayName": "Kaduha"
+},
+{
+"lastUpdated": "2017-09-28T04:22:41.872",
+"id": "cUkURoOqSFN",
+"displayName": "Kagano"
+},
+{
+"lastUpdated": "2017-09-28T04:22:32.365",
+"id": "gP1Hq2AVElN",
+"displayName": "Kagarama"
+},
+{
+"lastUpdated": "2017-09-28T04:24:40.237",
+"id": "woIGpExwN23",
+"displayName": "KAGEYO"
+},
+{
+"lastUpdated": "2017-09-28T04:24:05.989",
+"id": "pNjF6PmUesn",
+"displayName": "Kageyo"
+},
+{
+"lastUpdated": "2017-09-28T04:22:20.616",
+"id": "tn1xaJXBsbC",
+"displayName": "Kageyo (Gatsibo District)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:16.000",
+"id": "ghGhjXGQXWV",
+"displayName": "Kagogo"
+},
+{
+"lastUpdated": "2017-09-28T04:23:41.374",
+"id": "cyeDms6pK18",
+"displayName": "Kamabuye"
+},
+{
+"lastUpdated": "2017-09-28T04:23:26.641",
+"id": "q90qPRoVKPl",
+"displayName": "Kamegeri"
+},
+{
+"lastUpdated": "2017-09-28T04:21:57.726",
+"id": "gYMnULoNBrC",
+"displayName": "Kamembe"
+},
+{
+"lastUpdated": "2017-09-28T04:23:15.221",
+"id": "iLLtATJI34D",
+"displayName": "Kamubuga "
+},
+{
+"lastUpdated": "2017-09-28T04:23:24.817",
+"id": "cZO9576NLmH",
+"displayName": "Kanama"
+},
+{
+"lastUpdated": "2017-09-28T04:24:25.373",
+"id": "Mfq6tTTiEPp",
+"displayName": "Kaniga"
+},
+{
+"lastUpdated": "2017-09-28T04:23:35.516",
+"id": "hkUJDBQ8KeO",
+"displayName": "Kanjongo"
+},
+{
+"lastUpdated": "2017-09-28T04:24:55.457",
+"id": "dGWzQBcZDf9",
+"displayName": "Kanombe"
+},
+{
+"lastUpdated": "2017-09-28T04:22:47.611",
+"id": "sksYdkPSRIm",
+"displayName": "Kansi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:58.513",
+"id": "uM614oCFXu2",
+"displayName": "Kanyinya"
+},
+{
+"lastUpdated": "2017-09-28T04:24:33.496",
+"id": "wV8YzwFJjus",
+"displayName": "Kanzenze"
+},
+{
+"lastUpdated": "2017-09-28T04:23:09.827",
+"id": "wlTNvmtOf7u",
+"displayName": "Karago"
+},
+{
+"lastUpdated": "2017-09-28T04:21:59.503",
+"id": "sO4Mx7sBU68",
+"displayName": "Karama (Huye)"
+},
+{
+"lastUpdated": "2017-09-28T04:23:42.692",
+"id": "iAOpAyhpHWs",
+"displayName": "Karama (Kamonyi District)"
+},
+{
+"lastUpdated": "2017-09-28T04:25:06.364",
+"id": "CSiOPKW1OQP",
+"displayName": "Karama (Nyagatare)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:11.367",
+"id": "sV9uSCgjbl2",
+"displayName": "Karambi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:40.979",
+"id": "pJ5hKosW9LI",
+"displayName": "Karambo "
+},
+{
+"lastUpdated": "2017-09-28T04:25:03.040",
+"id": "hzChb43kRxC",
+"displayName": "KARANGAZI"
+},
+{
+"lastUpdated": "2017-09-28T04:22:13.294",
+"id": "lcK22gQzxNM",
+"displayName": "Karembo"
+},
+{
+"lastUpdated": "2017-09-28T04:25:04.868",
+"id": "ifh1EuMK1Ns",
+"displayName": "Karenge"
+},
+{
+"lastUpdated": "2017-09-28T04:25:02.155",
+"id": "yRx1pRIEpnZ",
+"displayName": "Karengera"
+},
+{
+"lastUpdated": "2017-09-28T04:25:05.369",
+"id": "kK2q2WY77km",
+"displayName": "KATABAGEMU"
+},
+{
+"lastUpdated": "2017-09-28T04:23:36.415",
+"id": "ujfNMAfWJRS",
+"displayName": "KAVUMU"
+},
+{
+"lastUpdated": "2017-09-28T04:23:33.320",
+"id": "csHr23oMNaW",
+"displayName": "Kayenzi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:45.851",
+"id": "hOD7VKqidOD",
+"displayName": "Kayumbu"
+},
+{
+"lastUpdated": "2017-09-28T04:23:50.748",
+"id": "b8kEv5rODhc",
+"displayName": "Kazo"
+},
+{
+"lastUpdated": "2017-09-28T04:23:30.180",
+"id": "b1eGeeW9sFE",
+"displayName": "Kibangu"
+},
+{
+"lastUpdated": "2017-09-28T04:23:54.816",
+"id": "wNjJUBRrzu3",
+"displayName": "Kibeho"
+},
+{
+"lastUpdated": "2017-09-28T04:23:17.786",
+"id": "qSV1IcLBdfV",
+"displayName": "Kibilizi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:53.615",
+"id": "hBAFCwMiqlZ",
+"displayName": "Kibirizi"
+},
+{
+"lastUpdated": "2017-09-28T04:23:24.373",
+"id": "sWUrChAoH25",
+"displayName": "Kibirizi (Nyamagabe District)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:00.377",
+"id": "ti56UzGkRbZ",
+"displayName": "Kibumbwe"
+},
+{
+"lastUpdated": "2017-09-28T04:22:51.660",
+"id": "v4N8fBfOoQl",
+"displayName": "Kibungo"
+},
+{
+"lastUpdated": "2017-09-28T04:22:28.821",
+"id": "pf7Gnt3V9E5",
+"displayName": "Kicukiro"
+},
+{
+"lastUpdated": "2017-09-28T04:21:56.662",
+"id": "cNy8pLEFkqW",
+"displayName": "Kigabiro"
+},
+{
+"lastUpdated": "2017-09-28T04:23:51.191",
+"id": "nQ5Mu8IEaE9",
+"displayName": "Kigali"
+},
+{
+"lastUpdated": "2017-09-28T04:22:17.777",
+"id": "zxTBOD9WXPR",
+"displayName": "Kigarama"
+},
+{
+"lastUpdated": "2017-09-28T04:24:33.054",
+"id": "rVCnX8yjUDl",
+"displayName": "Kigarama (Kirehe  District)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:07.307",
+"id": "qNoFgYc6u9U",
+"displayName": "Kigembe"
+},
+{
+"lastUpdated": "2017-09-28T04:22:34.691",
+"id": "xmrMs4DTslE",
+"displayName": "Kigeyo"
+},
+{
+"lastUpdated": "2017-09-28T04:22:25.584",
+"id": "qK0V1tuQpUV",
+"displayName": "Kigina"
+},
+{
+"lastUpdated": "2017-09-28T04:23:39.938",
+"id": "v1npeoELsdP",
+"displayName": "Kigoma"
+},
+{
+"lastUpdated": "2017-09-28T04:22:01.684",
+"id": "isT52GoHoPq",
+"displayName": "Kigoma (Huye District)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:34.824",
+"id": "flfI7HaIPsT",
+"displayName": "Kimihurura"
+},
+{
+"lastUpdated": "2017-09-28T04:22:34.248",
+"id": "mYe5WAfuZyt",
+"displayName": "Kimironko"
+},
+{
+"lastUpdated": "2017-09-28T04:24:22.570",
+"id": "roynSBoq4Kx",
+"displayName": "Kimisagara"
+},
+{
+"lastUpdated": "2017-09-28T04:24:43.771",
+"id": "iwNKRvJykJP",
+"displayName": "Kimonyi"
+},
+{
+"lastUpdated": "2017-09-28T04:23:46.223",
+"id": "y6ynK81kB6P",
+"displayName": "Kinazi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:46.493",
+"id": "k6nvvjinOjC",
+"displayName": "Kinazi (Ruhango  District)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:44.967",
+"id": "jf07yU5jZeE",
+"displayName": "Kinigi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:09.598",
+"id": "fwxrPPlhGdS",
+"displayName": "Kinihira (Ruhango)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:20.574",
+"id": "qEJ9EXkPUVF",
+"displayName": "KINIHIRA (Rulindo)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:37.783",
+"id": "i14kxXYJDJI",
+"displayName": "Kinoni"
+},
+{
+"lastUpdated": "2017-09-28T04:22:03.443",
+"id": "tKDPwSBLEJ8",
+"displayName": "Kintobo"
+},
+{
+"lastUpdated": "2017-09-28T04:24:03.755",
+"id": "ubhZBPhJitg",
+"displayName": "Kinyababa"
+},
+{
+"lastUpdated": "2017-09-28T04:23:07.911",
+"id": "mjd6FW56ESK",
+"displayName": "Kinyinya"
+},
+{
+"lastUpdated": "2017-09-28T04:22:43.646",
+"id": "zfWF2YNMopg",
+"displayName": "Kiramuruzi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:13.121",
+"id": "b0TlmlPwBbQ",
+"displayName": "Kirehe"
+},
+{
+"lastUpdated": "2017-09-28T04:23:38.181",
+"id": "yAuwjiu3Bla",
+"displayName": "Kirimbi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:33.690",
+"id": "s9Ph8ivLxiT",
+"displayName": "KISARO"
+},
+{
+"lastUpdated": "2017-09-28T04:25:02.594",
+"id": "oCHSsNnXOO2",
+"displayName": "Kitabi"
+},
+{
+"lastUpdated": "2017-09-28T04:25:01.261",
+"id": "n3QNptYQ9DV",
+"displayName": "Kivu"
+},
+{
+"lastUpdated": "2017-09-28T04:23:00.745",
+"id": "uoxBug0TBqQ",
+"displayName": "Kivumu"
+},
+{
+"lastUpdated": "2017-09-28T04:24:03.312",
+"id": "kEYkh7lLRxp",
+"displayName": "Kivuruga "
+},
+{
+"lastUpdated": "2017-09-28T04:22:46.730",
+"id": "mVjxYnw1gyk",
+"displayName": "Kivuye"
+},
+{
+"lastUpdated": "2017-09-28T04:24:04.634",
+"id": "pWhCSXUmqzb",
+"displayName": "KIYOMBE"
+},
+{
+"lastUpdated": "2017-09-28T04:23:57.497",
+"id": "fXzEUohuDUx",
+"displayName": "Kiyumba"
+},
+{
+"lastUpdated": "2017-09-28T04:22:21.951",
+"id": "t0kI1QHIm6v",
+"displayName": "Kiziguro"
+},
+{
+"lastUpdated": "2017-09-28T04:24:25.814",
+"id": "Gu5PQzqP3oc",
+"displayName": "Macuba"
+},
+{
+"lastUpdated": "2017-09-28T04:23:52.072",
+"id": "oEEhbmWR7Zk",
+"displayName": "Mageragere"
+},
+{
+"lastUpdated": "2017-09-28T04:22:04.951",
+"id": "sCGRP9kn7Mx",
+"displayName": "Mahama"
+},
+{
+"lastUpdated": "2017-09-28T04:23:48.544",
+"id": "hok5uMdOwyy",
+"displayName": "Mahembe"
+},
+{
+"lastUpdated": "2017-09-28T04:23:44.893",
+"id": "xQgPke6Fg5k",
+"displayName": "Mamba"
+},
+{
+"lastUpdated": "2017-09-28T04:23:55.726",
+"id": "cINDOwngnpP",
+"displayName": "Manihira"
+},
+{
+"lastUpdated": "2017-09-28T04:23:26.188",
+"id": "gmIppHg2i3O",
+"displayName": "Manyagiro"
+},
+{
+"lastUpdated": "2017-09-28T04:23:53.854",
+"id": "cQhlmgg3nnX",
+"displayName": "Maraba"
+},
+{
+"lastUpdated": "2017-09-28T04:24:15.381",
+"id": "wjTfGhydjrn",
+"displayName": "Mareba"
+},
+{
+"lastUpdated": "2017-09-28T04:24:59.447",
+"id": "zDchRTEEZPK",
+"displayName": "Masaka"
+},
+{
+"lastUpdated": "2017-09-28T04:22:31.483",
+"id": "yuC4ByotStU",
+"displayName": "MASORO"
+},
+{
+"lastUpdated": "2017-09-28T04:24:58.561",
+"id": "m8H5ep6Y08r",
+"displayName": "Mata"
+},
+{
+"lastUpdated": "2017-09-28T04:22:12.850",
+"id": "pfxw2X0fFq5",
+"displayName": "Mataba "
+},
+{
+"lastUpdated": "2017-09-28T04:22:52.976",
+"id": "gEz7eBf9uLf",
+"displayName": "MATIMBA"
+},
+{
+"lastUpdated": "2017-09-28T04:23:03.971",
+"id": "fCSgXYlzcz4",
+"displayName": "MATYAZO"
+},
+{
+"lastUpdated": "2017-09-28T04:24:15.824",
+"id": "n4hr8ZNMpDR",
+"displayName": "Mayange"
+},
+{
+"lastUpdated": "2017-09-28T04:23:10.312",
+"id": "y6wL7il1PPC",
+"displayName": "Mbazi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:45.985",
+"id": "krOvojCtccV",
+"displayName": "Mbazi (Nyamagabe District)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:31.671",
+"id": "uz71KdlmXug",
+"displayName": "MBOGO"
+},
+{
+"lastUpdated": "2017-09-28T04:24:27.150",
+"id": "UWJgiFtmGUm",
+"displayName": "Mbuye"
+},
+{
+"lastUpdated": "2017-09-28T04:22:52.099",
+"id": "hqCHnjTu5zt",
+"displayName": "MIMURI"
+},
+{
+"lastUpdated": "2017-09-28T04:24:35.265",
+"id": "tFrEEZ19b9t",
+"displayName": "Minazi "
+},
+{
+"lastUpdated": "2017-09-28T04:22:15.114",
+"id": "ycDkHTtmLsS",
+"displayName": "Miyove"
+},
+{
+"lastUpdated": "2017-09-28T04:22:25.137",
+"id": "xvxGBN19J5c",
+"displayName": "Mpanga"
+},
+{
+"lastUpdated": "2017-09-28T04:25:05.873",
+"id": "emMpRKQSqMp",
+"displayName": "Mubuga"
+},
+{
+"lastUpdated": "2017-09-28T04:22:36.903",
+"id": "kqvM8YPNid1",
+"displayName": "Mudende"
+},
+{
+"lastUpdated": "2017-09-28T04:23:55.280",
+"id": "guBubj809mz",
+"displayName": "Mugano"
+},
+{
+"lastUpdated": "2017-09-28T04:23:45.783",
+"id": "eKYS6U9Q5z0",
+"displayName": "Muganza"
+},
+{
+"lastUpdated": "2017-09-28T04:22:26.053",
+"id": "lEoMx8w9Adv",
+"displayName": "Muganza (Nyaruguru District)"
+},
+{
+"lastUpdated": "2017-09-28T04:23:05.731",
+"id": "yIijHvI7NlA",
+"displayName": "Muganza (Rusizi District)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:22.873",
+"id": "mUnKEmbJ6KE",
+"displayName": "Mugesera"
+},
+{
+"lastUpdated": "2017-09-28T04:24:54.128",
+"id": "uZF8MxMtd0g",
+"displayName": "Mugina"
+},
+{
+"lastUpdated": "2017-09-28T04:23:19.576",
+"id": "gZk2AR7530T",
+"displayName": "Mugombwa"
+},
+{
+"lastUpdated": "2017-09-28T04:22:13.743",
+"id": "juv8NlHfzM1",
+"displayName": "Mugunga "
+},
+{
+"lastUpdated": "2017-09-28T04:23:36.856",
+"id": "naArs9LWeZR",
+"displayName": "MUHANDA"
+},
+{
+"lastUpdated": "2017-09-28T04:24:18.110",
+"id": "j4TNGAyH1Ph",
+"displayName": "Muhanga"
+},
+{
+"lastUpdated": "2017-09-28T04:24:06.870",
+"id": "lQAGPSzicu3",
+"displayName": "Muhazi"
+},
+{
+"lastUpdated": "2017-09-28T04:23:06.163",
+"id": "jiI9IJARHRd",
+"displayName": "Muhima"
+},
+{
+"lastUpdated": "2017-09-28T04:22:06.438",
+"id": "gsRm13fRmW2",
+"displayName": "Muhondo "
+},
+{
+"lastUpdated": "2017-09-28T04:22:55.352",
+"id": "fegtwyJ639P",
+"displayName": "MUHORORO"
+},
+{
+"lastUpdated": "2017-09-28T04:22:42.319",
+"id": "ajXhrgAmnVp",
+"displayName": "Muhoza"
+},
+{
+"lastUpdated": "2017-09-28T04:22:44.085",
+"id": "t5RmUHwTqoY",
+"displayName": "Muhura"
+},
+{
+"lastUpdated": "2017-09-28T04:24:16.762",
+"id": "sYK7iio8FCT",
+"displayName": "MUKAMA"
+},
+{
+"lastUpdated": "2017-09-28T04:23:07.034",
+"id": "aBlz1yzmlY9",
+"displayName": "Mukamira"
+},
+{
+"lastUpdated": "2017-09-28T04:22:50.322",
+"id": "et8g0IBrc8F",
+"displayName": "Mukarange"
+},
+{
+"lastUpdated": "2017-09-28T04:24:49.175",
+"id": "wnVYL8MRovT",
+"displayName": "Mukarange (Kayonza District)"
+},
+{
+"lastUpdated": "2017-09-28T04:23:20.634",
+"id": "dd2UVBbiJp6",
+"displayName": "Mukindo"
+},
+{
+"lastUpdated": "2017-09-28T04:23:16.777",
+"id": "jY19XLX5phz",
+"displayName": "Mukingo"
+},
+{
+"lastUpdated": "2017-09-28T04:23:14.021",
+"id": "usFlkS7j5yT",
+"displayName": "Muko"
+},
+{
+"lastUpdated": "2017-09-28T04:22:19.148",
+"id": "mG48SGqDtOt",
+"displayName": "Muko (Gicumbi  District)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:47.406",
+"id": "gDeQ9ElY42U",
+"displayName": "Mukura"
+},
+{
+"lastUpdated": "2017-09-28T04:24:59.004",
+"id": "rbvMQ3TCoyQ",
+"displayName": "Mukura (Rutsiro  District)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:45.542",
+"id": "t0hjOeTDFCm",
+"displayName": "Munini"
+},
+{
+"lastUpdated": "2017-09-28T04:22:50.759",
+"id": "zvOOBIVg8fp",
+"displayName": "Munyaga"
+},
+{
+"lastUpdated": "2017-09-28T04:24:37.978",
+"id": "vB2dXYAvti6",
+"displayName": "Munyiginya"
+},
+{
+"lastUpdated": "2017-09-28T04:24:08.630",
+"id": "r9nQIpfj0rj",
+"displayName": "Murama"
+},
+{
+"lastUpdated": "2017-09-28T04:23:34.637",
+"id": "syIv5rVB0Yq",
+"displayName": "Murama (Ngoma  District)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:24.929",
+"id": "YwvwSv5CTA8",
+"displayName": "MURAMBI"
+},
+{
+"lastUpdated": "2017-09-28T04:22:55.831",
+"id": "nPvcWazVfQl",
+"displayName": "Murambi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:16.887",
+"id": "fYOg0gl6zkA",
+"displayName": "Murambi (Gatsibo District)"
+},
+{
+"lastUpdated": "2017-09-28T04:23:34.200",
+"id": "c9ryUBE0b8l",
+"displayName": "Muringa"
+},
+{
+"lastUpdated": "2017-09-28T04:22:36.018",
+"id": "cG1H6lA6y5d",
+"displayName": "Murunda"
+},
+{
+"lastUpdated": "2017-09-28T04:23:31.947",
+"id": "v25CAeR44jA",
+"displayName": "Murundi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:08.191",
+"id": "e7sKtjqVNtz",
+"displayName": "Murundi (Kayonza District)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:40.431",
+"id": "qDIC2cJlZ12",
+"displayName": "Mururu"
+},
+{
+"lastUpdated": "2017-09-28T04:24:31.147",
+"id": "SICKqXFy5zu",
+"displayName": "Musambira"
+},
+{
+"lastUpdated": "2017-09-28T04:23:08.350",
+"id": "jtWfocolPSj",
+"displayName": "Musange"
+},
+{
+"lastUpdated": "2017-09-28T04:23:00.305",
+"id": "zvS1hbxSh8d",
+"displayName": "Musanze"
+},
+{
+"lastUpdated": "2017-09-28T04:22:36.458",
+"id": "mtR3VofnAM9",
+"displayName": "Musasa"
+},
+{
+"lastUpdated": "2017-09-28T04:22:23.318",
+"id": "kK5ZKZhjWjx",
+"displayName": "Musaza"
+},
+{
+"lastUpdated": "2017-09-28T04:22:10.484",
+"id": "ndep578f600",
+"displayName": "Musebeya"
+},
+{
+"lastUpdated": "2017-09-28T04:22:54.343",
+"id": "ixWgcZ7iCw4",
+"displayName": "Musenyi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:44.213",
+"id": "trKVyDpmfnE",
+"displayName": "Musha"
+},
+{
+"lastUpdated": "2017-09-28T04:22:49.884",
+"id": "hl8E5Dyrdv6",
+"displayName": "Musha (Rwamagana  District)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:53.459",
+"id": "lBkVRGnvros",
+"displayName": "MUSHERI"
+},
+{
+"lastUpdated": "2017-09-28T04:24:14.002",
+"id": "qjjLu22arqA",
+"displayName": "Mushikiri"
+},
+{
+"lastUpdated": "2017-09-28T04:23:30.620",
+"id": "m4HmAvrxGTV",
+"displayName": "Mushishiro"
+},
+{
+"lastUpdated": "2017-09-28T04:23:32.383",
+"id": "whNKnSDFdTU",
+"displayName": "Mushonyi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:55.010",
+"id": "zPXKfKa0I0P",
+"displayName": "Mushubati"
+},
+{
+"lastUpdated": "2017-09-28T04:23:40.904",
+"id": "zIGMDXRIPPH",
+"displayName": "Mushubi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:56.346",
+"id": "pnvfiW7coKk",
+"displayName": "Mutenderi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:26.503",
+"id": "dz18ro1ORZq",
+"displayName": "Mutete"
+},
+{
+"lastUpdated": "2017-09-28T04:22:35.133",
+"id": "eR1TsrBHfqf",
+"displayName": "Mutuntu"
+},
+{
+"lastUpdated": "2017-09-28T04:23:18.412",
+"id": "xutEHehNGOF",
+"displayName": "Muyira"
+},
+{
+"lastUpdated": "2017-09-28T04:22:43.209",
+"id": "aZzxcPdgQuq",
+"displayName": "Muyongwe "
+},
+{
+"lastUpdated": "2017-09-28T04:23:35.975",
+"id": "ntM7E4L122x",
+"displayName": "Muyumbu"
+},
+{
+"lastUpdated": "2017-09-28T04:22:12.407",
+"id": "nlVWbxkIHLm",
+"displayName": "Muzo "
+},
+{
+"lastUpdated": "2017-09-28T04:23:40.465",
+"id": "fxPDsvMEz2S",
+"displayName": "Mwendo"
+},
+{
+"lastUpdated": "2017-09-28T04:22:56.723",
+"id": "gj9yhNBwKMS",
+"displayName": "Mwiri"
+},
+{
+"lastUpdated": "2017-09-28T04:24:09.584",
+"id": "k9ndnd58jHe",
+"displayName": "Mwogo"
+},
+{
+"lastUpdated": "2017-09-28T04:22:14.231",
+"id": "bkokIMDSgC4",
+"displayName": "Mwulire"
+},
+{
+"lastUpdated": "2017-09-28T04:24:12.679",
+"id": "o1pznhBBFtX",
+"displayName": "Nasho"
+},
+{
+"lastUpdated": "2017-09-28T04:23:04.416",
+"id": "d37t5N10KSj",
+"displayName": "NDARO"
+},
+{
+"lastUpdated": "2017-09-28T04:24:11.355",
+"id": "eUyPvRHGvxt",
+"displayName": "Ndego"
+},
+{
+"lastUpdated": "2017-09-28T04:23:11.315",
+"id": "dUk3ilQWHmG",
+"displayName": "Ndera"
+},
+{
+"lastUpdated": "2017-09-28T04:23:02.091",
+"id": "yIQgHzlOTJ0",
+"displayName": "Ndora"
+},
+{
+"lastUpdated": "2017-09-28T04:23:52.515",
+"id": "bqBezud93Ou",
+"displayName": "Nduba"
+},
+{
+"lastUpdated": "2017-09-28T04:24:47.850",
+"id": "onJ0XVFk1IO",
+"displayName": "Nemba"
+},
+{
+"lastUpdated": "2017-09-28T04:24:02.875",
+"id": "a2W5XUyx7Eo",
+"displayName": "Nemba "
+},
+{
+"lastUpdated": "2017-09-28T04:23:31.504",
+"id": "rCofqa0jL93",
+"displayName": "Ngamba"
+},
+{
+"lastUpdated": "2017-09-28T04:24:58.116",
+"id": "oPgMegr8pBv",
+"displayName": "Ngarama"
+},
+{
+"lastUpdated": "2017-09-28T04:24:52.274",
+"id": "wz4d2es3Ifl",
+"displayName": "Ngera"
+},
+{
+"lastUpdated": "2017-09-28T04:22:54.779",
+"id": "nFxSuA5D6YE",
+"displayName": "Ngeruka"
+},
+{
+"lastUpdated": "2017-09-28T04:23:07.475",
+"id": "dgcwyLu6Lsm",
+"displayName": "NGOMA"
+},
+{
+"lastUpdated": "2017-09-28T04:22:05.958",
+"id": "dCPFl1tqJX5",
+"displayName": "Ngoma"
+},
+{
+"lastUpdated": "2017-09-28T04:22:02.572",
+"id": "i5uxdY2ljgL",
+"displayName": "Ngoma (Huye District)"
+},
+{
+"lastUpdated": "2017-09-28T04:23:03.531",
+"id": "qCrkYUqA0SE",
+"displayName": "NGORORERO"
+},
+{
+"lastUpdated": "2017-09-28T04:23:08.788",
+"id": "vk3jF5VGaZI",
+"displayName": "Niboye"
+},
+{
+"lastUpdated": "2017-09-28T04:22:39.541",
+"id": "tlvtjucj8Rr",
+"displayName": "Nkanka"
+},
+{
+"lastUpdated": "2017-09-28T04:23:27.976",
+"id": "cR1ORHKKSjH",
+"displayName": "Nkomane"
+},
+{
+"lastUpdated": "2017-09-28T04:22:38.219",
+"id": "g4tRm1SCbmh",
+"displayName": "Nkombo"
+},
+{
+"lastUpdated": "2017-09-28T04:22:14.672",
+"id": "v7Sthbstw1h",
+"displayName": "Nkotsi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:39.987",
+"id": "rkTV3QrWjpT",
+"displayName": "Nkungu"
+},
+{
+"lastUpdated": "2017-09-28T04:23:15.761",
+"id": "qbDjI1c4AzX",
+"displayName": "NTARABANA"
+},
+{
+"lastUpdated": "2017-09-28T04:24:16.271",
+"id": "yZQg6n4B5ji",
+"displayName": "Ntarama"
+},
+{
+"lastUpdated": "2017-09-28T04:23:56.613",
+"id": "u6IULrtLsw0",
+"displayName": "Ntongwe"
+},
+{
+"lastUpdated": "2017-09-28T04:23:44.453",
+"id": "hpl8qmh7bk7",
+"displayName": "Ntyazo"
+},
+{
+"lastUpdated": "2017-09-28T04:24:46.935",
+"id": "rlh1dXuI6T8",
+"displayName": "Nyabimata"
+},
+{
+"lastUpdated": "2017-09-28T04:23:12.862",
+"id": "wkP40OoxC3g",
+"displayName": "Nyabinoni"
+},
+{
+"lastUpdated": "2017-09-28T04:24:00.118",
+"id": "mWpeRxNFRkr",
+"displayName": "Nyabirasi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:30.131",
+"id": "gqULdroxFv1",
+"displayName": "Nyabitekeri"
+},
+{
+"lastUpdated": "2017-09-28T04:24:10.910",
+"id": "zLcLwAFC2Ow",
+"displayName": "NYAGATARE"
+},
+{
+"lastUpdated": "2017-09-28T04:22:21.058",
+"id": "hdJL2N2MoCZ",
+"displayName": "Nyagihanga"
+},
+{
+"lastUpdated": "2017-09-28T04:24:36.171",
+"id": "jZAlCnFT5s7",
+"displayName": "Nyagisozi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:34.384",
+"id": "kt9MizmwjNZ",
+"displayName": "Nyagisozi (Nyaruguru District)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:28.490",
+"id": "XFK52TRw4ii",
+"displayName": "Nyakabanda"
+},
+{
+"lastUpdated": "2017-09-28T04:24:19.494",
+"id": "k4ZkKR7qx0r",
+"displayName": "Nyakabuye"
+},
+{
+"lastUpdated": "2017-09-28T04:22:49.002",
+"id": "rbLjdkxY23B",
+"displayName": "Nyakaliro"
+},
+{
+"lastUpdated": "2017-09-28T04:23:04.854",
+"id": "n7DIvzuVAP3",
+"displayName": "Nyakarenzo"
+},
+{
+"lastUpdated": "2017-09-28T04:22:35.578",
+"id": "hIXl2y9MizJ",
+"displayName": "Nyakiriba"
+},
+{
+"lastUpdated": "2017-09-28T04:23:57.938",
+"id": "sHQAzqPpxtQ",
+"displayName": "Nyamabuye"
+},
+{
+"lastUpdated": "2017-09-28T04:24:28.047",
+"id": "lWWSg8p0lhX",
+"displayName": "Nyamata"
+},
+{
+"lastUpdated": "2017-09-28T04:24:39.350",
+"id": "f4DoZNb4MnD",
+"displayName": "Nyamirama"
+},
+{
+"lastUpdated": "2017-09-28T04:23:09.293",
+"id": "mA3C4Xh2DQC",
+"displayName": "Nyamirambo"
+},
+{
+"lastUpdated": "2017-09-28T04:23:43.568",
+"id": "tRVy7BIxCLK",
+"displayName": "Nyamiyaga"
+},
+{
+"lastUpdated": "2017-09-28T04:22:48.124",
+"id": "cymC1AQ7qhg",
+"displayName": "Nyamiyaga (Gicumbi  District)"
+},
+{
+"lastUpdated": "2017-09-28T04:23:33.757",
+"id": "slL5hd4qNB8",
+"displayName": "Nyamugari"
+},
+{
+"lastUpdated": "2017-09-28T04:21:56.218",
+"id": "oFvY3iZZMU9",
+"displayName": "Nyamyumba"
+},
+{
+"lastUpdated": "2017-09-28T04:24:32.611",
+"id": "PSm1jSs02Hn",
+"displayName": "NYANGE"
+},
+{
+"lastUpdated": "2017-09-28T04:23:29.738",
+"id": "xeE4CCBqUwu",
+"displayName": "Nyange"
+},
+{
+"lastUpdated": "2017-09-28T04:22:19.714",
+"id": "cRi72LH1t88",
+"displayName": "Nyankenke"
+},
+{
+"lastUpdated": "2017-09-28T04:23:18.967",
+"id": "rdM3O4p6UEC",
+"displayName": "Nyanza"
+},
+{
+"lastUpdated": "2017-09-28T04:24:33.936",
+"id": "rmBeDs6bFrW",
+"displayName": "Nyarubaka"
+},
+{
+"lastUpdated": "2017-09-28T04:22:48.561",
+"id": "epFbD7Z1oPe",
+"displayName": "Nyarubuye"
+},
+{
+"lastUpdated": "2017-09-28T04:24:35.713",
+"id": "prIt4Mokn37",
+"displayName": "Nyarugenge"
+},
+{
+"lastUpdated": "2017-09-28T04:24:26.262",
+"id": "xbumUCPARsT",
+"displayName": "Nyarugenge (Bugesera District)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:57.176",
+"id": "yHu4qxgSgcI",
+"displayName": "Nyarugunga"
+},
+{
+"lastUpdated": "2017-09-28T04:23:57.055",
+"id": "of2Vq9oIsfZ",
+"displayName": "Nyarusange"
+},
+{
+"lastUpdated": "2017-09-28T04:22:24.653",
+"id": "tKzE9eMIz9F",
+"displayName": "Nyundo"
+},
+{
+"lastUpdated": "2017-09-28T04:22:03.897",
+"id": "wt4b8SM4cEN",
+"displayName": "Nzahaha"
+},
+{
+"lastUpdated": "2017-09-28T04:24:07.751",
+"id": "cbqw56wBote",
+"displayName": "Nzige"
+},
+{
+"lastUpdated": "2017-09-28T04:24:56.786",
+"id": "rRmODHhNJPn",
+"displayName": "Rambura"
+},
+{
+"lastUpdated": "2017-09-28T04:22:11.837",
+"id": "pKeNSARDHjT",
+"displayName": "Rangiro"
+},
+{
+"lastUpdated": "2017-09-28T04:23:06.598",
+"id": "lKMsd2AZ9qg",
+"displayName": "Remera"
+},
+{
+"lastUpdated": "2017-09-28T04:22:18.692",
+"id": "xO6H8pISuYU",
+"displayName": "Remera (Gatsibo District)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:46.290",
+"id": "sAONbSqyXCT",
+"displayName": "Remera (Musanze  District)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:27.048",
+"id": "fl9lYqEnnTv",
+"displayName": "Remera (Ngoma  District)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:57.674",
+"id": "xbMquN7sLIJ",
+"displayName": "Ririma"
+},
+{
+"lastUpdated": "2017-09-28T04:24:50.057",
+"id": "pOtCKCLxtkm",
+"displayName": "Rubavu"
+},
+{
+"lastUpdated": "2017-09-28T04:23:32.824",
+"id": "y3M85JYOm0d",
+"displayName": "Rubaya"
+},
+{
+"lastUpdated": "2017-09-28T04:23:59.035",
+"id": "l7e25w4aDsp",
+"displayName": "Rubengera"
+},
+{
+"lastUpdated": "2017-09-28T04:24:41.999",
+"id": "kmRdWkcIcZF",
+"displayName": "Rubona"
+},
+{
+"lastUpdated": "2017-09-28T04:24:49.614",
+"id": "dO5mVkEyPS0",
+"displayName": "Rugabano"
+},
+{
+"lastUpdated": "2017-09-28T04:23:47.111",
+"id": "apgxN8zE4l8",
+"displayName": "Ruganda"
+},
+{
+"lastUpdated": "2017-09-28T04:23:38.619",
+"id": "zGYjDr81Gqt",
+"displayName": "Rugarama"
+},
+{
+"lastUpdated": "2017-09-28T04:24:06.428",
+"id": "lGNcwUpRKZJ",
+"displayName": "Rugarama (Gatsibo District)"
+},
+{
+"lastUpdated": "2017-09-28T04:22:31.923",
+"id": "wEkzviheOdr",
+"displayName": "Rugarika"
+},
+{
+"lastUpdated": "2017-09-28T04:24:22.045",
+"id": "rdMdZAXSWR2",
+"displayName": "Rugendabari"
+},
+{
+"lastUpdated": "2017-09-28T04:22:16.444",
+"id": "wp1Q5Mn6cCn",
+"displayName": "Rugengabari"
+},
+{
+"lastUpdated": "2017-09-28T04:22:24.210",
+"id": "lbjqNdHfyGH",
+"displayName": "Rugera"
+},
+{
+"lastUpdated": "2017-09-28T04:23:35.079",
+"id": "ivk73w9rKGf",
+"displayName": "Rugerero"
+},
+{
+"lastUpdated": "2017-09-28T04:23:44.008",
+"id": "qD0Po2F0URb",
+"displayName": "Ruhango"
+},
+{
+"lastUpdated": "2017-09-28T04:24:29.818",
+"id": "nvBop2cGkvW",
+"displayName": "Ruhango (Rutsiro  District)"
+},
+{
+"lastUpdated": "2017-09-28T04:24:50.943",
+"id": "kt7OtRK2Fnr",
+"displayName": "Ruharambuga"
+},
+{
+"lastUpdated": "2017-09-28T04:23:22.997",
+"id": "rt4ekv5UKSp",
+"displayName": "Ruhashya"
+},
+{
+"lastUpdated": "2017-09-28T04:22:07.923",
+"id": "cEnnlABC5qk",
+"displayName": "Ruheru"
+},
+{
+"lastUpdated": "2017-09-28T04:23:41.813",
+"id": "uyvCG2JKQZH",
+"displayName": "Ruhuha"
+},
+{
+"lastUpdated": "2017-09-28T04:24:05.101",
+"id": "aTaNnneuUUB",
+"displayName": "Ruhunde"
+},
+{
+"lastUpdated": "2017-09-28T04:22:22.417",
+"id": "mvWvcwap0Eo",
+"displayName": "Rukara"
+},
+{
+"lastUpdated": "2017-09-28T04:23:37.300",
+"id": "vINE9OQQUfE",
+"displayName": "Rukira"
+},
+{
+"lastUpdated": "2017-09-28T04:22:03.008",
+"id": "k1ZrOxR5rhC",
+"displayName": "Rukoma"
+},
+{
+"lastUpdated": "2017-09-28T04:22:52.537",
+"id": "hNcqG9td0OR",
+"displayName": "RUKOMO"
+},
+{
+"lastUpdated": "2017-09-28T04:24:27.605",
+"id": "S66uMxb4hP3",
+"displayName": "Rukomo"
+},
+{
+"lastUpdated": "2017-09-28T04:23:49.433",
+"id": "p0iCVriEoxF",
+"displayName": "RUKOZO"
+},
+{
+"lastUpdated": "2017-09-28T04:24:36.624",
+"id": "kqqrzcI96Hm",
+"displayName": "Rukumberi"
+},
+{
+"lastUpdated": "2018-12-14T12:06:51.137",
+"id": "zSmeiTfO5ob",
+"displayName": "Rukura CS"
+},
+{
+"lastUpdated": "2017-09-28T04:23:48.986",
+"id": "x4TXRgfQazT",
+"displayName": "Ruli "
+},
+{
+"lastUpdated": "2017-09-28T04:23:59.586",
+"id": "z4nfOTlSR6F",
+"displayName": "Runda"
+},
+{
+"lastUpdated": "2017-09-28T04:24:44.658",
+"id": "qfDH0WN6ICV",
+"displayName": "Ruramba"
+},
+{
+"lastUpdated": "2017-09-28T04:24:13.560",
+"id": "dACu6WqTSYK",
+"displayName": "Ruramira"
+},
+{
+"lastUpdated": "2017-09-28T04:21:55.774",
+"id": "oeWQtVTE8ej",
+"displayName": "Rurembo"
+},
+{
+"lastUpdated": "2017-09-28T04:24:10.467",
+"id": "cFixxs0uwG9",
+"displayName": "Rurenge"
+},
+{
+"lastUpdated": "2017-09-28T04:23:49.870",
+"id": "n7Px7LUC4QB",
+"displayName": "Rusarabuye"
+},
+{
+"lastUpdated": "2017-09-28T04:24:21.074",
+"id": "qEOqZHiYPvS",
+"displayName": "Rusasa "
+},
+{
+"lastUpdated": "2017-09-28T04:23:39.060",
+"id": "eNVswaf6uDk",
+"displayName": "Rusatira"
+},
+{
+"lastUpdated": "2017-09-28T04:24:32.130",
+"id": "edPtXyNxQkW",
+"displayName": "Rusebeya"
+},
+{
+"lastUpdated": "2017-09-28T04:24:45.096",
+"id": "u5FfjmcUBko",
+"displayName": "Rusenge"
+},
+{
+"lastUpdated": "2017-09-28T04:22:47.172",
+"id": "j82mnchW50s",
+"displayName": "Rushaki"
+},
+{
+"lastUpdated": "2017-09-28T04:24:53.169",
+"id": "nKUKFnu5meb",
+"displayName": "Rushashi "
+},
+{
+"lastUpdated": "2017-09-28T04:24:41.120",
+"id": "wzAkJGGX3jI",
+"displayName": "RUSIGA"
+},
+{
+"lastUpdated": "2017-09-28T04:23:53.414",
+"id": "rV7ZhFtI1Ea",
+"displayName": "Rusororo"
+},
+{
+"lastUpdated": "2017-09-28T04:21:58.177",
+"id": "jc3e7Xz3gXj",
+"displayName": "Rutare"
+},
+{
+"lastUpdated": "2017-09-28T04:22:58.951",
+"id": "lQYuqAwxvxQ",
+"displayName": "Rutunga"
+},
+{
+"lastUpdated": "2017-09-28T04:24:19.051",
+"id": "waNSKNzhQjv",
+"displayName": "Ruvune"
+},
+{
+"lastUpdated": "2017-09-28T04:22:18.219",
+"id": "jh4uqov5gva",
+"displayName": "Rwabicuma"
+},
+{
+"lastUpdated": "2017-09-28T04:22:07.367",
+"id": "wwweTFZAVTE",
+"displayName": "Rwamiko"
+},
+{
+"lastUpdated": "2017-09-28T04:23:25.259",
+"id": "g5fnM8E44rS",
+"displayName": "Rwaniro"
+},
+{
+"lastUpdated": "2017-09-28T04:21:59.065",
+"id": "iIANSMlK999",
+"displayName": "Rwankuba"
+},
+{
+"lastUpdated": "2017-09-28T04:23:22.532",
+"id": "c2KWG1gZZ7d",
+"displayName": "Rwaza"
+},
+{
+"lastUpdated": "2017-09-28T04:25:01.706",
+"id": "kzXYfUCs7Yk",
+"displayName": "RWEMPASHA"
+},
+{
+"lastUpdated": "2017-09-28T04:23:13.425",
+"id": "lQtMQUzXzPk",
+"displayName": "Rwerere"
+},
+{
+"lastUpdated": "2017-09-28T04:22:00.812",
+"id": "uzyFjrAysFn",
+"displayName": "Rweru"
+},
+{
+"lastUpdated": "2017-09-28T04:23:02.652",
+"id": "ijIsHYsjjv7",
+"displayName": "Rwezamenyo"
+},
+{
+"lastUpdated": "2017-09-28T04:22:29.695",
+"id": "hNVeV6dGhMX",
+"displayName": "Rwimbogo"
+},
+{
+"lastUpdated": "2017-09-28T04:24:51.831",
+"id": "fP6dw5Jj3Lm",
+"displayName": "Rwimbogo (Gatsibo District)"
+},
+{
+"lastUpdated": "2017-09-28T04:25:00.770",
+"id": "s6zrzTDd3Ug",
+"displayName": "RWIMIYAGA"
+},
+{
+"lastUpdated": "2017-09-28T04:24:23.035",
+"id": "tx4YLlSnInK",
+"displayName": "Rwinkwavu"
+},
+{
+"lastUpdated": "2017-09-28T04:24:14.880",
+"id": "qKFUP9Qt3kU",
+"displayName": "Sake"
+},
+{
+"lastUpdated": "2017-09-28T04:23:21.112",
+"id": "cYNereEFp5G",
+"displayName": "Save"
+},
+{
+"lastUpdated": "2017-09-28T04:24:59.891",
+"id": "m53prhq6trN",
+"displayName": "Shangasha"
+},
+{
+"lastUpdated": "2017-09-28T04:22:10.042",
+"id": "e00An1dcaw7",
+"displayName": "Shangi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:37.341",
+"id": "qyOATgh83wc",
+"displayName": "Shingiro"
+},
+{
+"lastUpdated": "2017-09-28T04:24:57.233",
+"id": "kGXmGepfnKi",
+"displayName": "Shyara"
+},
+{
+"lastUpdated": "2017-09-28T04:22:27.931",
+"id": "otQayYWLnDx",
+"displayName": "Shyira"
+},
+{
+"lastUpdated": "2017-09-28T04:21:58.620",
+"id": "foPj88q0Zsp",
+"displayName": "Shyogwe"
+},
+{
+"lastUpdated": "2017-09-28T04:23:37.736",
+"id": "it0yZtReGQu",
+"displayName": "SHYORONGI"
+},
+{
+"lastUpdated": "2017-09-28T04:23:23.458",
+"id": "oNOEcrqD9CU",
+"displayName": "Simbi"
+},
+{
+"lastUpdated": "2017-09-28T04:22:38.662",
+"id": "vRH7K6eRZ5k",
+"displayName": "SOVU"
+},
+{
+"lastUpdated": "2017-09-28T04:22:53.898",
+"id": "ni1TbdIv6D1",
+"displayName": "TABAGWE"
+},
+{
+"lastUpdated": "2017-09-28T04:25:04.375",
+"id": "kQ7hv1u6o20",
+"displayName": "Tare"
+},
+{
+"lastUpdated": "2017-09-28T04:22:23.772",
+"id": "uJVI5tcyT0U",
+"displayName": "TUMBA"
+},
+{
+"lastUpdated": "2017-09-28T04:23:23.930",
+"id": "fqNROhxe4sb",
+"displayName": "Tumba"
+},
+{
+"lastUpdated": "2017-09-28T04:22:30.573",
+"id": "cPq9d6xB5S1",
+"displayName": "Twumba"
+},
+{
+"lastUpdated": "2017-09-28T04:22:02.123",
+"id": "osnxB3xVW6i",
+"displayName": "Uwinkingi"
+},
+{
+"lastUpdated": "2017-09-28T04:24:14.439",
+"id": "fyvsWELcvyw",
+"displayName": "Zaza"
+}
+]);
+
+
+
+
+
+//************************** Init Facility Types ************************//
+db.facilitytype.insert([
+{
+"lastUpdated": "2017-09-28T04:37:34.749",
+"name": "Administrative Office",
+"id": "lPADWu96aAv"
+},
+{
+"lastUpdated": "2017-09-28T04:40:24.021",
+"name": "Agree",
+"id": "yTX5rLSq1p7"
+},
+{
+"lastUpdated": "2017-09-28T04:37:02.743",
+"name": "Blood bank/Transfusion Center",
+"id": "ReJJxPh94dW"
+},
+{
+"lastUpdated": "2017-09-28T04:37:36.625",
+"name": "Community",
+"id": "Fl7Ju6Xx2G5"
+},
+{
+"lastUpdated": "2019-04-23T19:13:34.642",
+"name": "Community-owned health facility",
+"id": "Wu3wkl3hGYU"
+},
+{
+"lastUpdated": "2017-09-28T04:43:18.417",
+"name": "Dispensary",
+"id": "kTGHFozEDeO"
+},
+{
+"lastUpdated": "2017-09-28T04:37:02.590",
+"name": "District",
+"id": "gBWTO1BVaFh"
+},
+{
+"lastUpdated": "2017-09-28T04:44:35.905",
+"name": "District Hospital",
+"id": "ykODBxxus9M"
+},
+{
+"lastUpdated": "2017-09-28T04:36:57.858",
+"name": "District Pharmacy",
+"id": "xIU9hQ1Otyv"
+},
+{
+"lastUpdated": "2019-04-23T19:14:18.626",
+"name": "Health Center",
+"id": "A2lrsBu1mEy"
+},
+{
+"lastUpdated": "2019-04-23T19:13:56.343",
+"name": "Health Post",
+"id": "on2NrbmymHc"
+},
+{
+"lastUpdated": "2017-09-28T04:38:50.249",
+"name": "Health Post level 2",
+"id": "y3ng45fT2IJ"
+},
+{
+"lastUpdated": "2017-09-28T04:37:03.144",
+"name": "Laboratory/Diagnostic Center",
+"id": "plVqeaEbbVA"
+},
+{
+"lastUpdated": "2017-09-28T04:43:33.156",
+"name": "Medical Clinic",
+"id": "iflbvtb5OFA"
+},
+{
+"lastUpdated": "2017-09-28T04:44:31.797",
+"name": "Military Hospital",
+"id": "zoQTwCq336l"
+},
+{
+"lastUpdated": "2017-09-28T04:38:33.199",
+"name": "Mutuelle Section",
+"id": "N5KwlhXxUbZ"
+},
+{
+"lastUpdated": "2017-09-28T04:37:33.670",
+"name": "Nursing School",
+"id": "P2GUHQrv4ZV"
+},
+{
+"lastUpdated": "2017-09-28T04:38:33.547",
+"name": "Other facility type",
+"id": "A4eYhDirGm2"
+},
+{
+"lastUpdated": "2017-09-28T04:38:33.202",
+"name": "Parastatal",
+"id": "qZEo1nxIlSc"
+},
+{
+"lastUpdated": "2017-09-28T04:37:11.418",
+"name": "PBF Com Control",
+"id": "TvrlmzSGILe"
+},
+{
+"lastUpdated": "2017-09-28T04:37:19.170",
+"name": "PBF Com Demand",
+"id": "gJR3dG7QSTG"
+},
+{
+"lastUpdated": "2017-09-28T04:37:03.154",
+"name": "PBF Com Non-Study Group",
+"id": "ugnFz80rotR"
+},
+{
+"lastUpdated": "2017-09-28T04:37:25.443",
+"name": "PBF Com Supply",
+"id": "swzvoSLd5it"
+},
+{
+"lastUpdated": "2017-09-28T04:37:33.041",
+"name": "PBF Com Supply and Demand",
+"id": "M9SNOvhYnAI"
+},
+{
+"lastUpdated": "2017-09-28T04:37:03.151",
+"name": "PBF Com VUP",
+"id": "tCx68r1DqJ9"
+},
+{
+"lastUpdated": "2017-09-28T04:36:58.005",
+"name": "Pharmaceutical Warehouse",
+"id": "xVTQs4DTDo9"
+},
+{
+"lastUpdated": "2017-09-28T04:38:46.145",
+"name": "Prison Clinic",
+"id": "s6XujQXHFns"
+},
+{
+"lastUpdated": "2017-09-28T04:42:55.662",
+"name": "Private",
+"id": "L64ywwABawG"
+},
+{
+"lastUpdated": "2017-09-28T04:36:58.676",
+"name": "Province",
+"id": "A3pCwYjVRwO"
+},
+{
+"lastUpdated": "2017-09-28T04:38:48.995",
+"name": "Provincial Hospital",
+"id": "OWFGPPeXlZh"
+},
+{
+"lastUpdated": "2017-09-28T04:42:13.629",
+"name": "Public",
+"id": "SdVhtaRJ3Ty"
+},
+{
+"lastUpdated": "2017-09-28T04:38:48.532",
+"name": "Referral Hospital",
+"id": "HX4YroUEuMb"
+},
+{
+"lastUpdated": "2017-09-28T04:37:34.877",
+"name": "Sector",
+"id": "zWoUIEvSuHv"
+},
+{
+"lastUpdated": "2017-09-28T04:39:03.582",
+"name": "Sub district",
+"id": "Nye6oylj1QH"
+},
+{
+"lastUpdated": "2017-09-28T04:38:49.447",
+"name": "TB FOSACOM Treatment Center (CT)",
+"id": "KKmdIwyT3sf"
+},
+{
+"lastUpdated": "2017-09-28T04:44:31.794",
+"name": "TB HC Diagnosis and Treatment Center (CDT-CS)",
+"id": "zM7W9tHBYPu"
+},
+{
+"lastUpdated": "2017-09-28T04:44:14.649",
+"name": "TB HC Treatment Center (CT)",
+"id": "rHjqr9mMyDz"
+},
+{
+"lastUpdated": "2017-09-28T04:38:55.559",
+"name": "TB Hospital Diagnosis and Treatment Center (CDT-HD)",
+"id": "FKUknzOtyXe"
+},
+{
+"lastUpdated": "2017-09-28T04:38:35.180",
+"name": "TB Prison Diagnosis and Treatment Center (PRISON-CDT)",
+"id": "SY68WPuaGMF"
+},
+{
+"lastUpdated": "2017-09-28T04:38:34.271",
+"name": "TB Prison Dispensary Treatment Center (PRISON-CT)",
+"id": "N4b95icbI5W"
+},
+{
+"lastUpdated": "2017-09-28T04:38:44.391",
+"name": "TB-Private clinics CDTs",
+"id": "oBoJ8b1la2K"
+},
+{
+"lastUpdated": "2017-09-28T04:38:58.621",
+"name": "VCT center",
+"id": "ZDwcRpCDsjm"
+}
+]);
