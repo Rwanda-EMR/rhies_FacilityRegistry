@@ -3,6 +3,8 @@ WORKDIR /usr/src/app/savics/facilityRegistryServer
 
 COPY ./server/ .
 
+RUN npm install
+
 EXPOSE 4004
 
 CMD ["node", "./app/index.js" ]
