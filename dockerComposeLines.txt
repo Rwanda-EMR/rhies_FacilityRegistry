@@ -8,7 +8,7 @@
        - rhies-facility-registry-mongodb
 
      volumes:
-       - ./disc/rhies-facility-registry/config/:/usr/src/app/savics/facilityRegistryMediator/config
+       - ./disc/rhies-facility-registry/config/:/usr/src/app/savics/facilityRegistryServer/config
      restart: always
      logging:
        options:

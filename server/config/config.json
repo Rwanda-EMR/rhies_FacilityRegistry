@@ -4,14 +4,14 @@
         "url": "http://130.104.12.92:8082",
         "user": {
           "name": "amza",
-          "pwd": ""
+          "pwd": "Abidjan@00225"
         }
       }
     },
     "facilityregistry": {
         "port":"4004",
         "mongodb": {
-            "url" : "mongodb://127.0.0.1:27017/",
+            "url" : "mongodb://rhies-facility-registry-mongodb:27017/",
             "username": "",
             "pwd": ""
         },

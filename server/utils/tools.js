@@ -34,8 +34,8 @@ exports.structureFacilityRecord =  function  (myDB,responseBody) {
         let groupTab = responseBody[z].organisationUnitGroups
         if (groupTab !== 'undefined'){
             if(groupTab.length > 1) {
-                typeDHIS2 = groupTab[0].id;
-                ownerShipDHIS2 = groupTab[1].id;
+                ownerShipDHIS2 = groupTab[0].id;
+                typeDHIS2 = groupTab[1].id;
             } 
             if (groupTab.length == 1) {
                 typeDHIS2 = groupTab[0].id;
