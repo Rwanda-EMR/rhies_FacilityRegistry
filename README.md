@@ -30,8 +30,8 @@ http://localhost:4009/facilities/"your_fosacode"
 ## Documentation
 [Wiki](https://github.com/savicsorg/rhies_FacilityRegistry/wiki)
 
-## Licence
-Proprietary.
+## License
+Mozilla Public License 2.0
 
 ## Created and Developed By
 [Savics SRL](https://savics.org)
