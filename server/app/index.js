@@ -48,13 +48,13 @@ function setupApp() {
 
 
     //Facility registry resource endpoint for GET only
-    app.get('/facilities/', (req, res) => {
+    app.get('/api/facilities/', (req, res) => {
       winston.info(`Processing ${req.method} request on ${req.url}`);
       var resultTab = tools.getAllFacilities(db);
       winston.info('All facilities found. Number of facilities --> ' + resultTab.length);
       res.json({FacilitiesList: resultTab});
     })
-    .get('/facilities/:fosaID', (req, res) => {
+    .get('/api/facilities/:fosaID', (req, res) => {
       var fosaID = parseInt(req.params.fosaID);
       if(!fosaID && fosaID!==0){
         winston.info('No facility found for Fosa ID --> ' + fosaID);
