@@ -1,0 +1,35 @@
+ 
+version: '2'
+
+services:
+
+ rhies-facility-registry:
+     container_name: rhies-facility-registry
+     image: savicsorg/rhies-facility-registry:latest
+     ports:
+       - "8089:4004"
+     depends_on:
+       - core
+       - rhies-facility-registry-mongodb
+
+     volumes:
+       - ./disc/rhies-facility-registry/config/:/usr/src/app/savics/facilityRegistryServer/config
+     restart: always
+     logging:
+       options:
+         max-size: 5m
+
+
+ rhies-facility-registry-mongodb:
+    container_name: rhies-facility-registry-mongodb
+    image: savicsorg/facilitymongodb:latest
+    ports:
+      - "27019:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=FacilityRecord
+    volumes:
+      - ./disc/rhies-facility-registry-mongodb/data:/data/db
+    restart: always
+    logging:
+      options:
+        max-size: 5m
