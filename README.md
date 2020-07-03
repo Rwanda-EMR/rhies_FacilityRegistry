@@ -19,12 +19,12 @@ npm start
 
 * Point your browser to the following URL to have all the facilities:
 ```
-http://localhost:4009/facilities
+http://localhost:4009/api/facilities
 ```
 
 * If you need to sort by FOSA CODE, point your browse to the following endpoint:
 ```
-http://localhost:4009/facilities/"your_fosacode"
+http://localhost:4009/api/facilities/"your_fosacode"
 ```
 
 ## Documentation
