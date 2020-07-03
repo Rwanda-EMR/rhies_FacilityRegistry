@@ -1,4 +1,4 @@
-//************************ Init Procinces docs *********************//
+//************************ Init Provinces docs *********************//
 db.provinces.insert([
 {
 "lastUpdated": "2018-07-26T10:15:14.759",
